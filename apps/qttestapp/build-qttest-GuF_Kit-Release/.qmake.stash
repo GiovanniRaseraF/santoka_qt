@@ -1,0 +1,12 @@
+QMAKE_DEFAULT_INCDIRS = \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/usr/include/c++/5.2.0 \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/usr/include/c++/5.2.0/arm-guf-linux-gnueabi \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/usr/include/c++/5.2.0/backward \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/x86_64-gufsdk-linux/usr/lib/arm-guf-linux-gnueabi/gcc/arm-guf-linux-gnueabi/5.2.0/include \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/x86_64-gufsdk-linux/usr/lib/arm-guf-linux-gnueabi/gcc/arm-guf-linux-gnueabi/5.2.0/include-fixed \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/usr/include
+QMAKE_DEFAULT_LIBDIRS = \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/x86_64-gufsdk-linux/usr/lib/arm-guf-linux-gnueabi/gcc/arm-guf-linux-gnueabi/5.2.0 \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/lib \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/usr/lib/arm-guf-linux-gnueabi/5.2.0 \
+    /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/sysroots/imx6guf-guf-linux-gnueabi/usr/lib
