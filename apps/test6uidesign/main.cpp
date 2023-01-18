@@ -9,14 +9,15 @@
 #include <QThread>
 #include <QWaitCondition>
 #include <QMutex>
+#include <memory>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Controller c;
-
-    Producer p{};
-    Consumer c{};
+    std::shared_ptr<shareddata> shared = std::make_shared(shareddata());
+    Producer p{nullptr, shared};
+    Consumer c{nullptr, shared};
     p.start();
     c.start();
 

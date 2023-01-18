@@ -41,9 +41,9 @@ class Producer : public QThread
 public:
     int cansocket = 0;
     struct sockaddr_can addr;
-    shareddata &shared;
+    std::shared_ptr<shareddata> shared;
 
-    Producer(QObject *parent = NULL, shareddata &s) : QThread(parent), shared(s)
+    Producer(QObject *parent = NULL, std::shared_ptr<shareddata> s) : QThread(parent), shared(s)
     {
         system("ifconfig can0 down");
         system("canconfig can0 bitrate 250000");
