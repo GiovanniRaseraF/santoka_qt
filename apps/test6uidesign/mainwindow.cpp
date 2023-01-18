@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <unistd.h>
 #include <iostream>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,5 +21,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    std::cout << "Hello" << std::endl;
+    qInfo() << "Hello\n";
 }

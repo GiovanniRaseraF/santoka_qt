@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2023-01-18T01:18:33. -->
+<!-- Written by QtCreator 4.11.0, 2023-01-18T01:45:51. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -324,9 +324,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test6uidesign</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/fdsa/test6uidesign/test6uidesign.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/fdsa/test6uidesign/test6uidesign.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test6uidesign2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/fdsa/repos/santoka_qt/apps/test6uidesign/test6uidesign.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/fdsa/repos/santoka_qt/apps/test6uidesign/test6uidesign.pro</value>
     <value type="int" key="RemoteLinux.EnvironmentAspect.Version">1</value>
     <value type="QString" key="RemoteLinux.RunConfig.AlternateRemoteExecutable"></value>
     <value type="bool" key="RemoteLinux.RunConfig.UseAlternateRemoteExecutable">false</value>
