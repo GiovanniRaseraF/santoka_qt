@@ -21,15 +21,18 @@
 #include <memory>
 
 #include "canlistener.h"
+class shareddata{
+public:
+    const int BufferSize = 8192;
+    struct can_frame buffer[BufferSize];
 
-const int BufferSize = 8192;
-struct can_frame buffer[BufferSize];
+    QWaitCondition bufferNotEmpty;
+    QWaitCondition bufferNotFull;
+    QMutex mutex;
 
-QWaitCondition bufferNotEmpty;
-QWaitCondition bufferNotFull;
-QMutex mutex;
+    int numUsedBytes = 0;
+};
 
-int numUsedBytes = 0;
 
 class Producer : public QThread
 {

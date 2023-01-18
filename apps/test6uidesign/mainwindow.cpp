@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <iostream>
 #include <QDebug>
+#include <string>
+#include <cstdio>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,5 +23,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    qInfo() << "Hello\n";
+    //std::string s = std::string(counter++);
+    QString ss = QString::number(counter++);
+    ui->pushButton->setText(ss);
 }
