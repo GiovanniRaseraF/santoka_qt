@@ -41,9 +41,9 @@ class Producer : public QThread
 public:
     int cansocket = 0;
     struct sockaddr_can addr;
-    shareddata &shared;
+    std::shared_ptr<shareddata> shared;
 
-    Producer(QObject *parent = NULL, shareddata &s) : QThread(parent), shared(s)
+    Producer(QObject *parent = NULL, std::shared_ptr<shareddata> s = NULL) : QThread(parent), shared(s)
     {
         system("ifconfig can0 down");
         system("canconfig can0 bitrate 250000");
@@ -75,20 +75,20 @@ public:
             nbytes = read(cansocket, &frame, sizeof(frame));
 
             // Comunication control
-            shared.mutex.lock();
-            if (shared.numUsedBytes == shared.BufferSize)
-                shared.bufferNotFull.wait(&shared.mutex);
+            shared->mutex.lock();
+            if (shared->numUsedBytes == shared->BufferSize)
+                shared->bufferNotFull.wait(&shared->mutex);
 
             if(nbytes > 0){
-                shared.mutex.unlock();
+                shared->mutex.unlock();
                 // save frame to be passed
-                shared.buffer[i % shared.BufferSize] = frame;
-                shared.mutex.lock();
+                shared->buffer[i % shared->BufferSize] = frame;
+                shared->mutex.lock();
             }
 
-            shared.numUsedBytes++;
-            shared.bufferNotEmpty.wakeAll();
-            shared.mutex.unlock();
+            shared->numUsedBytes++;
+            shared->bufferNotEmpty.wakeAll();
+            shared->mutex.unlock();
         }
     }
 };
@@ -98,9 +98,9 @@ class Consumer : public QThread
 private:
     // TODO: use map to use direct call
     std::vector<std::shared_ptr<CanListener>> consumers;
-    shareddata &shared;
+    std::shared_ptr<shareddata> shared;
 public:
-    Consumer(QObject *parent = NULL, shareddata &s) : QThread(parent), shared(s)
+    Consumer(QObject *parent = NULL, std::shared_ptr<shareddata> s = NULL) : QThread(parent), shared(s)
     {
         // Fake consumer
         consumers.push_back(std::make_shared<CanPrintAll>());
@@ -109,18 +109,18 @@ public:
     void run() override
     {
         for (int i = 0;; ++i) {
-            shared.mutex.lock();
-            if (shared.numUsedBytes == 0)
-                shared.bufferNotEmpty.wait(&shared.mutex);
+            shared->mutex.lock();
+            if (shared->numUsedBytes == 0)
+                shared->bufferNotEmpty.wait(&shared->mutex);
 
-            shared.mutex.unlock();
-            struct can_frame newframe = shared.buffer[i % shared.BufferSize];
+            shared->mutex.unlock();
+            struct can_frame newframe = shared->buffer[i % shared->BufferSize];
             consumers[0]->update(newframe);
-            shared.mutex.lock();
+            shared->mutex.lock();
 
-            shared.numUsedBytes--;
-            shared.bufferNotFull.wakeAll();
-            shared.mutex.unlock();
+            shared->numUsedBytes--;
+            shared->bufferNotFull.wakeAll();
+            shared->mutex.unlock();
         }
     }
 };
