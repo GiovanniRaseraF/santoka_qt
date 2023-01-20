@@ -12,16 +12,15 @@ public:
     void run() override {
         int c = 0;
         while(true){
-            QString result = QString::number(c++);
             /* ... here is the expensive or blocking operation ... */
-            emit resultReady(result);
-            QThread::sleep(1);
+            emit resultReady(c++);
+            QThread::sleep(2);
         }
 
         QThread::run();
     }
 signals:
-    void resultReady(const QString &s);
+    void resultReady(const int s);
 };
 
 #endif // WORKER_H

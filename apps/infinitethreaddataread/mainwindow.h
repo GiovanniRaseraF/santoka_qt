@@ -18,7 +18,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void handleResults(QString res);
+    void handleResults(int res);
 
 private:
     Ui::MainWindow *ui;
