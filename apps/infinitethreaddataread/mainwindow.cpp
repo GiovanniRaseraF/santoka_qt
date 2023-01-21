@@ -14,9 +14,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    WorkerThread *workerThread = new WorkerThread(this);
-    connect(workerThread, &WorkerThread::resultReady, this, &MainWindow::handleResults);
-    workerThread->start();
+    // Create the background thread to read canbus data
+    backgroundCanbus = std::make_shared<WorkerThread>(this);
+    backgroundCanbus->start();
+
+
+    // Parse the filters
+    battery = std::make_shared<listener>(this, backgroundCanbus);
+
+    // Connect filtered data to ui element display
+    connect(battery.get(), &listener::emitparsed, this, &MainWindow::handleResults);
 }
 
 MainWindow::~MainWindow()
