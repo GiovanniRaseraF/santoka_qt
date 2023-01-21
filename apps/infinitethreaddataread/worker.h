@@ -19,6 +19,8 @@ public:
 
         QThread::run();
     }
+
+    void stop();
 signals:
     void resultReady(const int s);
 };
