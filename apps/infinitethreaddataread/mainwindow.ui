@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(13, 13, 13,255);</string>
+     <string notr="true">background-image: url(:/images/cruscotto.jpeg)</string>
     </property>
     <property name="text">
      <string/>
