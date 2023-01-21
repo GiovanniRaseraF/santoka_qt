@@ -25,27 +25,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::handleResults(int res){
-    ui->pushButton->setText(QString::number(res));
-
-    QTransform scale(0.1*res, 0, 0, 1.0, 0, 0);
-    QTransform translate(1, 0, 0, 1, 50.0, 50.0);
-    /*
-    QTransform transform = scale * translate;
-    QString filename = ":/hello.png";
-    QPixmap p(filename);
-    QColor color = QColor::Rgb;
-    p = p.transformed(transform);
-    QPixmap p9(":/hello.png");
-        QPixmap temp(p9.size());
-        temp.fill(Qt::transparent);
-        QPainter pa(&temp);
-        pa.setCompositionMode(QPainter::CompositionMode_Source);
-        pa.drawPixmap(0, 0, p9);
-        pa.setCompositionMode(QPainter::CompositionMode_DestinationIn);
-
-        pa.end();
-        p9 = temp;
-    ui->label->setPixmap(p9);
-*/
+    ui->battery->setText(QString::number(res));
+    ui->speed->setText(QString::number(res % 100));
 }
 

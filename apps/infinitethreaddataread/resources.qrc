@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>hello.png</file>
+        <file>images/cruscotto.jpeg</file>
     </qresource>
 </RCC>

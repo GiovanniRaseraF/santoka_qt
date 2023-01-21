@@ -14,7 +14,7 @@ public:
         while(true){
             /* ... here is the expensive or blocking operation ... */
             emit resultReady(c++);
-            QThread::sleep(2);
+            QThread::msleep(200);
         }
 
         QThread::run();
