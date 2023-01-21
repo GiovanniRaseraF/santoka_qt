@@ -33,6 +33,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleResults(int res){
     ui->battery->setText(QString::number(res));
-    ui->speed->setText(QString::number(res % 100));
 }
 
