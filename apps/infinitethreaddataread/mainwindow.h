@@ -18,8 +18,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+public slots:
     void handleResults(int res);
+    void handlequickstring(QString res);
 
 private:
     Ui::MainWindow *ui;

@@ -7,6 +7,9 @@
 #include <QTransform>
 #include <QPainter>
 #include <QColor>
+#include <QQuickView>
+#include <QQuickWidget>
+#include "cppgui.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +27,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Connect filtered data to ui element display
     connect(battery.get(), &listener::emitparsed, this, &MainWindow::handleResults);
+
+
+    // Adding quick graphics
+
 }
 
 MainWindow::~MainWindow()
@@ -35,3 +42,6 @@ void MainWindow::handleResults(int res){
     ui->battery->setText(QString::number(res));
 }
 
+void MainWindow::handlequickstring(QString res){
+    qDebug() << res;
+}

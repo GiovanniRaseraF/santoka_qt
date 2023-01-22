@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>hello.png</file>
         <file>images/cruscotto.jpeg</file>
+        <file>testquick.qml</file>
     </qresource>
 </RCC>

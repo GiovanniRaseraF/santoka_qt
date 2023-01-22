@@ -11,6 +11,7 @@ public:
     WorkerThread(QObject *parent) : QThread(parent){}
     void run() override {
         int c = 0;
+
         while(true){
             /* ... here is the expensive or blocking operation ... */
             emit resultReady(c++);
