@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow),
     can_thread{std::make_shared<canbus_thread>(parent)}
 {
+    // need this to avoid errors for metatype data passing
     qRegisterMetaType<struct can_frame>();
 
     ui->setupUi(this);
@@ -22,13 +23,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    can_thread->stop();
     delete ui;
 }
 
-
 // log
 void MainWindow::canbusdatalog(struct can_frame frame){
-    logstrign += QString::number(frame.can_id) + ": " + QString::number(frame.data[0]) + "\n";
+    // reset
+    numlogs++;
+    if (numlogs % MAXLOGS == 0){
+        logstrign = "";
+    }else{
+        logstrign += QString::number(frame.can_id) + ":";
+        for(int i = 0; i < frame.can_dlc; i++){
+            logstrign += " " + QString::number(frame.data[0]);
+        }
+        logstrign += "\n";
+    }
 
     ui->tb_cablog->setText(logstrign);
 }

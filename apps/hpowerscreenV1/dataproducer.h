@@ -5,6 +5,8 @@
 
 /*
  * Description: Canbus data producer
+ * : the goal is to take this class as simple as possible,
+ * : all processing will be done by filters
  */
 
 #ifndef DATAPRODUCER_H
@@ -29,6 +31,8 @@ class canbus_thread : public QThread {
 
 public:
     canbus_thread(QObject *parent = nullptr);
+    ~canbus_thread();
+
     void run() override;
     void stop();
 
@@ -36,6 +40,9 @@ signals:
     void signalnewdata(struct can_frame newdata);
 
 private:
+    int cansocket = 0;
+    struct sockaddr_can addr;
+
     bool stop_execution = false;
 };
 

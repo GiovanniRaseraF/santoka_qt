@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>669</width>
-    <height>424</height>
+    <width>1067</width>
+    <height>577</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="battery">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>160</y>
+      <x>680</x>
+      <y>250</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -33,10 +33,10 @@
    <widget class="QLabel" name="backgroud">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>40</x>
       <y>0</y>
-      <width>671</width>
-      <height>371</height>
+      <width>1011</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -72,8 +72,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>669</width>
-     <height>24</height>
+     <width>1067</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

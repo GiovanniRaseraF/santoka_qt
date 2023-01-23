@@ -31,6 +31,8 @@ private:
 
     // log
     QString logstrign{};
+    const uint32_t MAXLOGS = 1000;
+    uint32_t numlogs = 0;
 };
 
 #endif // MAINWINDOW_H
