@@ -13,9 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // connect can thread to data consumers
+    ex_listen = std::make_shared<examplelisten>(parent, can_thread);
 
     // system log feature
-    connect(can_thread.get(), SIGNAL(signalnewdata(struct can_frame)), this, SLOT(canbusdatalog(struct can_frame)));
+    //connect(can_thread.get(), SIGNAL(signalnewdata(struct can_frame)), this, SLOT(canbusdatalog(struct can_frame)));
 
     // start background thread
     can_thread->start();
@@ -36,7 +37,7 @@ void MainWindow::canbusdatalog(struct can_frame frame){
     }else{
         logstrign += QString::number(frame.can_id) + ":";
         for(int i = 0; i < frame.can_dlc; i++){
-            logstrign += " " + QString::number(frame.data[0]);
+            logstrign += " " + QString::number(frame.data[i]);
         }
         logstrign += "\n";
     }

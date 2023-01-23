@@ -26,11 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    dataproducer.cpp
+        dataproducer.cpp \
+        listener.cpp \
+        battery_listener.cpp
 
 HEADERS += \
         mainwindow.h \
-    dataproducer.h
+        dataproducer.h \
+        listener.h \
+        battery_listener.h
 
 FORMS += \
         mainwindow.ui
