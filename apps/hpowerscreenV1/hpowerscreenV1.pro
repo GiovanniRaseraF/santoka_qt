@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = hpowerscreenV1
 TEMPLATE = app
 
+
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -28,13 +30,16 @@ SOURCES += \
         mainwindow.cpp \
         dataproducer.cpp \
         listener.cpp \
-        battery_listener.cpp
+        battery_listener.cpp \
+    generalinfo_listener.cpp
 
 HEADERS += \
         mainwindow.h \
         dataproducer.h \
         listener.h \
-        battery_listener.h
+        battery_listener.h \
+    conversion.h \
+    generalinfo_listener.h
 
 FORMS += \
         mainwindow.ui

@@ -5,7 +5,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    can_thread{std::make_shared<canbus_thread>(parent)}
+    can_thread{std::make_shared<canbus_thread>(nullptr)}
 {
     // need this to avoid errors for metatype data passing
     qRegisterMetaType<struct can_frame>();
@@ -13,8 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // connect can thread to data consumers
-    ex_listen = std::make_shared<examplelisten>(parent, can_thread);
-    battery = std::make_shared<battery_listener>(parent, can_thread);
+    ex_listen = std::make_shared<examplelisten>(nullptr, can_thread);
+    battery = std::make_shared<battery_listener>(nullptr, can_thread);
 
     // system log feature
     //connect(can_thread.get(), SIGNAL(signalnewdata(struct can_frame)), this, SLOT(canbusdatalog(struct can_frame)));
