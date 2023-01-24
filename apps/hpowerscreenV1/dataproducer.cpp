@@ -50,6 +50,7 @@ void canbus_thread::run() {
             emit signalnewdata(valuetoemit);
         }else{
             qDebug() << ": can_frame error, nbytes <= 0\n";
+            QThread::msleep(200);
         }
     }
 

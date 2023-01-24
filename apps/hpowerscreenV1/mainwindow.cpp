@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // connect can thread to data consumers
     ex_listen = std::make_shared<examplelisten>(parent, can_thread);
+    battery = std::make_shared<battery_listener>(parent, can_thread);
 
     // system log feature
     //connect(can_thread.get(), SIGNAL(signalnewdata(struct can_frame)), this, SLOT(canbusdatalog(struct can_frame)));

@@ -1,10 +1,11 @@
 #include "battery_listener.h"
 
-battery_listener::battery_listener(QObject *parent) : listener(parent)
+battery_listener::battery_listener(QObject *parent, std::shared_ptr<canbus_thread> producer) : listener(parent)
 {
-     std::cout << ": battery listener" << std::endl;
+    connect(producer.get(), SIGNAL(signalnewdata(can_frame)), this, SLOT(update(can_frame)));
 
-     on = {0x500, 0x501};
+    std::cout << ": battery listener" << std::endl;
+    on = {0x500, 0x501};
 }
 
 void battery_listener::update(const can_frame frame){

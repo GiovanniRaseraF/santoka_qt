@@ -8,7 +8,7 @@ class battery_listener : public listener
 {
     Q_OBJECT
 public:
-    explicit battery_listener(QObject *parent = nullptr);
+    explicit battery_listener(QObject *parent = nullptr, std::shared_ptr<canbus_thread> producer = nullptr);
 
 signals:
 

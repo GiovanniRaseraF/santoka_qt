@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+        <!-- This section encodes all device reading and byte conversion -->
+        <devicetree>
+                 
+
+                <device>
+                </device>
+        </devicetree>
+
+        <!-- This section represents the actual device in use in the boat -->
+        <devicesinuse>
+
+        </devicesinuse>
+</configuration>
