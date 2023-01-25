@@ -10,20 +10,16 @@
 #include <QtXml>
 #include <QFile>
 
-#define CONVERSION(totype, varname) \
-    private: \
-        totype varname;
-
 class generalinfo_listener : public listener
 {
     Q_OBJECT
 public:
-    explicit generalinfo_listener(QObject *parent = nullptr);
+    explicit generalinfo_listener(QObject *parent = nullptr, std::shared_ptr<canbus_thread> producer = nullptr);
 
 signals:
 
 public slots:
-    void newcanvalue(const struct can_frame frame);
+    void newcanvalue(struct can_frame frame);
 
 private:
     // name

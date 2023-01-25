@@ -7,6 +7,7 @@
 #include <QString>
 #include <listener.h>
 #include "battery_listener.h"
+#include "generalinfo_listener.h"
 
 
 namespace Ui {
@@ -22,8 +23,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void connect_generalinfo();
+
 public slots:
     void canbusdatalog(const struct can_frame frame);
+
+    void updateBoatType(uint8_t newvalue);
 
 private:
     Ui::MainWindow *ui;
@@ -33,7 +38,7 @@ private:
 
     // listeners
     std::shared_ptr<battery_listener> battery;
-    //std::shared_ptr<motor_listener> motor;
+    std::shared_ptr<generalinfo_listener> generalinfo;
 
     // log
     std::shared_ptr<examplelisten> ex_listen;

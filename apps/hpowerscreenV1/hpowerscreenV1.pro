@@ -5,13 +5,11 @@
 #-------------------------------------------------
 
 QT       += core gui
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT += xml
 
 TARGET = hpowerscreenV1
 TEMPLATE = app
-
 
 
 # The following define makes your compiler emit warnings if you use
@@ -32,7 +30,8 @@ SOURCES += \
         dataproducer.cpp \
         listener.cpp \
         battery_listener.cpp \
-    generalinfo_listener.cpp
+    generalinfo_listener.cpp \
+    batteryindicator.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,13 +39,17 @@ HEADERS += \
         listener.h \
         battery_listener.h \
     conversion.h \
-    generalinfo_listener.h
+    generalinfo_listener.h \
+    batteryindicator.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        batteryindicator.ui
 
 DISTFILES += \
     huracan_configuration.xml
 
 RESOURCES += \
     resources.qrc
+
+CONFIG += mobility MOBILITY = systeminfo

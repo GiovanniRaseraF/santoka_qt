@@ -57,7 +57,7 @@ public:
 
     virtual bool isdataforme(const can_frame &frame) override {
         // listen on every frame for debug
-       return false and listener::isdataforme(frame);
+       return listener::isdataforme(frame);
     }
 
 public slots:
