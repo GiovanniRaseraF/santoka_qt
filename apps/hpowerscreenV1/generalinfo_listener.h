@@ -7,9 +7,12 @@
 #include <map>
 #include <tuple>
 #include <functional>
+#include <QtXml>
+#include <QFile>
 
 #define CONVERSION(totype, varname) \
-    std::pair<totype, std::function<totype(int a)>> varname;
+    private: \
+        totype varname;
 
 class generalinfo_listener : public listener
 {
@@ -20,10 +23,45 @@ public:
 signals:
 
 public slots:
+    void newcanvalue(const struct can_frame frame);
 
 private:
-    CONVERSION(uint8_t, gen_helo)
-    CONVERSION(std::string, gen_helo2)
-};
+    // name
+    std::map<std::string, std::tuple<int, int, int, int, float>> maps_conversion{
+    };
 
+// variable signals
+private:
+    uint8_t info_BoatType = 0;
+    std::string info_BoatType_str = "info_BoatType";
+signals:
+    void info_BoatType_signal(uint8_t newdata);
+private:
+    float info_ProtocolVersion;
+    std::string info_ProtocolVersion_str = "info_ProtocolVersion";
+signals:
+    void info_ProtocolVersion_signal(float newvalue);
+private:
+    float info_ECUVersion;
+    std::string info_ECUVersion_str = "info_ECUVersion";
+signals:
+    void info_ECUVersion_signal(float newvalue);
+private:
+    float  info_DriveVersion;
+    std::string  info_DriveVersion_str = " info_DriveVersion";
+signals:
+    void  info_DriveVersion_signal(float newvalue);
+private:
+    float info_ThermicEngineType;
+    std::string info_ThermicEngineType_str = "info_ThermicEngineType";
+signals:
+    void info_ThermicEngineType_signal(float newvalue);
+private:
+    float info_ElectricMotorType;
+    std::string info_ElectricMotorType_str = "info_ElectricMotorType";
+signals:
+    void info_ElectricMotorType_signal(float newvalue);
+
+  //  float info_ElectricMotorType = 1.00;
+};
 #endif // GENERALINFO_LISTENER_H

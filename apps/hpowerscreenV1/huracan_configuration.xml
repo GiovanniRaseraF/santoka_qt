@@ -9,7 +9,7 @@
         <!-- This section encodes all device reading and byte conversion -->
         <devicetree>
                 <!-- General information -->
-                <device type="generalinfo", fromconnection="canbus">
+                <device type="generalinfo" fromconnection="canbus">
                         <field name="info_BoatType"           unit="bitfield"  channel="0x500"  startbyte="0" endbyte="1" type="uint8"   byteorder="big" offset="0" factor="1" />
                         <field name="info_ProtocolVersion"    unit="#"         channel="0x500"  startbyte="1" endbyte="2" type="sfloatu" byteorder="big" offset="0" factor="0.1" />
                         <field name="info_ECUVersion"         unit="#"         channel="0x500"  startbyte="2" endbyte="4" type="sfloatu" byteorder="big" offset="0" factor="0.01" />

@@ -7,6 +7,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += xml
 
 TARGET = hpowerscreenV1
 TEMPLATE = app
@@ -46,3 +47,6 @@ FORMS += \
 
 DISTFILES += \
     huracan_configuration.xml
+
+RESOURCES += \
+    resources.qrc

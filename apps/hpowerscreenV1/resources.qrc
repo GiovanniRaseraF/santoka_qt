@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/huracanmarinelogo.png</file>
+        <file>images/logotrasparent.png</file>
+        <file>battery_listener.cpp</file>
+        <file>battery_listener.h</file>
+        <file>conversion.h</file>
+        <file>dataproducer.cpp</file>
+        <file>dataproducer.h</file>
+        <file>functional_converter.cpp</file>
+        <file>functional_converter.h</file>
+        <file>generalinfo_listener.cpp</file>
+        <file>generalinfo_listener.h</file>
+        <file>listener.cpp</file>
+        <file>listener.h</file>
+        <file>main.cpp</file>
+        <file>mainwindow.cpp</file>
+        <file>mainwindow.h</file>
+    </qresource>
+</RCC>

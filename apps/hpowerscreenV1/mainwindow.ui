@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1080</width>
-    <height>720</height>
+    <width>1010</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>131</width>
-      <height>111</height>
+      <y>110</y>
+      <width>321</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -34,11 +34,14 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
    <widget class="QLabel" name="l_battery">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>20</y>
-      <width>91</width>
-      <height>20</height>
+      <x>20</x>
+      <y>120</y>
+      <width>111</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
      <string>Battery</string>
@@ -47,10 +50,10 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
    <widget class="QPushButton" name="pb_motor">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>10</y>
-      <width>131</width>
-      <height>111</height>
+      <x>350</x>
+      <y>110</y>
+      <width>341</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -64,11 +67,14 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
    <widget class="QLabel" name="l_motor">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>20</y>
-      <width>91</width>
-      <height>20</height>
+      <x>360</x>
+      <y>120</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
      <string>Motor</string>
@@ -77,11 +83,14 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
    <widget class="QLabel" name="l_temperature">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>20</y>
-      <width>91</width>
-      <height>20</height>
+      <x>720</x>
+      <y>120</y>
+      <width>191</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
      <string>Temperature</string>
@@ -90,10 +99,10 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
    <widget class="QPushButton" name="pb_temperature">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>10</y>
-      <width>131</width>
-      <height>111</height>
+      <x>710</x>
+      <y>110</y>
+      <width>291</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -108,7 +117,7 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>210</y>
+      <y>350</y>
       <width>91</width>
       <height>17</height>
      </rect>
@@ -121,40 +130,89 @@ font: 57 18pt &quot;Ubuntu Bold&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>230</y>
-      <width>621</width>
-      <height>192</height>
+      <y>340</y>
+      <width>991</width>
+      <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 87, 83)</string>
+    </property>
    </widget>
+   <widget class="QPushButton" name="pb_generalinfo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>991</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(85, 87, 83)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_generalinfo">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>General Info</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_backgroundcolor">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-44</y>
+      <width>1021</width>
+      <height>1091</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(70, 70, 70)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_logo">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>320</y>
+      <width>901</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/images/logotrasparent.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>l_backgroundcolor</zorder>
    <zorder>pb_temperature</zorder>
    <zorder>pb_battery</zorder>
    <zorder>l_battery</zorder>
    <zorder>pb_motor</zorder>
    <zorder>l_motor</zorder>
    <zorder>l_temperature</zorder>
-   <zorder>l_canlog</zorder>
+   <zorder>pb_generalinfo</zorder>
+   <zorder>l_generalinfo</zorder>
+   <zorder>l_logo</zorder>
    <zorder>tb_cablog</zorder>
+   <zorder>l_canlog</zorder>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1080</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
