@@ -31,7 +31,7 @@ SOURCES += \
         listener.cpp \
         battery_listener.cpp \
     generalinfo_listener.cpp \
-    batteryindicator.cpp
+    generalinfo_ui.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,11 +40,10 @@ HEADERS += \
         battery_listener.h \
     conversion.h \
     generalinfo_listener.h \
-    batteryindicator.h
+    generalinfo_ui.h
 
 FORMS += \
         mainwindow.ui \
-        batteryindicator.ui
 
 DISTFILES += \
     huracan_configuration.xml

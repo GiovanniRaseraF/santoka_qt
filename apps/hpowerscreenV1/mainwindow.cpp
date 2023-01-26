@@ -16,7 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //ex_listen = std::make_shared<examplelisten>(nullptr, can_thread);
     battery = std::make_shared<battery_listener>(nullptr, can_thread);
     generalinfo = std::make_shared<generalinfo_listener>(nullptr, can_thread);
-    ui->
 
     connect_generalinfo();
     // system log feature

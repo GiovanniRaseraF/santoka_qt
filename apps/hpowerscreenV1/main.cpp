@@ -10,13 +10,11 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <QtSystemInfo/QtSystemInfo>
-#include <batteryindicator.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    BatteryIndicator b(nullptr);
 
     w.showFullScreen();
 

@@ -8,6 +8,7 @@
 #include <listener.h>
 #include "battery_listener.h"
 #include "generalinfo_listener.h"
+#include "generalinfo_ui.h"
 
 
 namespace Ui {
@@ -46,6 +47,10 @@ private:
     QString logstrign{};
     const uint32_t MAXLOGS = 1000;
     uint32_t numlogs = 0;
+
+private: // Ui elements
+    std::shared_ptr<generalinfo_ui> generalinfo_display;
+
 };
 
 #endif // MAINWINDOW_H
