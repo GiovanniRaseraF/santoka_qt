@@ -37,3 +37,6 @@ FORMS += \
 
 CONFIG += monility
 MOBILITY += systeminfo
+
+RESOURCES += \
+    resources.qrc
