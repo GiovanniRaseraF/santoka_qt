@@ -316,7 +316,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string> 100</string>
+           <string>  00</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_9">
@@ -325,18 +325,18 @@ font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="geometry">
            <rect>
-            <x>220</x>
+            <x>190</x>
             <y>50</y>
-            <width>81</width>
+            <width>111</width>
             <height>91</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(16, 73, 31,0);
-font: 50pt &quot;Ubuntu&quot;;</string>
+font: 30pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>%</string>
+           <string>Km/h</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_10">
@@ -356,7 +356,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>KW</string>
+           <string/>
           </property>
          </widget>
          <widget class="QLabel" name="l_SOC_value_6">
@@ -376,7 +376,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  44</string>
+           <string>  20</string>
           </property>
          </widget>
          <widget class="QLabel" name="l_battery_2">
@@ -402,7 +402,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  soc</string>
+           <string>  Speed</string>
           </property>
          </widget>
          <widget class="QLabel" name="l_battery_17">
@@ -428,7 +428,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  Power Temperature</string>
+           <string>  Motor Temperature</string>
           </property>
          </widget>
          <widget class="QLabel" name="l_SOC_value_7">
@@ -448,7 +448,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  10</string>
+           <string>  40</string>
           </property>
          </widget>
          <widget class="QLabel" name="l_battery_18">
@@ -474,7 +474,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  Power</string>
+           <string>  RPM</string>
           </property>
          </widget>
         </widget>
@@ -791,13 +791,13 @@ font: 20pt &quot;Ubuntu&quot;;</string>
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>651</width>
+      <width>411</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(75, 77, 73, 40);
-font: 25pt &quot;Ubuntu&quot;;</string>
+font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
      <string>  14:30 - Friday, 27 January 2023</string>
@@ -806,14 +806,17 @@ font: 25pt &quot;Ubuntu&quot;;</string>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>870</x>
+      <x>850</x>
       <y>10</y>
-      <width>121</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(164, 0, 0)</string>
+    </property>
     <property name="text">
-     <string>fff</string>
+     <string/>
     </property>
    </widget>
    <zorder>horizontalLayoutWidget</zorder>
