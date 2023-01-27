@@ -495,7 +495,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(120, 10, 10)</string>
+           <string notr="true">background-color:rgb(60, 76, 84)</string>
           </property>
           <property name="text">
            <string/>
