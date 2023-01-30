@@ -4,6 +4,8 @@
 faultdialog::faultdialog(QWidget *parent) : QDialog(parent)
 {
    setupUi(this);
+
+   // Setup informations
 }
 
 faultdialog::~faultdialog(){}

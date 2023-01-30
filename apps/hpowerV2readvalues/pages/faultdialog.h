@@ -14,7 +14,6 @@ public:
     faultdialog(QWidget *parent = nullptr);
     ~faultdialog();
 private slots:
-    void on_pushButton_clicked();
 };
 
 #endif // FAULTDIALOG_H

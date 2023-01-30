@@ -24,21 +24,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    dataproducer.cpp \
+   pages/faultdialog.cpp \
     displayer/battery_filter.cpp \
-    pages/faultdialog.cpp \
+    dataproducer.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    widgets/batterydesign.cpp \
+    displayer/generalinfo_filter.cpp \
+    displayer/motor_filter.cpp \
+    displayer/thermicmotor_filter.cpp \
+    displayer/command_filter.cpp \
+    displayer/vahicle_filter.cpp
 
 HEADERS += \
     displayer/battery_filter.h \
     pages/faultdialog.h \
     dataproducer.h \
-    mainwindow.h
+    mainwindow.h \
+      widgets/batterydesign.h \
+    displayer/generalinfo_filter.h \
+    displayer/motor_filter.h \
+    displayer/thermicmotor_filter.h \
+    displayer/command_filter.h \
+    displayer/vahicle_filter.h
 
 FORMS += \
         mainwindow.ui \
-        faultdialog.ui
+        faultdialog.ui \
+    batterydisign.ui
 
 CONFIG += monility
 MOBILITY += systeminfo
