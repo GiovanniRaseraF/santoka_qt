@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "pages/faultdialog.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -17,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
+
+    // pages
+
 }
 
 void MainWindow::connectBatteryFilterToGraphics(){
@@ -59,4 +63,11 @@ void MainWindow::setMotorTemperature(uint8_t newMotorTemperature)
 void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
 {
    ui->l_RPM_value->setText(QString::number(newMotorSpeed));
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    faultdialog *ff = new faultdialog(this);
+
+    ff->show();
 }

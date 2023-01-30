@@ -25,17 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     dataproducer.cpp \
+    displayer/battery_filter.cpp \
+    pages/faultdialog.cpp \
     main.cpp \
-    mainwindow.cpp \
-    displayer/battery_filter.cpp
+    mainwindow.cpp
 
 HEADERS += \
+    displayer/battery_filter.h \
+    pages/faultdialog.h \
     dataproducer.h \
-    mainwindow.h \
-    displayer/battery_filter.h
+    mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        faultdialog.ui
 
 CONFIG += monility
 MOBILITY += systeminfo
