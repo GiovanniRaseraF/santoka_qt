@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Create and start canbus on sepatate thread
     canbus_producer = std::make_shared<fake_canbus_thread>("hello", nullptr);
+    std::cout << canbus_producer->getinfo() << std::endl;
+
     canbus_producer->start();
 
     // Create filters

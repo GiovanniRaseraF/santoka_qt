@@ -37,6 +37,14 @@ public:
 
     virtual void run() override;
     virtual void stop();
+    virtual std::string getinfo(){
+        std::string ret{};
+
+        ret += "canbus_thread:";
+        ret += "\n - readfrom: can0";
+
+        return ret;
+    }
 
 signals:
     void signalnewdata(struct can_frame newdata);
@@ -52,7 +60,9 @@ protected:
 // Read from file and reproduce informations
 class fake_canbus_thread : public canbus_thread{
 public:
-    fake_canbus_thread(std::string _filename, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}{}
+    fake_canbus_thread(std::string _filename, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}{
+        std::cout << ": using fake canbus thread to generate data" << std::endl;
+    }
     ~fake_canbus_thread() = default;
 
 private:
@@ -62,19 +72,29 @@ private:
 public:
     virtual void run() override {
         struct can_frame tosend;
-        tosend.can_id = 0x506;
-        tosend.can_dlc = 4;
+        tosend.can_id = 0x505;
+        tosend.can_dlc = 8;
         tosend.data[0] = 23;
         tosend.data[1] = 33;
         tosend.data[2] = 0;
-        tosend.data[3] = 100;
+        tosend.data[6] = 0;
 
         while(!stop_execution){
-           std::cout << "fake canbus emitting on: " << tosend.can_id << std::endl;
+           tosend.data[6]++;
+
            emit signalnewdata(tosend);
 
-           QThread::sleep(1);
+           QThread::msleep(50);
         }
+    }
+
+    std::string getinfo() override {
+        std::string ret{};
+
+        ret += "fake_canbus_thread: ";
+        ret += "\n - filename: " + filename;
+
+        return ret;
     }
 };
 

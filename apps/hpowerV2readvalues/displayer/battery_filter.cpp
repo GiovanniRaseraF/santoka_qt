@@ -13,8 +13,15 @@ void battery_filter::receivednewframe(const can_frame newframe){
     //if (canupdateinfo()){
         switch(newframe.can_id){
             case 0x505:
+            bat_TotalVoltage = 0;//(float(int.from_bytes(data[0 : 2], byteorder="big", signed=True)) / 10.0)
+            bat_TotalCurrent = 0;//(float(int.from_bytes(data[2 : 4], byteorder="big", signed=True)) / 10.0)
+            bat_BatteryTemperature = filter::to_uint8(&newframe, 4, 5, 0, 1);//int.from_bytes(data[4 : 5], byteorder="big", signed=False)
+            bat_BMSTemperature = filter::to_uint8(&newframe, 5, 6, 0, 1);//int.from_bytes(data[5 : 6], byteorder="big", signed=False)
+            bat_SOC = filter::to_uint8(&newframe, 6, 7, 0, 1);//int.from_bytes(data[6 : 7], byteorder="big", signed=False)
 
-            emit new_bat_SOC();
+            emit new_bat_SOC(bat_SOC);
+            emit new_bat_BMSTemperature(bat_BMSTemperature);
+            emit new_bat_BatteryTemperature(bat_BatteryTemperature);
             break;
 
             case 0x506:
