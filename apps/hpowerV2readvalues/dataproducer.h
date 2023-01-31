@@ -25,6 +25,8 @@
 #include <vector>
 #include <map>
 #include <memory>
+#include <iostream>
+#include <fstream>
 
 class canbus_thread : public QThread {
     Q_OBJECT
@@ -33,17 +35,47 @@ public:
     canbus_thread(QObject *parent = nullptr);
     ~canbus_thread();
 
-    void run() override;
-    void stop();
+    virtual void run() override;
+    virtual void stop();
 
 signals:
     void signalnewdata(struct can_frame newdata);
 
-private:
+protected:
     int cansocket = 0;
     struct sockaddr_can addr;
 
     bool stop_execution = false;
+};
+
+// Fake can bus data creator
+// Read from file and reproduce informations
+class fake_canbus_thread : public canbus_thread{
+public:
+    fake_canbus_thread(std::string _filename, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}{}
+    ~fake_canbus_thread() = default;
+
+private:
+    std::string filename;
+    std::ifstream file;
+
+public:
+    virtual void run() override {
+        struct can_frame tosend;
+        tosend.can_id = 0x506;
+        tosend.can_dlc = 4;
+        tosend.data[0] = 23;
+        tosend.data[1] = 33;
+        tosend.data[2] = 0;
+        tosend.data[3] = 100;
+
+        while(!stop_execution){
+           std::cout << "fake canbus emitting on: " << tosend.can_id << std::endl;
+           emit signalnewdata(tosend);
+
+           QThread::sleep(1);
+        }
+    }
 };
 
 #endif // DATAPRODUCER_H

@@ -7,7 +7,9 @@ filter::filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) 
 {
     Q_UNUSED(canbus_producer);
     on = {};
-    name = "generic filter";
+    name = "Generic filter";
+
+    lastupdated = std::chrono::steady_clock::now();
     //connect(canbus_producer.get(), SIGNAL(signalnewdata(can_frame)), this, SLOT(newdatafromcan(can_frame)));
 }
 
@@ -34,6 +36,19 @@ uint16_t filter::to_uint16(const can_frame *frame, uint8_t startbyte, uint8_t en
     ret |= ((uint16_t)frame->data[startbyte] << 8) | frame->data[startbyte+1];
 
     return (uint16_t)(ret + offset)*factor;
+}
+
+bool filter::canupdateinfo()
+{
+    timenow = std::chrono::steady_clock::now();
+    int counted = std::chrono::duration_cast<std::chrono::milliseconds>(timenow - lastupdated).count();
+
+    if(counted > mininterval_millis){
+        lastupdated = std::chrono::steady_clock::now();
+        return true;
+    }
+
+    return false;
 }
 
 

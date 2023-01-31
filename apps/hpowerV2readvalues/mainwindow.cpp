@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "pages/faultdialog.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Create and start canbus on sepatate thread
-    canbus_producer = std::make_shared<canbus_thread>(nullptr);
+    canbus_producer = std::make_shared<fake_canbus_thread>("hello", nullptr);
     canbus_producer->start();
 
     // Create filters
@@ -42,6 +43,7 @@ void MainWindow::setSOC(uint8_t newSOC)
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)
 {
+   //qDebug() << newPowerTemperature ;
    ui->l_powertemp_value->setText(QString::number(newPowerTemperature));
 }
 

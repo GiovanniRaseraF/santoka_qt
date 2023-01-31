@@ -30,7 +30,8 @@ protected:
     std::string name;
 
     // time interval
-    std::chrono::time_point<std::chrono::steady_clock> start;
+    std::chrono::time_point<std::chrono::steady_clock> lastupdated;
+    std::chrono::time_point<std::chrono::steady_clock> timenow;
     int mininterval_millis = 1000;
 
 protected:
@@ -38,9 +39,8 @@ protected:
     uint8_t to_uint8(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
     uint16_t to_uint16(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
 
-    virtual bool canupdateinfo(){
-        return true;
-    }
+    virtual bool canupdateinfo();
+
 };
 
 #endif // FILTER_H

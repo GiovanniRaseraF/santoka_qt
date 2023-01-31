@@ -9,17 +9,29 @@ battery_filter::battery_filter(std::shared_ptr<canbus_thread> canbus_producer, Q
 }
 
 void battery_filter::receivednewframe(const can_frame newframe){
-    switch(newframe.can_id){
-        case 0x505:
+    static uint8_t counter = 0;
+    //if (canupdateinfo()){
+        switch(newframe.can_id){
+            case 0x505:
 
-        break;
+            emit new_bat_SOC();
+            break;
 
-        case 0x506:
+            case 0x506:
 
-        break;
+            emit new_bat_BatteryTemperature(counter++ + 20 % 60);
+            break;
 
-        default:
+            default:
 
-        break;
-    }
+            break;
+        }
+    //}
+
+}
+
+// TODO: implement it in a good way
+bool battery_filter::canupdateinfo()
+{
+    return filter::canupdateinfo();
 }
