@@ -2,6 +2,7 @@
 #include <QDebug>
 
 canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
+#if linux
     stop_execution = false;
 
     // Linux socket init
@@ -28,6 +29,7 @@ canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
     }
 
     qDebug() << ": canbus thread RAII init\n";
+#endif
 }
 
 canbus_thread::~canbus_thread(){
@@ -38,6 +40,7 @@ canbus_thread::~canbus_thread(){
 }
 
 void canbus_thread::run() {
+#if linux
     int nbytes = 0;
     struct can_frame valuetoemit;
 
@@ -55,6 +58,7 @@ void canbus_thread::run() {
     }
 
     QThread::run();
+#endif
 }
 
 void canbus_thread::stop(){

@@ -19,8 +19,16 @@
 
 #include <sys/socket.h>
 #include <net/if.h>
+#if linux
 #include <can_netlink.h>
 #include <linux/can.h>
+#else
+struct can_frame{
+    uint32_t can_id;
+    uint8_t can_dlc;
+    uint8_t data[8];
+};
+#endif
 #include <unistd.h>
 #include <vector>
 #include <map>
@@ -51,7 +59,9 @@ signals:
 
 protected:
     int cansocket = 0;
+ #if linux
     struct sockaddr_can addr;
+#endif
 
     bool stop_execution = false;
 };
