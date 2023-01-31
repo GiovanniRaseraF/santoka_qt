@@ -3,7 +3,7 @@
 # Project created by QtCreator 2023-01-26T02:33:25
 #
 #-------------------------------------------------
-
+CONFIG += c++17
 QT       += core gui xml designer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -34,7 +34,8 @@ SOURCES += \
     displayer/motor_filter.cpp \
     displayer/thermicmotor_filter.cpp \
     displayer/command_filter.cpp \
-    displayer/vahicle_filter.cpp
+    displayer/vahicle_filter.cpp \
+    displayer/filter.cpp
 
 HEADERS += \
     displayer/battery_filter.h \
@@ -46,7 +47,8 @@ HEADERS += \
     displayer/motor_filter.h \
     displayer/thermicmotor_filter.h \
     displayer/command_filter.h \
-    displayer/vahicle_filter.h
+    displayer/vahicle_filter.h \
+    displayer/filter.h
 
 FORMS += \
         mainwindow.ui \

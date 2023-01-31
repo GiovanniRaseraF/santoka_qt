@@ -9,6 +9,7 @@ battery_filter::battery_filter(std::shared_ptr<canbus_thread> canbus_producer, Q
 }
 
 void battery_filter::receivednewframe(const can_frame newframe){
+    
     switch(newframe.can_id){
         case 0x505:
 
@@ -22,4 +23,9 @@ void battery_filter::receivednewframe(const can_frame newframe){
 
         break;
     }
+}
+
+bool battery_filter::canupdateinfo()
+{
+    
 }

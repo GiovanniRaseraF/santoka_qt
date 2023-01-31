@@ -6,10 +6,11 @@
 #include <QWidget>
 
 #include <memory>
+#include <chrono>
 
-#include "dataproducer.h"
+#include "filter.h"
 
-class battery_filter : public QObject
+class battery_filter : public filter
 {
     Q_OBJECT
 public:
@@ -31,7 +32,7 @@ signals:
 
 
 public slots:
-    void receivednewframe(can_frame newframe);
+    void receivednewframe(const can_frame newframe);
 
 private:
     int bat_Instance                = 0;
@@ -46,6 +47,11 @@ private:
     uint8_t bat_status              = 0;
     uint8_t bat_warnings            = 0;
     uint8_t bat_faults              = 0;
+
+
+
+private:
+    virtual bool canupdateinfo() override;
 };
 
 #endif // BATTERY_FILTER_H
