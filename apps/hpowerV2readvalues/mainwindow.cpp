@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Create filters
     battery = std::make_shared<battery_filter>(canbus_producer, this);
+    logger = std::make_shared<filter>(canbus_producer, this);
 
     // Connect data to Graphics
     connectBatteryFilterToGraphics();

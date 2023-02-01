@@ -29,6 +29,7 @@ struct can_frame{
     uint8_t data[8];
 };
 #endif
+#include <random>
 #include <unistd.h>
 #include <vector>
 #include <map>
@@ -79,10 +80,19 @@ private:
     std::string filename;
     std::ifstream file;
 
+    int rangemin = 0x490;
+    int rangemax = 0x510;
+
 public:
     virtual void run() override {
+        std::random_device rd; // obtain a random number from hardware
+        std::mt19937 gen(rd()); // seed the generator
+        std::uniform_int_distribution<> distr(25, 63);
+
+        int counter = 0;
+
         struct can_frame tosend;
-        tosend.can_id = 0x505;
+        tosend.can_id = rangemin;
         tosend.can_dlc = 8;
         tosend.data[0] = 23;
         tosend.data[1] = 33;
@@ -90,9 +100,13 @@ public:
         tosend.data[6] = 0;
 
         while(!stop_execution){
-           tosend.data[6]++;
+            tosend.can_id = rangemin + counter;
+            counter = ((counter+1) % (rangemax - rangemin));
 
-           emit signalnewdata(tosend);
+            for(int i = 0; i < tosend.can_dlc; i++){
+                tosend.data[i] = (uint8_t) distr(gen);
+            }
+            emit signalnewdata(tosend);
 
            QThread::msleep(50);
         }

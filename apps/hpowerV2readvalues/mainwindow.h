@@ -42,7 +42,9 @@ private:
     std::shared_ptr<canbus_thread> canbus_producer;
 
     // Displayer
+    std::shared_ptr<filter> logger;
     std::shared_ptr<battery_filter> battery;
+
 };
 
 #endif // MAINWINDOW_H
