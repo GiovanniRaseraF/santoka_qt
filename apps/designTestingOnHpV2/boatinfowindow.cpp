@@ -8,8 +8,7 @@ BoatInfoWindow::BoatInfoWindow(QWidget *parent) :
     ui(new Ui::BoatInfoWindow)
 {
     ui->setupUi(this);
-    batteryFullWidget *b = new batteryFullWidget(nullptr);
-    ui->horizontalLayout->addWidget(b, 1);
+
 }
 
 
@@ -31,6 +30,11 @@ void BoatInfoWindow::connectInformations(
     motor = _motor;
 
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
+
+    // only test
+    batteryFullWidget *b = new batteryFullWidget(battery, nullptr);
+    ui->horizontalLayout->addWidget(b, 1);
+    // /////////
 }
 
 void BoatInfoWindow::setSOC(uint8_t newval){

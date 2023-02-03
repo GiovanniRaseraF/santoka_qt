@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+#include <memory>
+
+#include "displayer/battery_filter.h"
+
 /*
  * General info
  * border-radius: 150px;
@@ -25,11 +29,17 @@ class batteryFullWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit batteryFullWidget(QWidget *parent = nullptr);
+    explicit batteryFullWidget(std::shared_ptr<battery_filter> _battery = nullptr, QWidget *parent = nullptr);
     ~batteryFullWidget();
+
+public slots:
+    void setSOC(uint8_t);
 
 private:
     Ui::batteryFullWidget *ui;
+
+    // filter
+    std::shared_ptr<battery_filter> battery;
 };
 
 #endif // BATTERYFULLWIDGET_H
