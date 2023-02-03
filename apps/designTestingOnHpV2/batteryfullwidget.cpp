@@ -8,6 +8,8 @@ batteryFullWidget::batteryFullWidget(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
+
 batteryFullWidget::~batteryFullWidget()
 {
     delete ui;
