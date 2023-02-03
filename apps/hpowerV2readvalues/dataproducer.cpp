@@ -2,7 +2,7 @@
 #include <QDebug>
 
 canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
-#if linux
+#ifdef SANTOKA
     stop_execution = false;
 
     // Linux socket init
@@ -40,7 +40,7 @@ canbus_thread::~canbus_thread(){
 }
 
 void canbus_thread::run() {
-#if linux
+#ifdef SANTOKA
     int nbytes = 0;
     struct can_frame valuetoemit;
 

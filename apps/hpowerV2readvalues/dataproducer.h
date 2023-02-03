@@ -19,7 +19,7 @@
 
 #include <sys/socket.h>
 #include <net/if.h>
-#if linux
+#ifdef SANTOKA
 #include <can_netlink.h>
 #include <linux/can.h>
 #else
@@ -60,7 +60,7 @@ signals:
 
 protected:
     int cansocket = 0;
- #if linux
+#ifdef SANTOKA
     struct sockaddr_can addr;
 #endif
 

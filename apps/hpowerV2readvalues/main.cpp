@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
 
-#if linux
+#if not desktop
     w.showFullScreen();
 #else
     w.show();
