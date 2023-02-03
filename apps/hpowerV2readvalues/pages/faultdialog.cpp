@@ -9,3 +9,9 @@ faultdialog::faultdialog(QWidget *parent) : QDialog(parent)
 }
 
 faultdialog::~faultdialog(){}
+
+void faultdialog::on_pushButton_clicked()
+{
+    this->close();
+}
+

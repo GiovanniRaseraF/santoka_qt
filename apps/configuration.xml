@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appsettings>
+		<add key="iface" value="eth0" />
+		<add key="password" value="HURACAN2017" />
+	</appsettings>
+	<connections>
+		<connection type ="canbus" device ="can0" bitrate ="250000"/>
+	</connections>
+	<devices>
+		<device name="cluster0" type="cluster" modules="3">
+			<parameter name ="soc"      canid ="0x0182" canofs ="2" type ="UINT" coeff ="1.0"/>
+			<parameter name ="current"  canid ="0x0183" canofs ="4" type ="INT" coeff ="1.0"/>
+			<parameter name ="voltage"  canid ="0x0182" canofs ="0" type ="UINT" format ="%.2f" coeff ="0.01"/>
+		</device>
+		<device name="battery0 [0x180]" type="battery" temperatures="6" voltages="12">
+			<parameter name ="soc"           canid ="0x182" canofs ="2" type ="UINT" />
+			<parameter name ="sw"  	         canid ="0x181" canofs ="0" type ="UINT"  />
+			<parameter name ="current"       canid ="0x183" canofs ="4" type ="INT"   coeff="1.0"/>
+			<parameter name ="voltage"       canid ="0x181" canofs ="4" type ="UINT" format ="%.2f" coeff ="0.01"/>
+			<parameter name ="temperature0"  canid ="0x185" canofs ="0" type ="SINT" />
+			<parameter name ="temperature1"  canid ="0x185" canofs ="1" type ="SINT" />
+			<parameter name ="temperature2"  canid ="0x185" canofs ="2" type ="SINT" />
+			<parameter name ="temperature3"  canid ="0x185" canofs ="3" type ="SINT" />
+			<parameter name ="temperature4"  canid ="0x185" canofs ="4" type ="SINT" />
+			<parameter name ="temperature5"  canid ="0x185" canofs ="5" type ="SINT" />
+			<parameter name ="voltage0"      canid ="0x187" canofs ="0" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage1"      canid ="0x187" canofs ="1" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage2"      canid ="0x187" canofs ="2" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage3"      canid ="0x187" canofs ="3" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage4"      canid ="0x187" canofs ="4" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage5"      canid ="0x187" canofs ="5" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage6"      canid ="0x187" canofs ="6" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage7"      canid ="0x187" canofs ="7" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage8"      canid ="0x188" canofs ="0" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage9"      canid ="0x188" canofs ="1" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage10"     canid ="0x188" canofs ="2" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage11"     canid ="0x188" canofs ="3" type ="USINT" offset="2" coeff="0.01" />
+		</device>
+		<device name="battery1 [0x190]" type="battery" temperatures="6" voltages="12">
+			<parameter name ="soc"           canid ="0x192" canofs ="2" type ="UINT" />
+			<parameter name ="sw"  	         canid ="0x191" canofs ="0" type ="UINT"  />
+			<parameter name ="current"       canid ="0x193" canofs ="4" type ="INT"   coeff="1.0"/>
+			<parameter name ="voltage"       canid ="0x191" canofs ="4" type ="UINT" format ="%.2f" coeff ="0.01"/>
+			<parameter name ="temperature0"  canid ="0x195" canofs ="0" type ="SINT" />
+			<parameter name ="temperature1"  canid ="0x195" canofs ="1" type ="SINT" />
+			<parameter name ="temperature2"  canid ="0x195" canofs ="2" type ="SINT" />
+			<parameter name ="temperature3"  canid ="0x195" canofs ="3" type ="SINT" />
+			<parameter name ="temperature4"  canid ="0x195" canofs ="4" type ="SINT" />
+			<parameter name ="temperature5"  canid ="0x195" canofs ="5" type ="SINT" />
+			<parameter name ="voltage0"      canid ="0x197" canofs ="0" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage1"      canid ="0x197" canofs ="1" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage2"      canid ="0x197" canofs ="2" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage3"      canid ="0x197" canofs ="3" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage4"      canid ="0x197" canofs ="4" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage5"      canid ="0x197" canofs ="5" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage6"      canid ="0x197" canofs ="6" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage7"      canid ="0x197" canofs ="7" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage8"      canid ="0x198" canofs ="0" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage9"      canid ="0x198" canofs ="1" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage10"     canid ="0x198" canofs ="2" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage11"     canid ="0x198" canofs ="3" type ="USINT" offset="2" coeff="0.01" />
+		</device>
+		<device name="battery2 [0x1A0]" type="battery" temperatures="6" voltages="12">
+			<parameter name ="soc"           canid ="0x1A2" canofs ="2" type ="UINT" />
+			<parameter name ="sw"  	         canid ="0x1A1" canofs ="0" type ="UINT"  />
+			<parameter name ="current"       canid ="0x1A3" canofs ="4" type ="INT"   coeff="1.0"/>
+			<parameter name ="voltage"       canid ="0x1A1" canofs ="4" type ="UINT" format ="%.2f" coeff ="0.01"/>
+			<parameter name ="temperature0"  canid ="0x1A5" canofs ="0" type ="SINT" />
+			<parameter name ="temperature1"  canid ="0x1A5" canofs ="1" type ="SINT" />
+			<parameter name ="temperature2"  canid ="0x1A5" canofs ="2" type ="SINT" />
+			<parameter name ="temperature3"  canid ="0x1A5" canofs ="3" type ="SINT" />
+			<parameter name ="temperature4"  canid ="0x1A5" canofs ="4" type ="SINT" />
+			<parameter name ="temperature5"  canid ="0x1A5" canofs ="5" type ="SINT" />
+			<parameter name ="voltage0"      canid ="0x1A7" canofs ="0" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage1"      canid ="0x1A7" canofs ="1" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage2"      canid ="0x1A7" canofs ="2" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage3"      canid ="0x1A7" canofs ="3" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage4"      canid ="0x1A7" canofs ="4" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage5"      canid ="0x1A7" canofs ="5" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage6"      canid ="0x1A7" canofs ="6" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage7"      canid ="0x1A7" canofs ="7" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage8"      canid ="0x1A8" canofs ="0" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage9"      canid ="0x1A8" canofs ="1" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage10"     canid ="0x1A8" canofs ="2" type ="USINT" offset="2" coeff="0.01" />
+			<parameter name ="voltage11"     canid ="0x1A8" canofs ="3" type ="USINT" offset="2" coeff="0.01" />
+		</device>
+
+		<device name="thor0" type="thor">
+			<parameter name ="rpm"                 canid ="0x7F0" canofs ="0" type ="UINT" offset="0"  endian="bigendian" coeff="1.0"/>
+			<parameter name ="errors"              canid ="0x7F0" canofs ="6" type ="UINT" offset="0"/>
+			<parameter name ="motorTemperature"    canid ="0x7F1" canofs ="0" type ="INT"  offset="0"  endian="bigendian" coeff="0.1"/>
+			<parameter name ="inverterTemperature" canid ="0x7F1" canofs ="2" type ="INT"  offset="0"  endian="bigendian" coeff="0.1"/>
+			<parameter name ="power"             canid ="0x7F1" canofs ="4" type ="INT"  offset="0"  endian="bigendian" coeff="0.1"/>
+			<parameter name ="warnings"            canid ="0x7F1" canofs ="6" type ="UINT" offset="0"/>
+		</device>
+
+	</devices>
+</configuration>

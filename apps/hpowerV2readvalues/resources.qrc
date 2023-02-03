@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>images/logotrasparent.png</file>
         <file>images/warning.png</file>
+        <file>images/back.png</file>
+        <file>images/battery.png</file>
+        <file>images/home.png</file>
+        <file>images/info.png</file>
     </qresource>
 </RCC>

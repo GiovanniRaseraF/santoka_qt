@@ -108,7 +108,7 @@ public:
             }
             emit signalnewdata(tosend);
 
-           QThread::msleep(20);
+           QThread::msleep(1);
         }
     }
 
