@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "pages/faultdialog.h"
 #include "ui_mainwindow.h"
+#include "boatinfowindow.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     motor = std::make_shared<motor_filter>(canbus_producer, this);
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
+    connectMotorFilterToGraphics();
 
     // pages
 
@@ -33,6 +35,11 @@ void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
     connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
+}
+
+void MainWindow::connectMotorFilterToGraphics(){
+    connect(motor.get(), SIGNAL(new_drv_motorSpeed(uint16_t)), this, SLOT(setMotorSpeed(uint16_t)));
+    connect(motor.get(), SIGNAL(new_drv_motorTemperature(uint8_t)), this, SLOT(setMotorTemperature(uint8_t)));
 }
 
 MainWindow::~MainWindow()
@@ -72,9 +79,19 @@ void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
    ui->l_RPM_value->setText(QString::number(newMotorSpeed));
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pushButton_2_clicked(){
+
+}
+
+void MainWindow::on_pb_faults_clicked()
 {
     faultdialog *ff = new faultdialog(this);
 
     ff->show();
+}
+
+void MainWindow::on_pb_boatinfo_clicked()
+{
+    boatinfo_page = std::make_shared<BoatInfoWindow>(this);
+    boatinfo_page->show();
 }

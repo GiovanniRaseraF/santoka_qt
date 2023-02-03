@@ -35,7 +35,8 @@ SOURCES += \
     displayer/thermicmotor_filter.cpp \
     displayer/command_filter.cpp \
     displayer/vahicle_filter.cpp \
-    displayer/filter.cpp
+    displayer/filter.cpp \
+    boatinfowindow.cpp
 
 HEADERS += \
     displayer/battery_filter.h \
@@ -48,12 +49,14 @@ HEADERS += \
     displayer/thermicmotor_filter.h \
     displayer/command_filter.h \
     displayer/vahicle_filter.h \
-    displayer/filter.h
+    displayer/filter.h \
+    boatinfowindow.h
 
 FORMS += \
         mainwindow.ui \
         faultdialog.ui \
-    batterydisign.ui
+    batterydisign.ui \
+    boatinfowindow.ui
 
 CONFIG += monility
 MOBILITY += systeminfo
