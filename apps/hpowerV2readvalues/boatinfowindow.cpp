@@ -31,7 +31,6 @@ void BoatInfoWindow::connectInformations(
 }
 
 void BoatInfoWindow::setSOC(uint8_t newval){
-    //std::cout << newval << std::endl;
     ui->pushButton_2->setText(QString::number(newval));
 }
 

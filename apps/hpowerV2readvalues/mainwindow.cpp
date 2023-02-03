@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connectMotorFilterToGraphics();
 
     // pages
-
+    // boat info
 }
 
 void MainWindow::connectBatteryFilterToGraphics(){
@@ -93,6 +93,11 @@ void MainWindow::on_pb_faults_clicked()
 void MainWindow::on_pb_boatinfo_clicked()
 {
     boatinfo_page = std::make_shared<BoatInfoWindow>(this);
+
     boatinfo_page->connectInformations(battery, command, generalinfo, motor);
+#ifdef SANTOKA
+    boatinfo_page->showFullScreen();
+#else
     boatinfo_page->show();
+#endif
 }
