@@ -7,6 +7,9 @@
 
 #include "dataproducer.h"
 #include "displayer/battery_filter.h"
+#include "displayer/command_filter.h"
+#include "displayer/generalinfo_filter.h"
+#include "displayer/motor_filter.h"
 
 namespace Ui {
 class MainWindow;
@@ -44,6 +47,9 @@ private:
     // Displayer
     std::shared_ptr<filter> logger;
     std::shared_ptr<battery_filter> battery;
+    std::shared_ptr<command_filter> command;
+    std::shared_ptr<generalinfo_filter> generalinfo;
+    std::shared_ptr<motor_filter> motor;
 
 };
 

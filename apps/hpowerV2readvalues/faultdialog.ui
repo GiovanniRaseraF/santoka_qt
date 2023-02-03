@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>FaultWindowDialog</class>
  <widget class="QDialog" name="FaultWindowDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string/>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <widget class="QLabel" name="l_faultlogo">
    <property name="geometry">
@@ -44,11 +50,14 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
    <property name="styleSheet">
     <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
    </property>
    <property name="text">
-    <string>Faults and Wornings</string>
+    <string>Faults and Warnings</string>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">

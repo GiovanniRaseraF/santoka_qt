@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     motor = std::make_shared<motor_filter>(canbus_producer, this);
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
+    
 
     // pages
 
