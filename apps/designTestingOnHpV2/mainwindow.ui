@@ -44,13 +44,15 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-6</y>
+            <y>4</y>
             <width>331</width>
-            <height>521</height>
+            <height>511</height>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(14, 86, 22)</string>
+           <string notr="true">border-radius: 30px;
+background-color: rgb(14, 86, 22);
+</string>
           </property>
           <property name="text">
            <string/>

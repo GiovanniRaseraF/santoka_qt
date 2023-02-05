@@ -128,7 +128,7 @@ color: #ffffff;</string>
              <item>
               <widget class="QLabel" name="lblPercentage">
                <property name="text">
-                <string>&lt;span style=&quot; font-size:48pt;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:36pt; vertical-align:super;&quot;&gt;%&lt;/span&gt;</string>
+                <string>&lt;span style=&quot; font-size:48pt;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:36pt; vertical-align:super;&quot;&gt;%&lt;/span&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>

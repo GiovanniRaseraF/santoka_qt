@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>batterywidget</class>
+ <widget class="QWidget" name="batterywidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="battery_head">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>100</y>
+     <width>31</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: grey;
+
+background-color: grey;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="battery_percent_box">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>80</y>
+     <width>171</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: outset;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: grey;
+
+background-color: rgb(58, 125, 81);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>230</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 24pt &quot;Ubuntu&quot;;
+background-color: rgba(10, 13, 5,0);</string>
+   </property>
+   <property name="text">
+    <string>120 min</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="battery_frame">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>80</y>
+     <width>241</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: outset;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: grey;
+
+background-color: rgba(10, 13, 5,0)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>20</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 44pt &quot;Ubuntu&quot;;
+background-color: rgba(10, 13, 5,0);</string>
+   </property>
+   <property name="text">
+    <string>   20 %</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="back">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:20px;
+background-color: rgb(66, 66, 66);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>back</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>battery_frame</zorder>
+  <zorder>battery_head</zorder>
+  <zorder>battery_percent_box</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

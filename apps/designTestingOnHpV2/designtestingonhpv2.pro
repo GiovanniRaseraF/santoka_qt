@@ -33,6 +33,7 @@ SOURCES += \
     dataproducer.cpp \
     main.cpp \
     mainwindow.cpp \
+    widgets/battery.cpp \
     widgets/batterydesign.cpp \
     displayer/generalinfo_filter.cpp \
     displayer/motor_filter.cpp \
@@ -40,7 +41,8 @@ SOURCES += \
     displayer/command_filter.cpp \
     displayer/vahicle_filter.cpp \
     displayer/filter.cpp \
-    boatinfowindow.cpp
+    boatinfowindow.cpp \
+    widgets/batterywidget.cpp
 
 HEADERS += \
     batteryfullwidget.h \
@@ -48,6 +50,7 @@ HEADERS += \
     pages/faultdialog.h \
     dataproducer.h \
     mainwindow.h \
+    widgets/battery.h \
       widgets/batterydesign.h \
     displayer/generalinfo_filter.h \
     displayer/motor_filter.h \
@@ -55,14 +58,17 @@ HEADERS += \
     displayer/command_filter.h \
     displayer/vahicle_filter.h \
     displayer/filter.h \
-    boatinfowindow.h
+    boatinfowindow.h \
+    widgets/batterywidget.h
 
 FORMS += \
     batteryfullwidget.ui \
         mainwindow.ui \
         faultdialog.ui \
     batterydisign.ui \
-    boatinfowindow.ui
+    boatinfowindow.ui \
+    widgets/battery.ui \
+    widgets/batterywidget.ui
 
 CONFIG += monility
 MOBILITY += systeminfo

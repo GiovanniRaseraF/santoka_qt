@@ -2,6 +2,7 @@
 #include "ui_boatinfowindow.h"
 #include <iostream>
 #include "batteryfullwidget.h"
+#include "widgets/batterywidget.h"
 
 BoatInfoWindow::BoatInfoWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,7 +34,10 @@ void BoatInfoWindow::connectInformations(
 
     // only test
     batteryFullWidget *b = new batteryFullWidget(battery, nullptr);
+    batterywidget *bb = new batterywidget(nullptr);
+
     ui->horizontalLayout->addWidget(b, 1);
+    ui->horizontalLayout->addWidget(bb, 2);
     // /////////
 }
 
