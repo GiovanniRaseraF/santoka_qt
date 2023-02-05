@@ -1,5 +1,6 @@
 #include "batteryfullwidget.h"
 #include "ui_batteryfullwidget.h"
+#include <sstream>
 
 batteryFullWidget::batteryFullWidget(std::shared_ptr<battery_filter> _battery, QWidget *parent):
     QWidget(parent),
@@ -22,5 +23,14 @@ batteryFullWidget::~batteryFullWidget()
 void batteryFullWidget::setSOC(uint8_t newvalue)
 {
     ui->lblPercentage->setText(QString::number(newvalue));
-    ui->
+
+    // Testing style change
+    std::stringstream style{""};
+    style << "border-radius: 150px;background-color: qconicalgradient(cx:0, cy:" << ((float)newvalue) / 100 << ", angle:90, stop:0.700 rgba(255, 0, 127, 0), stop:0.75 rgba(85, 170, 255, 255));";
+
+    std::string s = style.str();
+    QString st{s.c_str()};
+    std::cout << s << std::endl;
+
+    ui->frmProgressBar->setStyleSheet(st);
 }
