@@ -10,12 +10,12 @@ void generalinfo_filter::receivednewframe(const can_frame newframe)
 {
      switch(newframe.can_id){
         case 0x500:
-        info_BoatType = filter::to_uint8(&newframe, 0, 1, 0, 1);
-        info_ProtocolVersion = filter::to_string(&newframe, 1, 2, 0, 10);
-        info_ECUVersion =filter::to_string(&newframe, 2, 4, 0, 10);
-        info_DriveVersion = filter::to_string(&newframe, 4, 6, 0, 10);
-        info_ThermicEngineType =filter::to_uint8(&newframe, 6, 7, 0, 1);
-        info_ElectricMotorType = filter::to_uint8(&newframe, 7, 8, 0, 1);
+        info_BoatType 			= filter::to_uint8(&newframe, 0, 1, 0, 1);
+        info_ProtocolVersion 	= filter::to_string(&newframe, 1, 2, 0, 10);
+        info_ECUVersion 		= filter::to_string(&newframe, 2, 4, 0, 10);
+        info_DriveVersion 		= filter::to_string(&newframe, 4, 6, 0, 10);
+        info_ThermicEngineType 	= filter::to_uint8(&newframe, 6, 7, 0, 1);
+        info_ElectricMotorType 	= filter::to_uint8(&newframe, 7, 8, 0, 1);
         
         emit new_info_BoatType(info_BoatType);
         emit new_info_ProtocolVersion(info_ProtocolVersion);

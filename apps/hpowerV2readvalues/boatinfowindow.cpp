@@ -1,6 +1,9 @@
+#include <memory>
+
 #include "boatinfowindow.h"
 #include "ui_boatinfowindow.h"
-#include <iostream>
+
+#include "widgets/hp_motordesign.h"
 
 BoatInfoWindow::BoatInfoWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,11 +30,17 @@ void BoatInfoWindow::connectInformations(
     generalinfo = _generalinfo;
     motor = _motor;
 
+    // Create design
+    batterydesign = std::make_shared<hp_batterydesign>(battery, nullptr);
+    hp_motordesign *motordesign = new hp_motordesign(nullptr);
+    ui->horizontalLayout->addWidget(batterydesign.get(), 1);
+    ui->horizontalLayout->addWidget(motordesign, 2);
+
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
 }
 
 void BoatInfoWindow::setSOC(uint8_t newval){
-    ui->pushButton_2->setText(QString::number(newval));
+
 }
 
 void BoatInfoWindow::on_pushButton_clicked()

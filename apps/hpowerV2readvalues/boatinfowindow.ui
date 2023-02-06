@@ -59,60 +59,18 @@ font: 20pt &quot;Ubuntu&quot;;</string>
       <x>20</x>
       <y>90</y>
       <width>971</width>
-      <height>391</height>
+      <height>401</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QWidget" name="widget" native="true">
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>311</width>
-          <height>381</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Battery</string>
-        </property>
-       </widget>
-      </widget>
+      <widget class="QWidget" name="holder_battery" native="true"/>
      </item>
      <item>
-      <widget class="QWidget" name="widget_2" native="true">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>311</width>
-          <height>381</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Motor</string>
-        </property>
-       </widget>
-      </widget>
+      <widget class="QWidget" name="holder_motor" native="true"/>
      </item>
      <item>
-      <widget class="QWidget" name="widget_3" native="true">
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>311</width>
-          <height>381</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Thermic</string>
-        </property>
-       </widget>
-      </widget>
+      <widget class="QWidget" name="holder_generalinfo" native="true"/>
      </item>
     </layout>
    </widget>

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QObject>
 #include <QWidget>
+#include <QString>
 
 #include <memory>
 #include <chrono>
@@ -30,6 +31,7 @@ signals:
     void new_bat_warnings(uint8_t);
     void new_bat_faults(uint8_t);
 
+    void to_QString(QString);
 
 public slots:
     void receivednewframe(const can_frame newframe);
@@ -48,10 +50,10 @@ private:
     uint8_t bat_warnings            = 0;
     uint8_t bat_faults              = 0;
 
-
-
 private:
     virtual bool canupdateinfo() override;
+
+    QString __toString();
 };
 
 #endif // BATTERY_FILTER_H

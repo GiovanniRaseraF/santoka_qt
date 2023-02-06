@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QObject>
 
+// 319 X 399
+
 class batterydesign : public QWidget
 {
 public:

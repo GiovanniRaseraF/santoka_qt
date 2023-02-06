@@ -100,4 +100,6 @@ void MainWindow::on_pb_boatinfo_clicked()
 #else
     boatinfo_page->show();
 #endif
+
+    //boatinfo_page.reset();
 }

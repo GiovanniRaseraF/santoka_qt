@@ -39,7 +39,9 @@ SOURCES += \
     displayer/command_filter.cpp \
     displayer/vahicle_filter.cpp \
     displayer/filter.cpp \
-    boatinfowindow.cpp
+    boatinfowindow.cpp \
+    widgets/hp_batterydesign.cpp \
+    widgets/hp_motordesign.cpp
 
 HEADERS += \
     displayer/battery_filter.h \
@@ -53,13 +55,17 @@ HEADERS += \
     displayer/command_filter.h \
     displayer/vahicle_filter.h \
     displayer/filter.h \
-    boatinfowindow.h
+    boatinfowindow.h \
+    widgets/hp_batterydesign.h \
+    widgets/hp_motordesign.h
 
 FORMS += \
         mainwindow.ui \
         faultdialog.ui \
     batterydisign.ui \
-    boatinfowindow.ui
+    boatinfowindow.ui \
+    widgets/hp_batterydesign.ui \
+    widgets/hp_motordesign.ui
 
 CONFIG += monility
 MOBILITY += systeminfo
