@@ -13,6 +13,9 @@
 #include "displayer/motor_filter.h"
 #include "displayer/thermicmotor_filter.h"
 #include "displayer/vahicle_filter.h"
+#include "widgets/batterywidget.h"
+#include "widgets/batterydesign.h"
+#include "batteryfullwidget.h"
 
 #define PASSSHARED(cl, name) \
     std::shared_ptr<cl> name = nullptr
@@ -56,6 +59,14 @@ private:
     std::shared_ptr<command_filter> command;
     std::shared_ptr<generalinfo_filter> generalinfo;
     std::shared_ptr<motor_filter> motor;
+
+    // Widgets
+    std::shared_ptr<batteryFullWidget> w_batteryfull;
+    std::shared_ptr<batterywidget> w_batterywidget;
+    //batteryFullWidget *b = new batteryFullWidget(battery, nullptr);
+    //batterywidget *bb = new batterywidget(nullptr);
+
+
 
 };
 

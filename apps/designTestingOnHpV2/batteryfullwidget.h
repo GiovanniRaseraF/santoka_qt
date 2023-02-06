@@ -6,6 +6,7 @@
 #include <memory>
 
 #include "displayer/battery_filter.h"
+#include "widgets/batterywidget.h"
 
 /*
  * General info
@@ -40,6 +41,7 @@ private:
 
     // filter
     std::shared_ptr<battery_filter> battery;
+
 };
 
 #endif // BATTERYFULLWIDGET_H

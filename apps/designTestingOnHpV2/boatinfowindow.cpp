@@ -12,10 +12,9 @@ BoatInfoWindow::BoatInfoWindow(QWidget *parent) :
 
 }
 
-
-
 BoatInfoWindow::~BoatInfoWindow()
 {
+
     delete ui;
 }
 
@@ -33,11 +32,11 @@ void BoatInfoWindow::connectInformations(
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
 
     // only test
-    batteryFullWidget *b = new batteryFullWidget(battery, nullptr);
-    batterywidget *bb = new batterywidget(nullptr);
+    w_batteryfull = std::make_shared<batteryFullWidget>(battery, nullptr);
+    w_batterywidget = std::make_shared<batterywidget>(nullptr);
 
-    ui->horizontalLayout->addWidget(b, 1);
-    ui->horizontalLayout->addWidget(bb, 2);
+    ui->horizontalLayout->addWidget(w_batteryfull.get(), 1);
+    ui->horizontalLayout->addWidget(w_batterywidget.get(), 2);
     // /////////
 }
 
@@ -48,6 +47,10 @@ void BoatInfoWindow::setSOC(uint8_t newval){
 void BoatInfoWindow::on_pushButton_clicked()
 {
     disconnect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
+
+    w_batteryfull.reset();
+    w_batterywidget.reset();
+
     this->close();
 }
 
