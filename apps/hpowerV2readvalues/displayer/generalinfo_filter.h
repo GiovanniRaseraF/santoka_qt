@@ -25,6 +25,8 @@ signals:
     void new_info_ThermicEngineType(uint8_t);
     void new_info_ElectricMotorType(uint8_t);
 
+    void to_QString(QString) override;
+
 public slots:
     void receivednewframe(const can_frame newframe);
 
@@ -38,6 +40,7 @@ private:
     
 private:
     virtual bool canupdateinfo() override;
+    QString __to_QString() override;
 };
 
 

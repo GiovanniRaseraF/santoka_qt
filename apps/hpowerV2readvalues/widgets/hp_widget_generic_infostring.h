@@ -17,7 +17,7 @@ class hp_widget_generic_infostring : public QWidget
     Q_OBJECT
 
 public:
-    explicit hp_widget_generic_infostring(std::shared_ptr<filter> type_filter = nullptr, QWidget *parent = nullptr);
+    explicit hp_widget_generic_infostring(QString _name = "", std::shared_ptr<filter> type_filter = nullptr, QWidget *parent = nullptr);
     ~hp_widget_generic_infostring();
 
 public slots:
@@ -28,6 +28,9 @@ private:
 
     // filter
     std::shared_ptr<filter> actual_filter;
+
+    // info
+    QString name;
 };
 
 #endif // HP_WIDGET_GENERIC_INFOSTRING_H

@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(246, 245, 244);</string>
+   <string notr="true">background-color:rgb(154, 153, 150);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="l_pagename">

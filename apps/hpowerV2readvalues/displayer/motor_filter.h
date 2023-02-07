@@ -29,6 +29,8 @@ signals:
     void new_drv_warnings(uint32_t);
     void new_drv_faults(uint32_t);
 
+    void to_QString(QString) override;
+
 public slots:
     void receivednewframe(const can_frame newframe);
 
@@ -48,6 +50,7 @@ private:
 
 private:
     virtual bool canupdateinfo() override;
+    QString __to_QString() override;
 };
 
 #endif // MOTOR_FILTER_H

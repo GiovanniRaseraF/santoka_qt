@@ -31,7 +31,7 @@ signals:
     void new_bat_warnings(uint8_t);
     void new_bat_faults(uint8_t);
 
-    void to_QString(QString);
+    void to_QString(QString) override;
 
 public slots:
     void receivednewframe(const can_frame newframe);

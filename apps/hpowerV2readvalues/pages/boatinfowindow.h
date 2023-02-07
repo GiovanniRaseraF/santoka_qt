@@ -14,6 +14,7 @@
 #include "displayer/thermicmotor_filter.h"
 #include "displayer/vahicle_filter.h"
 
+#include "widgets/hp_widget_generic_infostring.h"
 #include "widgets/hp_batterydesign.h"
 #include "widgets/hp_motordesign.h"
 #include "widgets/hp_generalinfo.h"
@@ -62,9 +63,9 @@ private:
     std::shared_ptr<motor_filter> motor;
 
     // Graphics
-    std::shared_ptr<hp_batterydesign> batterydesign;
-    std::shared_ptr<hp_motordesign> motordesign;
-    std::shared_ptr<hp_generalinfo> generalinfodesign;
+    std::shared_ptr<hp_widget_generic_infostring> batterydesign;
+    std::shared_ptr<hp_widget_generic_infostring> motordesign;
+    std::shared_ptr<hp_widget_generic_infostring> generalinfodesign;
 
 };
 

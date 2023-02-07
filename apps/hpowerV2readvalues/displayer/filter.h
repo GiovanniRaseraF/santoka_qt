@@ -23,7 +23,7 @@ public:
     };
 
 signals:
-    void to_QString(QString);
+    virtual void to_QString(QString);
 
 public slots:
     // Simple printer

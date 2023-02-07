@@ -23,6 +23,8 @@ void generalinfo_filter::receivednewframe(const can_frame newframe)
         emit new_info_DriveVersion(info_DriveVersion);
         emit new_info_ThermicEngineType(info_ThermicEngineType);
         emit new_info_ElectricMotorType(info_ElectricMotorType);
+
+        emit to_QString(__to_QString());
         break;
 
         default:
@@ -33,4 +35,17 @@ void generalinfo_filter::receivednewframe(const can_frame newframe)
 bool generalinfo_filter::canupdateinfo()
 {
     return true;
+}
+
+QString generalinfo_filter::__to_QString()
+{
+    QString ret = "";
+
+    ret += "BoatType: " + QString::number(info_BoatType) + "\n"
+        +  "PVersion: " + QString(info_ProtocolVersion.c_str()) + "\n"
+        +  "ECUVerision: " + QString(info_ECUVersion.c_str()) + "\n"
+        +  "DriveVersion: " + QString(info_DriveVersion.c_str()) + "\n"
+        +  "ThermicType: " + QString::number(info_ThermicEngineType) + "\n"
+        +  "ElectricType: " + QString::number(info_ElectricMotorType) + "\n";
+    return ret;
 }
