@@ -41,6 +41,7 @@ SOURCES += \
     displayer/filter.cpp \
     boatinfowindow.cpp \
     widgets/hp_batterydesign.cpp \
+    widgets/hp_generalinfo.cpp \
     widgets/hp_motordesign.cpp
 
 HEADERS += \
@@ -57,6 +58,7 @@ HEADERS += \
     displayer/filter.h \
     boatinfowindow.h \
     widgets/hp_batterydesign.h \
+    widgets/hp_generalinfo.h \
     widgets/hp_motordesign.h
 
 FORMS += \
@@ -65,6 +67,7 @@ FORMS += \
     batterydisign.ui \
     boatinfowindow.ui \
     widgets/hp_batterydesign.ui \
+    widgets/hp_generalinfo.ui \
     widgets/hp_motordesign.ui
 
 CONFIG += monility

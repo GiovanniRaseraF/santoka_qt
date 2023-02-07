@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>hp_motordesign</class>
- <widget class="QWidget" name="hp_motordesign">
+ <class>hp_generalinfo</class>
+ <widget class="QWidget" name="hp_generalinfo">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>331</width>
-    <height>416</height>
+    <width>329</width>
+    <height>411</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,12 +50,12 @@ background-color: rgb(105, 130, 121);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 20pt &quot;Ubuntu&quot;;
-background-color: rgb(192, 28, 40);
+background-color: rgb(26, 95, 180);
 border-radius: 30px;
 </string>
     </property>
     <property name="text">
-     <string>    Motor</string>
+     <string>    General Info</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_info">
