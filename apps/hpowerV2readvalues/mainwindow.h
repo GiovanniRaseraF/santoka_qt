@@ -10,7 +10,7 @@
 #include "displayer/command_filter.h"
 #include "displayer/generalinfo_filter.h"
 #include "displayer/motor_filter.h"
-#include "boatinfowindow.h"
+#include "pages/boatinfowindow.h"
 
 namespace Ui {
 class MainWindow;

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>hp_batterydesign</class>
- <widget class="QWidget" name="hp_batterydesign">
+ <class>hp_widget_generic_infostring</class>
+ <widget class="QWidget" name="hp_widget_generic_infostring">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
+    <width>330</width>
     <height>412</height>
    </rect>
   </property>
@@ -60,7 +60,7 @@ border-radius: 30px;
 </string>
     </property>
     <property name="text">
-     <string>    Battery</string>
+     <string>    Name</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_info">

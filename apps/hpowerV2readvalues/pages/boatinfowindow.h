@@ -13,7 +13,10 @@
 #include "displayer/motor_filter.h"
 #include "displayer/thermicmotor_filter.h"
 #include "displayer/vahicle_filter.h"
+
 #include "widgets/hp_batterydesign.h"
+#include "widgets/hp_motordesign.h"
+#include "widgets/hp_generalinfo.h"
 
 #define PASSSHARED(cl, name) \
     std::shared_ptr<cl> name = nullptr
@@ -60,6 +63,8 @@ private:
 
     // Graphics
     std::shared_ptr<hp_batterydesign> batterydesign;
+    std::shared_ptr<hp_motordesign> motordesign;
+    std::shared_ptr<hp_generalinfo> generalinfodesign;
 
 };
 

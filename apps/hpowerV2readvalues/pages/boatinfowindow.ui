@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(5, 49, 60);</string>
+   <string notr="true">background-color: rgb(246, 245, 244);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="l_pagename">
@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
+     <string notr="true">color: rgb(0,0,0);
 font: 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
@@ -40,39 +40,31 @@ font: 20pt &quot;Ubuntu&quot;;</string>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>520</y>
-      <width>111</width>
-      <height>71</height>
+      <x>840</x>
+      <y>10</y>
+      <width>131</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/images/back.png)</string>
+     <string notr="true">background-color: rgb(237, 51, 59);
+border-radius: 20px;
+font: 18pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>Close</string>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>70</y>
-      <width>1011</width>
-      <height>441</height>
+      <width>991</width>
+      <height>521</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QWidget" name="holder_battery" native="true"/>
-     </item>
-     <item>
-      <widget class="QWidget" name="holder_motor" native="true"/>
-     </item>
-     <item>
-      <widget class="QWidget" name="holder_generalinfo" native="true"/>
-     </item>
-    </layout>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">

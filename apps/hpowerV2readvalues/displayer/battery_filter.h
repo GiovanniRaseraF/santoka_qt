@@ -53,7 +53,7 @@ private:
 private:
     virtual bool canupdateinfo() override;
 
-    QString __toString();
+    QString __to_QString() override;
 };
 
 #endif // BATTERY_FILTER_H

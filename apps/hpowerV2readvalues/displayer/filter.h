@@ -18,8 +18,12 @@ class filter : public QObject
     Q_OBJECT
 public:
     explicit filter(std::shared_ptr<canbus_thread> canbus_producer = nullptr, QObject *parent = nullptr);
+    virtual QString __to_QString(){
+        return "filter";
+    };
 
 signals:
+    void to_QString(QString);
 
 public slots:
     // Simple printer

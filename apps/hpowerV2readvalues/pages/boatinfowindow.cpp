@@ -1,6 +1,6 @@
 #include <memory>
 
-#include "boatinfowindow.h"
+#include "pages/boatinfowindow.h"
 #include "ui_boatinfowindow.h"
 
 #include "widgets/hp_motordesign.h"
@@ -32,11 +32,15 @@ void BoatInfoWindow::connectInformations(
 
     // Create design
     batterydesign = std::make_shared<hp_batterydesign>(battery, nullptr);
-    hp_motordesign *motordesign = new hp_motordesign(nullptr);
-    ui->horizontalLayout->addWidget(batterydesign.get(), 1);
-    ui->horizontalLayout->addWidget(motordesign, 2);
+    motordesign = std::make_shared<hp_motordesign>(nullptr);
+    generalinfodesign = std::make_shared<hp_generalinfo>(nullptr);
 
-    connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
+    ui->horizontalLayout->addWidget(batterydesign.get());
+    ui->horizontalLayout->addWidget(motordesign.get());
+    ui->horizontalLayout->addWidget(generalinfodesign.get());
+
+    // Connect informations
+    //connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
 }
 
 void BoatInfoWindow::setSOC(uint8_t newval){
@@ -45,7 +49,7 @@ void BoatInfoWindow::setSOC(uint8_t newval){
 
 void BoatInfoWindow::on_pushButton_clicked()
 {
-    disconnect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
+    //disconnect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
     this->close();
 }
 

@@ -45,7 +45,7 @@ void battery_filter::receivednewframe(const can_frame newframe){
         break;
     }
 
-    emit to_QString(__toString());
+    emit to_QString(__to_QString());
 }
 
 // TODO: implement it in a good way
@@ -54,17 +54,17 @@ bool battery_filter::canupdateinfo()
     return filter::canupdateinfo();
 }
 
-QString battery_filter::__toString()
+QString battery_filter::__to_QString()
 {
     QString ret = "";
 
-    ret += "SOC: " + QString::number(bat_SOC) + "\n";
-    ret += "Voltage: " + QString::number(bat_TotalVoltage) + "\n";
-    ret += "Current: " + QString::number(bat_TotalCurrent) + "\n";
-    ret += "T Batt: " + QString::number(bat_BatteryTemperature) + "\n";
-    ret += "T BMS: " + QString::number(bat_BMSTemperature) + "\n";
-    ret += "F: " + QString::number(bat_faults) + "\n";
-    ret += "W: " + QString::number(bat_warnings) + "\n";
+    ret += "SOC: " + QString::number(bat_SOC) + " %\n";
+    ret += "Voltage: " + QString::number(bat_TotalVoltage) + " V\n";
+    ret += "Current: " + QString::number(bat_TotalCurrent) + " A\n";
+    ret += "T Batt: " + QString::number(bat_BatteryTemperature) + " C\n";
+    ret += "T BMS: " + QString::number(bat_BMSTemperature) + " C\n";
+    ret += "F: " + QString::number(bat_faults) + " #\n";
+    ret += "W: " + QString::number(bat_warnings) + " #\n";
 
     return ret;
 }

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "pages/faultdialog.h"
 #include "ui_mainwindow.h"
-#include "boatinfowindow.h"
+#include "pages/boatinfowindow.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
