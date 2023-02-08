@@ -27,7 +27,6 @@ DEFINES += DESKTOP
 
 
 SOURCES += \
-   pages/faultdialog.cpp \
     displayer/battery_filter.cpp \
     dataproducer.cpp \
     main.cpp \
@@ -38,15 +37,13 @@ SOURCES += \
     displayer/command_filter.cpp \
     displayer/vahicle_filter.cpp \
     displayer/filter.cpp \
+    dialogs/faultdialog.cpp \
     pages/boatinfowindow.cpp \
-    widgets/hp_batterydesign.cpp \
-    widgets/hp_generalinfo.cpp \
-    widgets/hp_motordesign.cpp \
+    widgets/hp_faultwarning.cpp \
     widgets/hp_widget_generic_infostring.cpp
 
 HEADERS += \
     displayer/battery_filter.h \
-    pages/faultdialog.h \
     dataproducer.h \
     mainwindow.h \
     displayer/generalinfo_filter.h \
@@ -56,18 +53,15 @@ HEADERS += \
     displayer/vahicle_filter.h \
     displayer/filter.h \
     pages/boatinfowindow.h \
-    widgets/hp_batterydesign.h \
-    widgets/hp_generalinfo.h \
-    widgets/hp_motordesign.h \
+    dialogs/faultdialog.h \
+    widgets/hp_faultwarning.h \
     widgets/hp_widget_generic_infostring.h
 
 FORMS += \
         mainwindow.ui \
-        faultdialog.ui \
     pages/boatinfowindow.ui \
-    widgets/hp_batterydesign.ui \
-    widgets/hp_generalinfo.ui \
-    widgets/hp_motordesign.ui \
+    dialogs/faultdialog.ui \
+    widgets/hp_faultwarning.ui \
     widgets/hp_widget_generic_infostring.ui
 
 CONFIG += monility

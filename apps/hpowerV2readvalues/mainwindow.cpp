@@ -1,7 +1,6 @@
 #include "mainwindow.h"
-#include "pages/faultdialog.h"
 #include "ui_mainwindow.h"
-#include "pages/boatinfowindow.h"
+
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -85,9 +84,10 @@ void MainWindow::on_pushButton_2_clicked(){
 
 void MainWindow::on_pb_faults_clicked()
 {
-    faultdialog *ff = new faultdialog(this);
+    // Oper fault page
+    fault_dialog = std::make_shared<faultdialog>(this);
 
-    ff->show();
+    fault_dialog->show();
 }
 
 void MainWindow::on_pb_boatinfo_clicked()

@@ -34,7 +34,7 @@
     <property name="styleSheet">
      <string notr="true">border-color: rgb(192, 191, 188);
  border-style: outset;
-border-radius: 30px;
+border-radius: 10px;
 background-color: rgb(222, 221, 218);
  border-width: 4px;
 </string>
@@ -55,8 +55,8 @@ background-color: rgb(222, 221, 218);
     <property name="styleSheet">
      <string notr="true">font: 20pt &quot;Ubuntu&quot;;
 color: rgb(0,0,0);
-background-color: rgb(38, 162, 105);
-border-radius: 30px;
+background-color: rgba(38, 162, 105, 190);
+border-radius: 10px;
 </string>
     </property>
     <property name="text">

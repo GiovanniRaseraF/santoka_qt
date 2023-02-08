@@ -13,8 +13,6 @@ BoatInfoWindow::BoatInfoWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
-
-
 BoatInfoWindow::~BoatInfoWindow()
 {
     delete ui;
@@ -44,10 +42,11 @@ void BoatInfoWindow::connectInformations(
 
     // Testing
     batterydesign = std::make_shared<hp_widget_generic_infostring>("Battery", battery, nullptr);
-    ui->horizontalLayout->addWidget(batterydesign.get());
     motordesign = std::make_shared<hp_widget_generic_infostring>("Motor", motor, nullptr);
-    ui->horizontalLayout->addWidget(motordesign.get());
     generalinfodesign = std::make_shared<hp_widget_generic_infostring>("General Info", generalinfo, nullptr);
+
+    ui->horizontalLayout->addWidget(batterydesign.get());
+    ui->horizontalLayout->addWidget(motordesign.get());
     ui->horizontalLayout->addWidget(generalinfodesign.get());
 }
 
@@ -57,7 +56,10 @@ void BoatInfoWindow::setSOC(uint8_t newval){
 
 void BoatInfoWindow::on_pushButton_clicked()
 {
-    //disconnect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
+    batterydesign.reset();
+    motordesign.reset();
+    generalinfodesign.reset();
+
     this->close();
 }
 

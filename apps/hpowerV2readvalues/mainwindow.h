@@ -11,6 +11,7 @@
 #include "displayer/generalinfo_filter.h"
 #include "displayer/motor_filter.h"
 #include "pages/boatinfowindow.h"
+#include "dialogs/faultdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -59,6 +60,7 @@ private:
 
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;
+    std::shared_ptr<faultdialog> fault_dialog;
 
 };
 
