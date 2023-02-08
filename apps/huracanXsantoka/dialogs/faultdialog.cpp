@@ -6,6 +6,11 @@ faultdialog::faultdialog(QWidget *parent) :
     ui(new Ui::faultdialog)
 {
     ui->setupUi(this);
+
+    // Add faults dinamics
+    for(auto f : faults){
+        ui->vl_fault1->addWidget(f.second.get());
+    }
 }
 
 faultdialog::~faultdialog()
@@ -18,7 +23,7 @@ void faultdialog::on_faultdialog_accepted()
 
 }
 
-void faultdialog::on_pushButton_51_clicked()
+void faultdialog::on_pb_close_clicked()
 {
     this->close();
 }

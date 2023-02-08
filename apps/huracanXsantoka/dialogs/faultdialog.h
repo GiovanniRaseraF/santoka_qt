@@ -9,6 +9,8 @@
 #include <vector>
 #include <memory>
 
+#include "widgets/hp_faultwarning.h"
+
 namespace Ui {
 class faultdialog;
 }
@@ -25,16 +27,19 @@ public:
 private slots:
     void on_faultdialog_accepted();
 
-    void on_pushButton_51_clicked();
-
     void getFaults(uint32_t newfaultmap);
     void getWarnings(uint32_t newwarningsmap);
+
+    void on_pb_close_clicked();
 
 private:
     Ui::faultdialog *ui;
 
     // faults
-
+    std::map<int, std::shared_ptr<hp_faultwarning>> faults{
+        {1, std::make_shared<hp_faultwarning>("No motor", nullptr)},
+        {2, std::make_shared<hp_faultwarning>("No can", nullptr)}
+    };
 
     // warnings
 };
