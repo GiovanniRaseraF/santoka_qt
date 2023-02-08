@@ -34,9 +34,11 @@ canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
 
 canbus_thread::~canbus_thread(){
     stop();
-
+#ifdef SANTOKA
     close(cansocket);
     system("ifconfig can0 down");
+#endif
+    QThread::msleep(20);
 }
 
 void canbus_thread::run() {

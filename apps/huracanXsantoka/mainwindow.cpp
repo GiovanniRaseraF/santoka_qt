@@ -78,9 +78,6 @@ void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
    ui->l_RPM_value->setText(QString::number(newMotorSpeed));
 }
 
-void MainWindow::on_pushButton_2_clicked(){
-
-}
 
 void MainWindow::on_pb_faults_clicked()
 {

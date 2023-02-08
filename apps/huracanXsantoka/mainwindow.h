@@ -39,8 +39,6 @@ public slots:
 
 
 private slots:
-    void on_pushButton_2_clicked();
-
     void on_pb_faults_clicked();
 
     void on_pb_boatinfo_clicked();

@@ -54,7 +54,7 @@ void BoatInfoWindow::setSOC(uint8_t newval){
 
 }
 
-void BoatInfoWindow::on_pushButton_clicked()
+void BoatInfoWindow::on_pb_close_clicked()
 {
     batterydesign.reset();
     motordesign.reset();
@@ -62,4 +62,3 @@ void BoatInfoWindow::on_pushButton_clicked()
 
     this->close();
 }
-

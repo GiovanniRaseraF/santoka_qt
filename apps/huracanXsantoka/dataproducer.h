@@ -74,7 +74,10 @@ public:
     fake_canbus_thread(std::string _filename, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}{
         std::cout << ": using fake canbus thread to generate data" << std::endl;
     }
-    ~fake_canbus_thread() = default;
+    ~fake_canbus_thread(){
+        stop_execution = true;
+        QThread::msleep(10);
+    };
 
 private:
     std::string filename;
@@ -108,7 +111,7 @@ public:
             }
             emit signalnewdata(tosend);
 
-           QThread::msleep(1);
+           QThread::msleep(20);
         }
     }
 

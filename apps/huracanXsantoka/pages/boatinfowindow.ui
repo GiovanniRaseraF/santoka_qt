@@ -37,7 +37,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
      <string>Boat Information Page</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pb_close">
     <property name="geometry">
      <rect>
       <x>840</x>

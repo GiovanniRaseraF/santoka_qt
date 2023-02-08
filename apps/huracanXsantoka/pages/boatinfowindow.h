@@ -45,7 +45,7 @@ public:
     );
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pb_close_clicked();
 
     void setSOC(uint8_t);
 
