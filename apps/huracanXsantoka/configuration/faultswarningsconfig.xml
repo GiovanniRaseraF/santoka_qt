@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <settings>
+        <add key="motors" value="1"/>
+    </settings>
+    <faultswarnings>
+        <packet canchannel="0x502">
+            <elem type="alarm" description="Inverter_NOT_Ready"                 bit="0"/>
+            <elem type="waring" description="Inverter Overtemperature"          bit="1"/>
+            <elem type="waring" description="Motor Overtemperature"             bit="2"/>
+            <elem type="waring" description="Motor Temperature Sensor Defect"   bit="3"/>
+            <elem type="waring" description="I2T Motor Protection"              bit="4"/>
+            <elem type="waring" description="Low SOC Level"                     bit="5"/>
+            <elem type="waring" description="Over Charge"                       bit="6"/>
+            <elem type="waring" description="Throttle Not Zero"                 bit="7"/>
+
+            <elem type="waring" description="RESERVED"                          bit="8" length="24"/>
+            
+            <elem type="fault" description="Overvoltage"                        bit="32"/>
+            <elem type="fault" description="Overcurrent"                        bit="33"/>
+            <elem type="fault" description="Undervoltage"                       bit="34"/>
+            <elem type="fault" description="Short Circuit Power Stage"          bit="35"/>
+            <elem type="fault" description="Rotor Initial Position Error"       bit="36"/>
+            <elem type="fault" description="HE Disconnected"                    bit="37"/>
+            <elem type="fault" description="HE Wrong Sequence"                  bit="37"/>
+            <elem type="fault" description="Aux Contactor"                      bit="38"/>
+            <elem type="fault" description="Inverter Overtemperature"           bit="40"/>
+            <elem type="fault" description="IxT Power Protection"               bit="41"/>
+            <elem type="fault" description="Motor Overtemperature"              bit="42"/>
+            <elem type="fault" description="I2T Motor Protection"               bit="43"/>
+            <elem type="fault" description="Emergency Input"                    bit="44"/>
+            <elem type="fault" description="Throttle Pot Disconnected"          bit="45"/>
+            <elem type="fault" description="Brake Pot Disconnected"             bit="46"/>
+            <elem type="fault" description="Clutch Pot Disconnected"            bit="47"/>
+            <elem type="fault" description="PTC Power U Defect"                 bit="48"/>
+            <elem type="fault" description="PTC Power V Defect"                 bit="49"/>
+            <elem type="fault" description="PTC Power W Defect"                 bit="50"/>
+            <elem type="fault" description="Contactor"                          bit="51"/>
+            <elem type="fault" description="CRT CAN Link"                       bit="52"/>
+
+            <elem type="fault" description="RESERVED"                           bit="53" length="8"/>
+            
+            <elem type="fault" description="Wrong Configuration"                bit="61"/>
+            <elem type="fault" description="CANA Defect"                        bit="62"/>
+            <elem type="fault" description="CANB Defect"                        bit="63"/>
+        </packet>
+        <packet canchannel="0x506"/>
+        </packet>
+    </faultswarings>
+</configuration

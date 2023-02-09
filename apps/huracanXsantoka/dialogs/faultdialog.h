@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "widgets/hp_faultwarning.h"
+#include "candata/singlefaultwarningpacket.h"
 
 namespace Ui {
 class faultdialog;
@@ -35,11 +36,19 @@ private slots:
 private:
     Ui::faultdialog *ui;
 
-    // faults
-    std::map<int, std::shared_ptr<hp_faultwarning>> faults{
-        {1, std::make_shared<hp_faultwarning>("No motor", nullptr)},
-        {2, std::make_shared<hp_faultwarning>("No can", nullptr)}
+    // all fault warnings informations
+    std::vector<singlefaultwarningpacket> packets{
+        singlefaultwarningpacket(this)
     };
+
+    // faults
+    std::vector<std::shared_ptr<hp_faultwarning>> faultsgraphics{
+        //{1, std::make_shared<hp_faultwarning>("No motor", nullptr)},
+        //{2, std::make_shared<hp_faultwarning>("No can", nullptr)}
+
+    };
+
+
 
     // warnings
 };

@@ -79,7 +79,7 @@
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  soc</string>
+           <string>  Battery SOC</string>
           </property>
          </widget>
          <widget class="QLabel" name="l_SOC_value">
@@ -251,7 +251,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  Power</string>
+           <string>  Motor Power</string>
           </property>
          </widget>
         </widget>

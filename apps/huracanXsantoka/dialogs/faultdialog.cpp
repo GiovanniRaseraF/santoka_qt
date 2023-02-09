@@ -8,9 +8,15 @@ faultdialog::faultdialog(QWidget *parent) :
     ui->setupUi(this);
 
     // Add faults dinamics
-    for(auto f : faults){
-        ui->vl_fault1->addWidget(f.second.get());
-    }
+    int c = 0x506;
+    std::map<int, std::tuple<QString, QString>> vals{
+        {1, {"fault", "Ciao"}},
+        {2, {"fault", "Bella"}},
+        {3, {"fault", "io"}}
+    };
+    packets[0].loaddata(c, vals);
+
+
 }
 
 faultdialog::~faultdialog()

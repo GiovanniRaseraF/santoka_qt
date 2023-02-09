@@ -8,7 +8,7 @@ QT       += core gui xml designer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = huracanXSantoka
+TARGET = huracanXsantoka
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -27,6 +27,7 @@ DEFINES += DESKTOP
 
 
 SOURCES += \
+    candata/singlefaultwarningpacket.cpp \
     displayer/battery_filter.cpp \
     dataproducer.cpp \
     main.cpp \
@@ -43,6 +44,7 @@ SOURCES += \
     widgets/hp_widget_generic_infostring.cpp
 
 HEADERS += \
+    candata/singlefaultwarningpacket.h \
     displayer/battery_filter.h \
     dataproducer.h \
     mainwindow.h \
