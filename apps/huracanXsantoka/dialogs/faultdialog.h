@@ -11,6 +11,7 @@
 
 #include "widgets/hp_faultwarning.h"
 #include "candata/singlefaultwarningpacket.h"
+#include "widgets/hp_faultdesing.h"
 
 namespace Ui {
 class faultdialog;
@@ -22,7 +23,7 @@ class faultdialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit faultdialog(QWidget *parent = nullptr);
+    explicit faultdialog(std::shared_ptr<canbus_thread> canbus = nullptr,QWidget *parent = nullptr);
     ~faultdialog();
 
 private slots:
@@ -36,21 +37,43 @@ private slots:
 private:
     Ui::faultdialog *ui;
 
-    // all fault warnings informations
-    std::vector<singlefaultwarningpacket> packets{
-        singlefaultwarningpacket(this)
+
+    // packets
+
+    std::vector<std::shared_ptr<singlefaultwarningpacket>> packets;
+
+    // designs
+    std::vector<std::shared_ptr<hp_faultwarning>> faults{
+        std::make_shared<hp_faultdesing>("test", 0x506, 1, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 3, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 9, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 3, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 1, this),
+
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 34, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 12, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 9, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
     };
-
-    // faults
-    std::vector<std::shared_ptr<hp_faultwarning>> faultsgraphics{
-        //{1, std::make_shared<hp_faultwarning>("No motor", nullptr)},
-        //{2, std::make_shared<hp_faultwarning>("No can", nullptr)}
-
-    };
-
-
-
-    // warnings
 };
 
 #endif // FAULTDIALOG_H

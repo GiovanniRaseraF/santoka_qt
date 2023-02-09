@@ -71,7 +71,7 @@ protected:
 // Read from file and reproduce informations
 class fake_canbus_thread : public canbus_thread{
 public:
-    fake_canbus_thread(std::string _filename, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}{
+    fake_canbus_thread(std::string _filename, int _msleepval, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}, msleepval{_msleepval}{
         std::cout << ": using fake canbus thread to generate data" << std::endl;
     }
     ~fake_canbus_thread(){
@@ -82,6 +82,8 @@ public:
 private:
     std::string filename;
     std::ifstream file;
+
+    int msleepval = 0;
 
     int rangemin = 0x490;
     int rangemax = 0x510;
@@ -111,7 +113,7 @@ public:
             }
             emit signalnewdata(tosend);
 
-           QThread::msleep(20);
+           QThread::msleep(msleepval);
         }
     }
 

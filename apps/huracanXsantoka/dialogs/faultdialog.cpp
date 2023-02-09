@@ -1,22 +1,33 @@
 #include "faultdialog.h"
 #include "ui_faultdialog.h"
 
-faultdialog::faultdialog(QWidget *parent) :
+faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::faultdialog)
 {
     ui->setupUi(this);
 
-    // Add faults dinamics
-    int c = 0x506;
-    std::map<int, std::tuple<QString, QString>> vals{
-        {1, {"fault", "Ciao"}},
-        {2, {"fault", "Bella"}},
-        {3, {"fault", "io"}}
-    };
-    packets[0].loaddata(c, vals);
+    std::shared_ptr<singlefaultwarningpacket> s = std::make_shared<singlefaultwarningpacket>();
+    s->canchannel = 0x506;
+    s->importantbits = {1, 2, 3, 4, 6};
+    s->addproducer(canbus);
+    packets.push_back(s);
 
+    int count = 0;
+    for(auto f : faults){
+        if (count < 13)
+            ui->vl_fault1->addWidget(f.get());
+        if (count >= 14 && count < 28)
+            ui->vl_fault2->addWidget(f.get());
 
+        count ++;
+    }
+
+    for(auto p : packets){
+        for(auto f : faults){
+            connect(p.get(), SIGNAL(updatebit(int, int, bool)), f.get(), SLOT(activatecolor(int, int, bool)));
+        }
+    }
 }
 
 faultdialog::~faultdialog()

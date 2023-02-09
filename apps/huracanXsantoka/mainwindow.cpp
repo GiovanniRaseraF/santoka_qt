@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Create and start canbus on sepatate thread
-    canbus_producer = std::make_shared<fake_canbus_thread>("hello", nullptr);
+    canbus_producer = std::make_shared<fake_canbus_thread>("fake", 1,nullptr);
     std::cout << canbus_producer->getinfo() << std::endl;
 
     canbus_producer->start();
@@ -82,7 +82,7 @@ void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
 void MainWindow::on_pb_faults_clicked()
 {
     // Oper fault page
-    fault_dialog = std::make_shared<faultdialog>(this);
+    fault_dialog = std::make_shared<faultdialog>(canbus_producer, this);
 
     fault_dialog->show();
 }

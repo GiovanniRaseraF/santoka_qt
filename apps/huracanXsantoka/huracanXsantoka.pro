@@ -40,6 +40,7 @@ SOURCES += \
     displayer/filter.cpp \
     dialogs/faultdialog.cpp \
     pages/boatinfowindow.cpp \
+    widgets/hp_faultdesing.cpp \
     widgets/hp_faultwarning.cpp \
     widgets/hp_widget_generic_infostring.cpp
 
@@ -56,6 +57,7 @@ HEADERS += \
     displayer/filter.h \
     pages/boatinfowindow.h \
     dialogs/faultdialog.h \
+    widgets/hp_faultdesing.h \
     widgets/hp_faultwarning.h \
     widgets/hp_widget_generic_infostring.h
 
@@ -71,3 +73,6 @@ MOBILITY += systeminfo
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    configuration/faultswarningsconfig.xml

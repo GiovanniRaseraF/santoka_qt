@@ -17,8 +17,9 @@ public:
     ~hp_faultwarning();
 
 public slots:
-    void activatecolor(int c, int b, bool active);
-private:
+    virtual void activatecolor(int c, int b, bool active);
+
+public:
     Ui::hp_faultwarning *ui;
 
     int canchannel;
