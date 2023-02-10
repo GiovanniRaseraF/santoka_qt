@@ -9,7 +9,7 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
     ui->setupUi(this);
 
     hp_faultwarning_loader faultloader(this);
-    faultloader.loadfromfile(":/configuration/faultswarningsconfig.xml");
+    faultloader.loadfromfile(":/configuration/configuration.json");
 
     /// TESTING //////////////////////////////////////
     std::shared_ptr<singlefaultwarningpacket> s = std::make_shared<singlefaultwarningpacket>();

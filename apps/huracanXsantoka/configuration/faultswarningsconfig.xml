@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="2.0" encoding="UTF-8"?>
 <configuration>
     <settings>
         <add key="motors" value="1"/>
@@ -47,4 +47,4 @@
         <packet canchannel="0x506"/>
         </packet>
     </faultswarings>
-</configuration
+</configuration>
