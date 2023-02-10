@@ -85,8 +85,8 @@ private:
 
     int msleepval = 0;
 
-    int rangemin = 0x490;
-    int rangemax = 0x510;
+    int rangemin = 0x4FF;
+    int rangemax = 0x520;
 
 public:
     virtual void run() override {

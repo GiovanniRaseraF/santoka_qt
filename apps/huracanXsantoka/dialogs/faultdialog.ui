@@ -62,27 +62,23 @@ color: rgb(0, 0, 0);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QPushButton" name="pb_close">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>160</width>
-     <height>421</height>
+     <x>560</x>
+     <y>10</y>
+     <width>131</width>
+     <height>51</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="vl_fault1"/>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>70</y>
-     <width>160</width>
-     <height>421</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(237, 51, 59);
+border-radius: 20px;
+font: 18pt &quot;Ubuntu&quot;;</string>
    </property>
-   <layout class="QVBoxLayout" name="vl_fault2"/>
+   <property name="text">
+    <string>Close</string>
+   </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_3">
    <property name="geometry">
@@ -106,23 +102,27 @@ color: rgb(0, 0, 0);</string>
    </property>
    <layout class="QVBoxLayout" name="vl_warnings2"/>
   </widget>
-  <widget class="QPushButton" name="pb_close">
+  <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>10</y>
-     <width>131</width>
-     <height>51</height>
+     <x>180</x>
+     <y>70</y>
+     <width>160</width>
+     <height>421</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(237, 51, 59);
-border-radius: 20px;
-font: 18pt &quot;Ubuntu&quot;;</string>
+   <layout class="QVBoxLayout" name="vl_fault2"/>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>160</width>
+     <height>421</height>
+    </rect>
    </property>
-   <property name="text">
-    <string>Close</string>
-   </property>
+   <layout class="QVBoxLayout" name="vl_fault1"/>
   </widget>
  </widget>
  <resources/>

@@ -12,6 +12,7 @@
 #include "widgets/hp_faultwarning.h"
 #include "candata/singlefaultwarningpacket.h"
 #include "widgets/hp_faultdesing.h"
+#include "widgets/hp_warningdesign.h"
 
 namespace Ui {
 class faultdialog;
@@ -28,10 +29,6 @@ public:
 
 private slots:
     void on_faultdialog_accepted();
-
-    void getFaults(uint32_t newfaultmap);
-    void getWarnings(uint32_t newwarningsmap);
-
     void on_pb_close_clicked();
 
 private:
@@ -44,9 +41,6 @@ private:
 
     // designs
     std::vector<std::shared_ptr<hp_faultwarning>> faults{
-        std::make_shared<hp_faultdesing>("test", 0x506, 1, this),
-        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
-        std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
         std::make_shared<hp_faultdesing>("test", 0x506, 3, this),
         std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
         std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
@@ -73,6 +67,38 @@ private:
         std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
         std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
         std::make_shared<hp_faultdesing>("test", 0x506, 6, this),
+    };
+
+    std::vector<std::shared_ptr<hp_faultwarning>> warnings{
+        std::make_shared<hp_warningdesign>("test", 0x507, 1, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 3, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 9, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 3, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 1, this),
+
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 34, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 12, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 9, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
+        std::make_shared<hp_warningdesign>("test", 0x507, 6, this),
     };
 };
 

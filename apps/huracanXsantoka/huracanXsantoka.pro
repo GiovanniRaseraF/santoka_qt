@@ -42,6 +42,7 @@ SOURCES += \
     pages/boatinfowindow.cpp \
     widgets/hp_faultdesing.cpp \
     widgets/hp_faultwarning.cpp \
+    widgets/hp_warningdesign.cpp \
     widgets/hp_widget_generic_infostring.cpp
 
 HEADERS += \
@@ -59,6 +60,7 @@ HEADERS += \
     dialogs/faultdialog.h \
     widgets/hp_faultdesing.h \
     widgets/hp_faultwarning.h \
+    widgets/hp_warningdesign.h \
     widgets/hp_widget_generic_infostring.h
 
 FORMS += \
