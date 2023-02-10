@@ -1,5 +1,6 @@
 #include "faultdialog.h"
 #include "ui_faultdialog.h"
+#include "loaders/hp_faultwarning_loader.h"
 
 faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent) :
     QDialog(parent),
@@ -7,6 +8,10 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
 {
     ui->setupUi(this);
 
+    hp_faultwarning_loader faultloader(this);
+    faultloader.loadfromfile(":/configuration/faultswarningsconfig.xml");
+
+    /// TESTING //////////////////////////////////////
     std::shared_ptr<singlefaultwarningpacket> s = std::make_shared<singlefaultwarningpacket>();
     s->canchannel = 0x506;
     s->importantbits = {1, 2, 3, 4, 6};
@@ -45,6 +50,7 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
     for(auto w : warnings){
         connect(packets[1].get(), SIGNAL(updatebit(int, int, bool)), w.get(), SLOT(activatecolor(int, int, bool)));
     }
+    /////////////////////////////////////////////
 }
 
 faultdialog::~faultdialog()

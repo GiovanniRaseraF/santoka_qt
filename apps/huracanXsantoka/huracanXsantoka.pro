@@ -30,6 +30,7 @@ SOURCES += \
     candata/singlefaultwarningpacket.cpp \
     displayer/battery_filter.cpp \
     dataproducer.cpp \
+    loaders/hp_faultwarning_loader.cpp \
     main.cpp \
     mainwindow.cpp \
     displayer/generalinfo_filter.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     candata/singlefaultwarningpacket.h \
     displayer/battery_filter.h \
     dataproducer.h \
+    loaders/hp_faultwarning_loader.h \
     mainwindow.h \
     displayer/generalinfo_filter.h \
     displayer/motor_filter.h \
@@ -75,6 +77,3 @@ MOBILITY += systeminfo
 
 RESOURCES += \
     resources.qrc
-
-DISTFILES += \
-    configuration/faultswarningsconfig.xml
