@@ -94,9 +94,11 @@ void MainWindow::on_pb_boatinfo_clicked()
     boatinfo_page->connectInformations(battery, command, generalinfo, motor);
 #ifdef SANTOKA
     boatinfo_page->showFullScreen();
+#elif MACOS
+    this->hide();
+    boatinfo_page->show();
 #else
     boatinfo_page->show();
 #endif
-
     //boatinfo_page.reset();
 }
