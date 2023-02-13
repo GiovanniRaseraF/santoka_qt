@@ -22,7 +22,7 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
 
     int count = 0;
     for(auto f : faults){
-        if (count < 13)
+        if (count <= 13)
             ui->vl_fault1->addWidget(f.get());
         if (count >= 14 && count < 28)
             ui->vl_fault2->addWidget(f.get());
@@ -32,7 +32,7 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
 
     count = 0;
     for(auto w : warnings){
-        if (count < 13)
+        if (count <= 13)
             ui->vl_warnings1->addWidget(w.get());
         if (count >= 14 && count < 28)
             ui->vl_warnings2->addWidget(w.get());
@@ -40,11 +40,16 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
         count ++;
     }
 
-    for(auto f : faults){
-        connect(packets[0].get(), SIGNAL(updatebit(int, int, bool)), f.get(), SLOT(activatecolor(int, int, bool)));
-    }
-    for(auto w : warnings){
-        connect(packets[0].get(), SIGNAL(updatebit(int, int, bool)), w.get(), SLOT(activatecolor(int, int, bool)));
+
+    for(auto p : packets) {
+        for(auto f : faults){
+            if(p->canchannel == f->canchannel)
+                connect(p.get(), SIGNAL(updatebit(int, int, bool)), f.get(), SLOT(activatecolor(int, int, bool)));
+        }
+        for(auto w : warnings){
+            if(p->canchannel == w->canchannel)
+                connect(p.get(), SIGNAL(updatebit(int, int, bool)), w.get(), SLOT(activatecolor(int, int, bool)));
+        }
     }
 }
 

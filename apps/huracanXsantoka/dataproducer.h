@@ -71,7 +71,7 @@ protected:
 // Read from file and reproduce informations
 class fake_canbus_thread : public canbus_thread{
 public:
-    fake_canbus_thread(std::string _filename, int _msleepval, QObject *parent = nullptr) : canbus_thread{parent}, filename{_filename}, msleepval{_msleepval}{
+    fake_canbus_thread(std::string _filename, int _msleepval, QObject *parent = nullptr) : filename{_filename}, msleepval{_msleepval}{
         std::cout << ": using fake canbus thread to generate data" << std::endl;
     }
     ~fake_canbus_thread(){
@@ -92,17 +92,13 @@ public:
     virtual void run() override {
         std::random_device rd; // obtain a random number from hardware
         std::mt19937 gen(rd()); // seed the generator
-        std::uniform_int_distribution<> distr(25, 63);
+        std::uniform_int_distribution<> distr(0, 255);
 
         int counter = 0;
 
         struct can_frame tosend;
         tosend.can_id = rangemin;
         tosend.can_dlc = 8;
-        tosend.data[0] = 23;
-        tosend.data[1] = 33;
-        tosend.data[2] = 0;
-        tosend.data[6] = 0;
 
         while(!stop_execution){
             tosend.can_id = rangemin + counter;

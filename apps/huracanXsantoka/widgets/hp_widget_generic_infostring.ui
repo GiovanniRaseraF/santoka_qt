@@ -55,7 +55,7 @@ background-color: rgb(222, 221, 218);
     <property name="styleSheet">
      <string notr="true">font: 20pt &quot;Ubuntu&quot;;
 color: rgb(0,0,0);
-background-color: rgba(38, 162, 105, 190);
+background-color: rgba(28, 113, 216,200);
 border-radius: 10px;
 </string>
     </property>
