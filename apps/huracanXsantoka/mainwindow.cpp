@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Create and start canbus on sepatate thread
-    canbus_producer = std::make_shared<fake_canbus_thread>("fake can producer", 30, nullptr);
-    one_second_producer = std::make_shared<fake_canbus_thread>("fake 1 second", 1000, nullptr);
+    canbus_producer = std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
+    one_second_producer = std::make_shared<fake_canbus_thread>("fake 1 second", 500, nullptr);
 
     canbus_producer->start();
     one_second_producer->start();
@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     command = std::make_shared<command_filter>(canbus_producer, this);
     generalinfo = std::make_shared<generalinfo_filter>(canbus_producer, this);
     motor = std::make_shared<motor_filter>(canbus_producer, this);
+
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
     connectMotorFilterToGraphics();
@@ -83,7 +84,8 @@ void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
 void MainWindow::on_pb_faults_clicked()
 {
     // Oper fault page
-    fault_dialog = std::make_shared<faultdialog>(one_second_producer, this);
+    if(fault_dialog == nullptr)
+        fault_dialog = std::make_shared<faultdialog>(one_second_producer, this);
 
     fault_dialog->show();
 }

@@ -76,7 +76,7 @@ public:
     }
     ~fake_canbus_thread(){
         stop_execution = true;
-        QThread::msleep(10);
+        QThread::msleep(msleepval);
     };
 
 private:
@@ -116,8 +116,8 @@ public:
     std::string getinfo() override {
         std::string ret{};
 
-        ret += "fake_canbus_thread: ";
-        ret += "\n - filename: " + filename;
+        ret += filename;
+        ret += "\n - sleep: " + std::to_string(msleepval) + " ms";
 
         return ret;
     }
