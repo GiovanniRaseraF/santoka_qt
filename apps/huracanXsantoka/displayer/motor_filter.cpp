@@ -22,6 +22,7 @@ void motor_filter::receivednewframe(const can_frame newframe)
         emit new_drv_motorTemperature(drv_motorTemperature); 
         emit new_drv_motorSpeed(drv_motorSpeed);
 
+        break;
         case 0x502:
         drv_warnings = filter::to_uint32(&newframe, 0, 4, 0, 1);
         drv_faults = filter::to_uint32(&newframe, 4, 8, 0, 1);

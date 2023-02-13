@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Faults and Warnings</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/images/warning.png</normaloff>:/images/warning.png</iconset>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="enabled">
@@ -134,7 +138,9 @@ font: 18pt &quot;Ubuntu&quot;;</string>
    <layout class="QVBoxLayout" name="vl_fault1"/>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

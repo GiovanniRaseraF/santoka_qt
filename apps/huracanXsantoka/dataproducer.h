@@ -72,6 +72,7 @@ protected:
 class fake_canbus_thread : public canbus_thread{
 public:
     fake_canbus_thread(std::string _filename, int _msleepval, QObject *parent = nullptr) : filename{_filename}, msleepval{_msleepval}{
+        Q_UNUSED(parent);
         std::cout << ": using fake canbus thread to generate data" << std::endl;
     }
     ~fake_canbus_thread(){

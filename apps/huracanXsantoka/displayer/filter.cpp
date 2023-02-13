@@ -78,6 +78,9 @@ int32_t filter::to_int32(const can_frame *frame, uint8_t startbyte, uint8_t endb
 
 float filter::to_float(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor)
 {
+    Q_UNUSED(frame);
+    Q_UNUSED(offset);
+    Q_UNUSED(factor);
     uint8_t bytes = endbyte - startbyte;
     Q_UNUSED(bytes);
     uint32_t ret = 0;
@@ -87,6 +90,12 @@ float filter::to_float(const can_frame *frame, uint8_t startbyte, uint8_t endbyt
 
 std::string filter::to_string(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor)
 {
+    Q_UNUSED(frame);
+    Q_UNUSED(offset);
+    Q_UNUSED(factor);
+    Q_UNUSED(startbyte);
+    Q_UNUSED(endbyte);
+
    return "TestVal";
 }
 

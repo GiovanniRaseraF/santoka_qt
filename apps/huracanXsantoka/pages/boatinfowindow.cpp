@@ -50,9 +50,6 @@ void BoatInfoWindow::connectInformations(
     ui->horizontalLayout->addWidget(generalinfodesign.get());
 }
 
-void BoatInfoWindow::setSOC(uint8_t newval){
-
-}
 
 void BoatInfoWindow::on_pb_close_clicked()
 {
