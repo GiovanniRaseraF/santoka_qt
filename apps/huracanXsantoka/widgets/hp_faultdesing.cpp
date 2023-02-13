@@ -7,7 +7,6 @@ hp_faultdesing::hp_faultdesing(QString name, int _canchannel, int bit, QWidget *
 
 void hp_faultdesing::activatecolor(int c, int b, bool active)
 {
-    //std::cout << c << " " << b << std::endl;
     if(c == hp_faultwarning::canchannel && b == hp_faultwarning::bit){
        if(active){
             ui->pushButton_2->setStyleSheet("background-color:rgb(100, 0, 0);");

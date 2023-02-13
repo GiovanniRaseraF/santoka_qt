@@ -1,5 +1,7 @@
 #include "singlefaultwarningpacket.h"
 #include <cmath>
+#include <iomanip>
+#include <QDebug>
 
 singlefaultwarningpacket::singlefaultwarningpacket(int _canchannel, std::vector<int>&& _importantbits, QObject *parent):
     QObject(parent),
@@ -21,13 +23,16 @@ void singlefaultwarningpacket::newpacket(can_frame newframe)
 
     // update only interesting bits
     for(int bit : importantbits){
-        int position = (int)std::floor(bit / 8) * 8;
+        int position = (int)std::floor(bit / 8);
         int offset = bit % 8;
 
-        uint8_t mask = 1 << (8 - offset);
+        uint8_t mask = 1 << (7 - offset);
         bool isactive = newframe.data[position] & mask;
+
+        //qDebug() << "position: " << position << " offset: " << offset << " mask: " << (uint32_t)mask << " is: " << isactive << " \n";
 
         emit updatebit(canchannel, bit, isactive);
     }
+
 
 }

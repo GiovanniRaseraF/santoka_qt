@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>160</width>
+    <width>204</width>
     <height>29</height>
    </rect>
   </property>
@@ -18,12 +18,12 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>158</width>
+     <width>201</width>
      <height>25</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">font: 6pt &quot;Ubuntu&quot;;</string>
    </property>
    <property name="text">
     <string/>
