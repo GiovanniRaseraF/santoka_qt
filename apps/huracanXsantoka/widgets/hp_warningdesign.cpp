@@ -10,7 +10,7 @@ void hp_warningdesign::activatecolor(int c, int b, bool active)
        if(active){
             ui->pushButton_2->setStyleSheet("background-color:rgb(204,204,0);");
        }else{
-            ui->pushButton_2->setStyleSheet("background-color:rgb(10, 10, 10);");
+            ui->pushButton_2->setStyleSheet("background-color:rgb(154, 153, 150);");
        }
     }
 }

@@ -25,9 +25,9 @@ void singlefaultwarningpacket::newpacket(can_frame newframe)
         int offset = bit % 8;
 
         uint8_t mask = 1 << (8 - offset);
-
         bool isactive = newframe.data[position] & mask;
 
         emit updatebit(canchannel, bit, isactive);
     }
+
 }

@@ -7,42 +7,42 @@
                                 "_bit": "0"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "Inverter Overtemperature",
                                 "_bit": "1"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "Motor Overtemperature",
                                 "_bit": "2"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "Motor Temperature Sensor Defect",
                                 "_bit": "3"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "I2T Motor Protection",
                                 "_bit": "4"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "Low SOC Level",
                                 "_bit": "5"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "Over Charge",
                                 "_bit": "6"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "Throttle Not Zero",
                                 "_bit": "7"
                         },
                         {
-                                "_type": "waring",
+                                "_type": "warning",
                                 "_description": "RESERVED",
                                 "_bit": "8",
                                 "_length": "24"

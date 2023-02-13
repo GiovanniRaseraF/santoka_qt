@@ -27,9 +27,10 @@ signals:
 public:
      void loadfromfile(QString filename);
 
-private:
+public:
     std::vector<std::shared_ptr<singlefaultwarningpacket>> packets;
-    std::vector<std::shared_ptr<hp_faultwarning>> faultswarnings;
+    std::vector<std::shared_ptr<hp_faultdesing>> faults;
+    std::vector<std::shared_ptr<hp_warningdesign>> warnings;
     int numberofmotors = 0;
 };
 

@@ -30,6 +30,7 @@ void hp_faultwarning_loader::loadfromfile(QString filename)
 
     QJsonValue elems = value1.toObject().value(QString("elem"));
     QJsonArray elemsarray = elems.toArray();
+    // loading every bit
     for(auto e : elemsarray){
         QString b = e.toObject().value("_bit").toString();
         int bit = std::stoul(b.toStdString(), nullptr, 10);
@@ -37,11 +38,22 @@ void hp_faultwarning_loader::loadfromfile(QString filename)
         QString desc = e.toObject().value("_description").toString();
         QString type = e.toObject().value("_type").toString();
 
+        // loading design
         if(desc != "RESERVED"){
             bits.push_back(bit);
 
-
+            if(type == "fault"){
+                faults.push_back(std::make_shared<hp_faultdesing>(desc, currentchannel, bit));
+            }else if(type == "warning"){
+                warnings.push_back(std::make_shared<hp_warningdesign>(desc, currentchannel, bit));
+            }else{
+                faults.push_back(std::make_shared<hp_faultdesing>(desc, currentchannel, bit));
+            }
         }
-        qDebug() << desc;
     }
+
+    singlepacket->importantbits = bits;
+
+    packets.push_back(singlepacket);
+
 }
