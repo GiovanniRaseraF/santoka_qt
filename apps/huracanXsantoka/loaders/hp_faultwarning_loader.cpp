@@ -39,6 +39,8 @@ void hp_faultwarning_loader::loadfromfile(QString filename)
 
         if(desc != "RESERVED"){
             bits.push_back(bit);
+
+
         }
         qDebug() << desc;
     }
