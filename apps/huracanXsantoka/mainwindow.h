@@ -48,6 +48,7 @@ private:
 
     // Can bus producer thread
     std::shared_ptr<canbus_thread> canbus_producer;
+    std::shared_ptr<fake_canbus_thread> one_second_producer;
 
     // Displayer
     std::shared_ptr<filter> logger;
