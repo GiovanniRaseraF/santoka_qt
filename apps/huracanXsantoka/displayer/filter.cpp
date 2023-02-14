@@ -10,7 +10,6 @@ filter::filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) 
     name = "Generic filter";
 
     lastupdated = std::chrono::steady_clock::now();
-    //connect(canbus_producer.get(), SIGNAL(signalnewdata(can_frame)), this, SLOT(newdatafromcan(can_frame)));
 }
 
 void filter::newdatafromcan(const can_frame newframe)
