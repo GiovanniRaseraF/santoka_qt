@@ -9,7 +9,7 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
     ui->setupUi(this);
 
     // loading faults
-    hp_faultwarning_loader faultloader(this);
+    hp_faultwarning_loader faultloader(nullptr);
     faultloader.loadfromfile(":/configuration/configuration.json");
 
     faults = std::move(faultloader.faults);
@@ -20,27 +20,18 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
         p->addproducer(canbus);
     }
 
-    int count = 0;
-    for(auto f : faults){
-        if (count <= 13)
-            ui->vl_fault1->addWidget(f.get());
-        if (count >= 14 && count < 28)
-            ui->vl_fault2->addWidget(f.get());
+    // connect information to design
+    loadDesignIntoColumns();
+    connectDesign();
+}
 
-        count ++;
-    }
+faultdialog::~faultdialog()
+{
+    delete ui;
+}
 
-    count = 0;
-    for(auto w : warnings){
-        if (count <= 13)
-            ui->vl_warnings1->addWidget(w.get());
-        if (count >= 14 && count < 28)
-            ui->vl_warnings2->addWidget(w.get());
-
-        count ++;
-    }
-
-
+void faultdialog::connectDesign()
+{
     for(auto p : packets) {
         for(auto f : faults){
             if(p->canchannel == f->canchannel)
@@ -53,9 +44,28 @@ faultdialog::faultdialog(std::shared_ptr<canbus_thread> canbus, QWidget *parent)
     }
 }
 
-faultdialog::~faultdialog()
+void faultdialog::loadDesignIntoColumns()
 {
-    delete ui;
+    const int MAX_X_COLUMN = 16;
+    int count = 0;
+    for(auto f : faults){
+        if (count <= MAX_X_COLUMN)
+            ui->vl_fault1->addWidget(f.get());
+        if (count >= MAX_X_COLUMN + 1 && count < 2 * (MAX_X_COLUMN + 1)+1)
+            ui->vl_fault2->addWidget(f.get());
+
+        count ++;
+    }
+
+    count = 0;
+    for(auto w : warnings){
+        if (count <= MAX_X_COLUMN)
+            ui->vl_warnings1->addWidget(w.get());
+        if (count >= MAX_X_COLUMN+1 && count < 2 * (MAX_X_COLUMN + 1)+1)
+            ui->vl_warnings2->addWidget(w.get());
+
+        count ++;
+    }
 }
 
 void faultdialog::on_faultdialog_accepted()

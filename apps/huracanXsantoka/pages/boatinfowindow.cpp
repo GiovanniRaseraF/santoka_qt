@@ -30,17 +30,6 @@ void BoatInfoWindow::connectInformations(
     motor = _motor;
 
     // Create design
-#if 0
-    batterydesign = std::make_shared<hp_batterydesign>(battery, nullptr);
-    motordesign = std::make_shared<hp_motordesign>(nullptr);
-    generalinfodesign = std::make_shared<hp_generalinfo>(nullptr);
-
-    ui->horizontalLayout->addWidget(batterydesign.get());
-    ui->horizontalLayout->addWidget(motordesign.get());
-    ui->horizontalLayout->addWidget(generalinfodesign.get());
-#endif
-
-    // Testing
     batterydesign = std::make_shared<hp_widget_generic_infostring>("Battery", battery, nullptr);
     motordesign = std::make_shared<hp_widget_generic_infostring>("Motor", motor, nullptr);
     generalinfodesign = std::make_shared<hp_widget_generic_infostring>("General Info", generalinfo, nullptr);
@@ -57,5 +46,5 @@ void BoatInfoWindow::on_pb_close_clicked()
     motordesign.reset();
     generalinfodesign.reset();
 
-    this->close();
+    this->hide();
 }

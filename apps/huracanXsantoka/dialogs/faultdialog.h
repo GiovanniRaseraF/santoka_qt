@@ -27,6 +27,10 @@ public:
     explicit faultdialog(std::shared_ptr<canbus_thread> canbus = nullptr,QWidget *parent = nullptr);
     ~faultdialog();
 
+private:
+    void connectDesign();
+    void loadDesignIntoColumns();
+
 private slots:
     void on_faultdialog_accepted();
     void on_pb_close_clicked();

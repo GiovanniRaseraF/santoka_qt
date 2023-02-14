@@ -178,712 +178,279 @@
                 "_canchannel": "0x502"
         },
         {
-                "elem": [
-                        {
-                                "_type": "alarm",
-                                "_description": "Inverter_NOT_Ready",
-                                "_bit": "0"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "1"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "2"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Temperature Sensor Defect",
-                                "_bit": "3"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "4"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Low SOC Level",
-                                "_bit": "5"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Over Charge",
-                                "_bit": "6"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Throttle Not Zero",
-                                "_bit": "7"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "RESERVED",
-                                "_bit": "8",
-                                "_length": "24"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overvoltage",
-                                "_bit": "32"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overcurrent",
-                                "_bit": "33"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Undervoltage",
-                                "_bit": "34"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Short Circuit Power Stage",
-                                "_bit": "35"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Rotor Initial Position Error",
-                                "_bit": "36"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Disconnected",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Wrong Sequence",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Aux Contactor",
-                                "_bit": "38"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "40"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "IxT Power Protection",
-                                "_bit": "41"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "42"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "43"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Emergency Input",
-                                "_bit": "44"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Throttle Pot Disconnected",
-                                "_bit": "45"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Brake Pot Disconnected",
-                                "_bit": "46"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Clutch Pot Disconnected",
-                                "_bit": "47"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power U Defect",
-                                "_bit": "48"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power V Defect",
-                                "_bit": "49"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power W Defect",
-                                "_bit": "50"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Contactor",
-                                "_bit": "51"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CRT CAN Link",
-                                "_bit": "52"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "RESERVED",
-                                "_bit": "53",
-                                "_length": "8"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Wrong Configuration",
-                                "_bit": "61"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANA Defect",
-                                "_bit": "62"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANB Defect",
-                                "_bit": "63"
-                        }
-                ],
-                "_canchannel": "0x503"
+		"elem": [
+			{
+				"_type": "alarm",
+				"_description": "Overcurrent",
+				"_bit": "0"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Overtemperature Cell",
+				"_bit": "1"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Overtemperature Board",
+				"_bit": "2"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Charge Over Voltage",
+				"_bit": "3"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Discharge Under Voltage",
+				"_bit": "4"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Low Energy",
+				"_bit": "5"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Charge Minimum Temperature",
+				"_bit": "6"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Charge Minimum Voltage",
+				"_bit": "7"
+			},
+			{
+				"_type": "warning",
+				"_description": "Maximum Current",
+				"_bit": "8"
+			},
+			{
+				"_type": "warning",
+				"_description": "Cell Max Temperature",
+				"_bit": "9"
+			},
+			{
+				"_type": "warning",
+				"_description": "Board Max Temperature",
+				"_bit": "10"
+			},
+			{
+				"_type": "warning",
+				"_description": "Charge Max Voltage",
+				"_bit": "11"
+			},
+			{
+				"_type": "warning",
+				"_description": "Discharge Min Voltage",
+				"_bit": "12"
+			},
+			{
+				"_type": "warning",
+				"_description": "Energy Level",
+				"_bit": "13"
+			},
+			{
+				"_type": "warning",
+				"_description": "Charge Minimum Voltage",
+				"_bit": "14"
+			},
+			{
+				"_type": "warning",
+				"_description": "Low Voltage",
+				"_bit": "15"
+			}
+		],
+		"_canchannel": "0x506"
         },
         {
-                "elem": [
-                        {
-                                "_type": "alarm",
-                                "_description": "Inverter_NOT_Ready",
-                                "_bit": "0"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "1"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "2"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Temperature Sensor Defect",
-                                "_bit": "3"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "4"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Low SOC Level",
-                                "_bit": "5"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Over Charge",
-                                "_bit": "6"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Throttle Not Zero",
-                                "_bit": "7"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "RESERVED",
-                                "_bit": "8",
-                                "_length": "24"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overvoltage",
-                                "_bit": "32"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overcurrent",
-                                "_bit": "33"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Undervoltage",
-                                "_bit": "34"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Short Circuit Power Stage",
-                                "_bit": "35"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Rotor Initial Position Error",
-                                "_bit": "36"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Disconnected",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Wrong Sequence",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Aux Contactor",
-                                "_bit": "38"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "40"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "IxT Power Protection",
-                                "_bit": "41"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "42"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "43"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Emergency Input",
-                                "_bit": "44"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Throttle Pot Disconnected",
-                                "_bit": "45"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Brake Pot Disconnected",
-                                "_bit": "46"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Clutch Pot Disconnected",
-                                "_bit": "47"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power U Defect",
-                                "_bit": "48"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power V Defect",
-                                "_bit": "49"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power W Defect",
-                                "_bit": "50"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Contactor",
-                                "_bit": "51"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CRT CAN Link",
-                                "_bit": "52"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "RESERVED",
-                                "_bit": "53",
-                                "_length": "8"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Wrong Configuration",
-                                "_bit": "61"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANA Defect",
-                                "_bit": "62"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANB Defect",
-                                "_bit": "63"
-                        }
-                ],
-                "_canchannel": "0x505"
-        },
-        {
-                "elem": [
-                        {
-                                "_type": "alarm",
-                                "_description": "Inverter_NOT_Ready",
-                                "_bit": "0"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "1"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "2"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Temperature Sensor Defect",
-                                "_bit": "3"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "4"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Low SOC Level",
-                                "_bit": "5"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Over Charge",
-                                "_bit": "6"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Throttle Not Zero",
-                                "_bit": "7"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "RESERVED",
-                                "_bit": "8",
-                                "_length": "24"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overvoltage",
-                                "_bit": "32"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overcurrent",
-                                "_bit": "33"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Undervoltage",
-                                "_bit": "34"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Short Circuit Power Stage",
-                                "_bit": "35"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Rotor Initial Position Error",
-                                "_bit": "36"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Disconnected",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Wrong Sequence",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Aux Contactor",
-                                "_bit": "38"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "40"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "IxT Power Protection",
-                                "_bit": "41"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "42"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "43"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Emergency Input",
-                                "_bit": "44"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Throttle Pot Disconnected",
-                                "_bit": "45"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Brake Pot Disconnected",
-                                "_bit": "46"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Clutch Pot Disconnected",
-                                "_bit": "47"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power U Defect",
-                                "_bit": "48"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power V Defect",
-                                "_bit": "49"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power W Defect",
-                                "_bit": "50"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Contactor",
-                                "_bit": "51"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CRT CAN Link",
-                                "_bit": "52"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "RESERVED",
-                                "_bit": "53",
-                                "_length": "8"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Wrong Configuration",
-                                "_bit": "61"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANA Defect",
-                                "_bit": "62"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANB Defect",
-                                "_bit": "63"
-                        }
-                ],
-                "_canchannel": "0x506"
-        },
-        {
-                "elem": [
-                        {
-                                "_type": "alarm",
-                                "_description": "Inverter_NOT_Ready",
-                                "_bit": "0"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "1"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "2"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Motor Temperature Sensor Defect",
-                                "_bit": "3"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "4"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Low SOC Level",
-                                "_bit": "5"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Over Charge",
-                                "_bit": "6"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "Throttle Not Zero",
-                                "_bit": "7"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "RESERVED",
-                                "_bit": "8",
-                                "_length": "24"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overvoltage",
-                                "_bit": "32"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Overcurrent",
-                                "_bit": "33"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Undervoltage",
-                                "_bit": "34"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Short Circuit Power Stage",
-                                "_bit": "35"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Rotor Initial Position Error",
-                                "_bit": "36"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Disconnected",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "HE Wrong Sequence",
-                                "_bit": "37"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Aux Contactor",
-                                "_bit": "38"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Inverter Overtemperature",
-                                "_bit": "40"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "IxT Power Protection",
-                                "_bit": "41"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Motor Overtemperature",
-                                "_bit": "42"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "I2T Motor Protection",
-                                "_bit": "43"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Emergency Input",
-                                "_bit": "44"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Throttle Pot Disconnected",
-                                "_bit": "45"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Brake Pot Disconnected",
-                                "_bit": "46"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Clutch Pot Disconnected",
-                                "_bit": "47"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power U Defect",
-                                "_bit": "48"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power V Defect",
-                                "_bit": "49"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "PTC Power W Defect",
-                                "_bit": "50"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Contactor",
-                                "_bit": "51"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CRT CAN Link",
-                                "_bit": "52"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "RESERVED",
-                                "_bit": "53",
-                                "_length": "8"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "Wrong Configuration",
-                                "_bit": "61"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANA Defect",
-                                "_bit": "62"
-                        },
-                        {
-                                "_type": "fault",
-                                "_description": "CANB Defect",
-                                "_bit": "63"
-                        }
-                ],
-                "_canchannel": "0x507"
-        }
+		"elem": [
+			{
+				"_type": "alarm",
+				"_description": "Ingresso di emergenza",
+				"_bit": "0"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Pulsante Start/Stop",
+				"_bit": "1"
+			},
+			{
+				"_type": "alarm",
+				"_description": "Guasto attuatori",
+				"_bit": "2"
+			},
+			{
+				"_type": "alarm",
+				"_description": "RESERVED",
+				"_bit": "3"
+			},
+			{
+				"_type": "alarm",
+				"_description": "CAN bus manetta di comando",
+				"_bit": "4"
+			},
+			{
+				"_type": "alarm",
+				"_description": "CAN bus attuatori",
+				"_bit": "5"
+			},
+			{
+				"_type": "alarm",
+				"_description": "RESERVED",
+				"_bit": "6"
+			},
+			{
+				"_type": "alarm",
+				"_description": "12V ECU basso",
+				"_bit": "8"
+			},
+			{
+				"_type": "alarm",
+				"_description": "RESERVED",
+				"_bit": "9"
+			},
+			{
+				"_type": "alarm",
+				"_description": "memoria eeprom difettosa",
+				"_bit": "15"
+			},
+			{
+				"_type": "alarm",
+				"_description": "azionamento motore",
+				"_bit": "16"
+			},
+			{
+				"_type": "alarm",
+				"_description": "motore termico",
+				"_bit": "17"
+			},
+			{
+				"_type": "alarm",
+				"_description": "batteria alta tensione",
+				"_bit": "18"
+			},
+			{
+				"_type": "alarm",
+				"_description": "RESERVED",
+				"_bit": "19"
+			},
+			{
+				"_type": "alarm",
+				"_description": "CAN bus motore termico",
+				"_bit": "20"
+			},
+			{
+				"_type": "alarm",
+				"_description": "CAN bus azionamento",
+				"_bit": "21"
+			},
+			{
+				"_type": "alarm",
+				"_description": "CAN bus batteria",
+				"_bit": "22"
+			},
+			{
+				"_type": "alarm",
+				"_description": "CAN bus bimotore",
+				"_bit": "23"
+			},
+			{
+				"_type": "alarm",
+				"_description": "attuatore marce sinistro",
+				"_bit": "24"
+			},
+			{
+				"_type": "alarm",
+				"_description": "attuatore marce destro",
+				"_bit": "25"
+			},
+			{
+				"_type": "alarm",
+				"_description": "RESERVED",
+				"_bit": "26"
+			},
+			{
+				"_type": "alarm",
+				"_description": "12V AUX basso",
+				"_bit": "28"
+			},
+			{
+				"_type": "alarm",
+				"_description": "RESERVED",
+				"_bit": "29"
+			},
+			{
+				"_type": "warning",
+				"_description": "basso ivello SOC",
+				"_bit": "32"
+			},
+			{
+				"_type": "warning",
+				"_description": "manetta accelerata",
+				"_bit": "33"
+			},
+			{
+				"_type": "warning",
+				"_description": "marcia inserita",
+				"_bit": "34"
+			},
+			{
+				"_type": "warning",
+				"_description": "cortocircuito pompa idroguida",
+				"_bit": "35"
+			},
+			{
+				"_type": "warning",
+				"_description": "pressostato pompa mare",
+				"_bit": "36"
+			},
+			{
+				"_type": "warning",
+				"_description": "cortocircuito pompa mare",
+				"_bit": "37"
+			},
+			{
+				"_type": "warning",
+				"_description": "pressostato pompa glicole",
+				"_bit": "38"
+			},
+			{
+				"_type": "warning",
+				"_description": "cortocircuito pompa glicole",
+				"_bit": "39"
+			},
+			{
+				"_type": "warning",
+				"_description": "cavo di ricarica inserito",
+				"_bit": "40"
+			},
+			{
+				"_type": "warning",
+				"_description": "12V ECU basso",
+				"_bit": "41"
+			},
+			{
+				"_type": "warning",
+				"_description": "12V AUX basso",
+				"_bit": "42"
+			},
+			{
+				"_type": "warning",
+				"_description": "RESERVED",
+				"_bit": "43"
+			},
+			{
+				"_type": "warning",
+				"_description": "velocità limitata",
+				"_bit": "44"
+			},
+			{
+				"_type": "warning",
+				"_description": "RESERVED",
+				"_bit": "45"
+			}
+		],
+		"_canchannel": "0x50F"
+	}
 ]
 }

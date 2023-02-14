@@ -43,7 +43,72 @@
             <elem type="fault" description="Wrong Configuration"                bit="61"/>
             <elem type="fault" description="CANA Defect"                        bit="62"/>
             <elem type="fault" description="CANB Defect"                        bit="63"/>
+        </packet> 
+
+
+        <packet canchannel="0x506">
+            <elem type="alarm" description="Overcurrent"                 	bit="0"/>
+            <elem type="alarm" description="Overtemperature Cell"          	bit="1"/>
+            <elem type="alarm" description="Overtemperature Board"             	bit="2"/>
+            <elem type="alarm" description="Charge Over Voltage"   		bit="3"/>
+            <elem type="alarm" description="Discharge Under Voltage"            bit="4"/>
+            <elem type="alarm" description="Low Energy"                     	bit="5"/>
+            <elem type="alarm" description="Charge Minimum Temperature"        	bit="6"/>
+            <elem type="alarm" description="Charge Minimum Voltage"             bit="7"/>
+            
+            <elem type="warning" description="Maximum Current"                  bit="8"/>
+            <elem type="warning" description="Cell Max Temperature"             bit="9"/>
+            <elem type="warning" description="Board Max Temperature"            bit="10"/>
+            <elem type="warning" description="Charge Max Voltage"          	bit="11"/>
+            <elem type="warning" description="Discharge Min Voltage"       	bit="12"/>
+            <elem type="warning" description="Energy Level"                    	bit="13"/>
+            <elem type="warning" description="Charge Minimum Voltage"           bit="14"/>
+            <elem type="warning" description="Low Voltage"                      bit="15"/>
         </packet>
+        
+        <packet canchannel="0x50F">
+            <elem type="alarm" description="Ingresso di emergenza"              bit="0"/>
+            <elem type="alarm" description="Pulsante Start/Stop"          	bit="1"/>
+            <elem type="alarm" description="Guasto attuatori"             	bit="2"/>
+            <elem type="alarm" description="RESERVED"   			bit="3"/>
+            <elem type="alarm" description="CAN bus manetta di comando"         bit="4"/>
+            <elem type="alarm" description="CAN bus attuatori"                	bit="5"/>
+            <elem type="alarm" description="RESERVED"        			bit="6"/>
+            <elem type="alarm" description="12V ECU basso"             		bit="8"/>
+            <elem type="alarm" description="RESERVED"                 		bit="9"/>
+            <elem type="alarm" description="memoria eeprom difettosa"          	bit="15"/>
+            <elem type="alarm" description="azionamento motore"             	bit="16"/>
+            <elem type="alarm" description="motore termico"   			bit="17"/>
+            <elem type="alarm" description="batteria alta tensione"            	bit="18"/>
+            <elem type="alarm" description="RESERVED"                     	bit="19"/>
+            <elem type="alarm" description="CAN bus motore termico"        	bit="20"/>
+            <elem type="alarm" description="CAN bus azionamento"             	bit="21"/>
+            <elem type="alarm" description="CAN bus batteria"                 	bit="22"/>
+            <elem type="alarm" description="CAN bus bimotore"          		bit="23"/>
+            <elem type="alarm" description="attuatore marce sinistro"           bit="24"/>
+            <elem type="alarm" description="attuatore marce destro"   		bit="25"/>
+            <elem type="alarm" description="RESERVED"            		bit="26"/>
+            <elem type="alarm" description="12V AUX basso"                     	bit="28"/>
+            <elem type="alarm" description="RESERVED"        			bit="29"/>
+            
+            
+            <elem type="warning" description="basso ivello SOC"                 bit="32"/>
+            <elem type="warning" description="manetta accelerata"             	bit="33"/>
+            <elem type="warning" description="marcia inserita"            	bit="34"/>
+            <elem type="warning" description="cortocircuito pompa idroguida"    bit="35"/>
+            <elem type="warning" description="pressostato pompa mare"       	bit="36"/>
+            <elem type="warning" description="cortocircuito pompa mare"         bit="37"/>
+            <elem type="warning" description="pressostato pompa glicole"        bit="38"/>
+            <elem type="warning" description="cortocircuito pompa glicole"      bit="39"/>
+            <elem type="warning" description="cavo di ricarica inserito"        bit="40"/>
+            <elem type="warning" description="12V ECU basso"             	bit="41"/>
+            <elem type="warning" description="12V AUX basso"            	bit="42"/>
+            <elem type="warning" description="RESERVED"          		bit="43"/>
+            <elem type="warning" description="velocità limitata"       		bit="44"/>
+            <elem type="warning" description="RESERVED"                    	bit="45"/>
+        </packet>
+
+
         <packet canchannel="0x506"/>
         </packet>
     </faultswarings>

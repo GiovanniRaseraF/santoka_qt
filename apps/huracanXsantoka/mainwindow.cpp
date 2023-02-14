@@ -92,7 +92,8 @@ void MainWindow::on_pb_faults_clicked()
 
 void MainWindow::on_pb_boatinfo_clicked()
 {
-    boatinfo_page = std::make_shared<BoatInfoWindow>(this);
+    if(boatinfo_page == nullptr)
+        boatinfo_page = std::make_shared<BoatInfoWindow>(this);
 
     boatinfo_page->connectInformations(battery, command, generalinfo, motor);
 #ifdef SANTOKA
