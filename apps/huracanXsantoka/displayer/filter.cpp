@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cassert>
+#include <utility>
 
 filter::filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) : QObject{parent}
 {
@@ -12,6 +13,17 @@ filter::filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) 
     lastupdated = std::chrono::steady_clock::now();
 }
 
+uint64_t filter::convert(uint8_t *data, uint8_t len){
+    uint64_t raw = 0;
+
+    for(int i = len-1, j = 0; i >= 0; i--, j++){
+       uint64_t di = data[j];
+       raw |= di << (i*8);
+    }
+
+    return raw;
+}
+
 void filter::newdatafromcan(const can_frame newframe)
 {
     std::cout << "Filter: ID:" << newframe.can_id << " - ";
@@ -20,6 +32,19 @@ void filter::newdatafromcan(const can_frame newframe)
     }
     std::cout << std::endl;
 }
+
+uint32_t filter::doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f){
+    int sbit = sb * 8, ebit = eb * 8, shiftright = 64 - ebit;
+
+    uint64_t mask = 0;
+    for(int i = sbit; i < ebit; i++){
+        mask |= (0x8000000000000000) >> i;
+    }
+
+    uint64_t value = (raw & mask) >> shiftright;
+    return (uint32_t) value;
+}
+
 
 uint8_t filter::to_uint8(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor)
 {

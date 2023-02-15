@@ -9,13 +9,14 @@ battery_filter::battery_filter(std::shared_ptr<canbus_thread> canbus_producer, Q
 }
 
 void battery_filter::receivednewframe(const can_frame newframe){
+    uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
     switch(newframe.can_id){
         case 0x505:
-        bat_TotalVoltage = filter::to_float(&newframe, 0, 2, 0, 10);
-        bat_TotalCurrent = filter::to_float(&newframe, 2, 4, 0, 10);
-        bat_BatteryTemperature = filter::to_uint8(&newframe, 4, 5, 0, 1);
-        bat_BMSTemperature = filter::to_uint8(&newframe, 5, 6, 0, 1);
-        bat_SOC = filter::to_uint8(&newframe, 6, 7, 0, 1);
+        bat_TotalVoltage = 				(float)filter::doconvert(raw, 0, 2, 0, 10) / 10;
+        bat_TotalCurrent = 				(float)filter::doconvert(raw, 2, 4, 0, 10) / 10;
+        bat_BatteryTemperature = 		filter::doconvert(raw, 4, 5, 0, 1);
+        bat_BMSTemperature = 			filter::doconvert(raw, 5, 6, 0, 1);
+        bat_SOC = 						filter::doconvert(raw, 6, 7, 0, 1);
 
         emit new_bat_TotalVoltage(bat_TotalVoltage);
         emit new_bat_TotalCurrent(bat_TotalCurrent);
@@ -25,12 +26,12 @@ void battery_filter::receivednewframe(const can_frame newframe){
         break;
 
         case 0x506:
-        bat_faults = filter::to_uint8(&newframe, 0, 1, 0, 1);
-        bat_warnings = filter::to_uint8(&newframe, 1, 2, 0, 1);
-        bat_status = filter::to_uint8(&newframe, 2, 3, 0, 1);
-        bat_Power = filter::to_float(&newframe, 3, 5, 0, 10);
-        bat_TimeToEmpty = filter::to_uint16(&newframe, 5, 7, 0, 1);
-        bat_auxBatteryVoltage = filter::to_uint8(&newframe, 7, 8, 0, 10);
+        bat_faults = 		filter::to_uint8(&newframe, 0, 1, 0, 1);
+        bat_warnings = 		filter::to_uint8(&newframe, 1, 2, 0, 1);
+        bat_status = 		filter::to_uint8(&newframe, 2, 3, 0, 1);
+        bat_Power = 					(float)filter::doconvert(raw, 3, 5, 0, 10) / 10;
+        bat_TimeToEmpty = 				filter::doconvert(raw, 5, 7, 0, 1);
+        bat_auxBatteryVoltage = 		(float)filter::doconvert(raw, 7, 8, 0, 10) / 10;
             
         emit new_bat_faults(bat_faults);
         emit new_bat_warnings(bat_warnings);

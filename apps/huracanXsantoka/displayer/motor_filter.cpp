@@ -8,13 +8,14 @@ motor_filter::motor_filter(std::shared_ptr<canbus_thread> canbus_producer, QObje
 
 void motor_filter::receivednewframe(const can_frame newframe)
 {
-   switch(newframe.can_id){
+    uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
+    switch(newframe.can_id){
         case 0x500:
-        drv_dcBusVoltage = filter::to_float(&newframe, 0, 2, 0, 10);
-        drv_motorCurrent = filter::to_float(&newframe, 2, 4, 0, 10);
-        drv_powerTemperature = filter::to_uint8(&newframe, 4, 5, 0, 1);
-        drv_motorTemperature = filter::to_uint8(&newframe, 5, 6, 0, 1);
-        drv_motorSpeed = filter::to_uint16(&newframe, 6, 8, 0, 1);
+        drv_dcBusVoltage = (float)filter::doconvert(raw, 0, 2, 0, 10) / 10;
+        drv_motorCurrent = (float)filter::doconvert(raw, 2, 4, 0, 10) / 10;
+        drv_powerTemperature = filter::doconvert(raw, 4, 5, 0, 1);
+        drv_motorTemperature = filter::doconvert(raw, 5, 6, 0, 1);
+        drv_motorSpeed = filter::doconvert(raw, 6, 8, 0, 1);
         
         emit new_drv_dcBusVoltage(drv_dcBusVoltage);
         emit new_drv_motorCurrent(drv_motorCurrent);
@@ -33,9 +34,9 @@ void motor_filter::receivednewframe(const can_frame newframe)
 
         case 0x503:
         drv_status = filter::to_uint8(&newframe, 0, 1, 0, 1);
-        drv_referement = filter::to_uint16(&newframe, 1, 3, 0, 1);
-        drv_currentLimit = filter::to_float(&newframe, 3, 5, 0, 10);
-        drv_regenerationLimit = filter::to_float(&newframe, 5, 7, 0, 10);
+        drv_referement = filter::doconvert(raw, 1, 3, 0, 1);
+        drv_currentLimit = (float)filter::doconvert(raw, 3, 5, 0, 10) / 10;
+        drv_regenerationLimit = (float)filter::doconvert(raw, 5, 7, 0, 10) / 10;
 
         emit new_drv_status(drv_status);
         emit new_drv_referement(drv_referement);
@@ -60,7 +61,7 @@ QString motor_filter::__to_QString()
     QString ret = "";
 
     ret +=
-             ": " + QString::number(drv_dcBusVoltage) + " V\n"
+             ": " +  QString::number(drv_dcBusVoltage) + " V\n"
             + ": " + QString::number(drv_motorCurrent) + " A\n"
             + ": " + QString::number(drv_motorVoltage) + " V\n"
             + ": " + QString::number(drv_motorSpeed) + " rpm\n"

@@ -22,6 +22,12 @@ public:
         return "filter";
     };
 
+    // Convert the CAN data vector into a 64 bit value
+    uint64_t convert(uint8_t *data, uint8_t len);
+    //uint32_t doconvert(uint64_t raw, uint8_t sb, uint8_t eb, uint8_t of, uint8_t f);
+
+    uint32_t doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f);
+
 signals:
     virtual void to_QString(QString);
 
