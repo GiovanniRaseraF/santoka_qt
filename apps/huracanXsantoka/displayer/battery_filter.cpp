@@ -1,4 +1,5 @@
 #include "battery_filter.h"
+#include "displayer/templatedconverter.h"
 
 battery_filter::battery_filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) : filter{canbus_producer, parent}
 {
@@ -10,6 +11,8 @@ battery_filter::battery_filter(std::shared_ptr<canbus_thread> canbus_producer, Q
 
 void battery_filter::receivednewframe(const can_frame newframe){
     uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
+    uint64_t m = mask<0, 16>();
+
     switch(newframe.can_id){
         case 0x505:
         bat_TotalVoltage = 				(float)filter::doconvert(raw, 0, 2, 0, 10) / 10;
@@ -17,6 +20,8 @@ void battery_filter::receivednewframe(const can_frame newframe){
         bat_BatteryTemperature = 		filter::doconvert(raw, 4, 5, 0, 1);
         bat_BMSTemperature = 			filter::doconvert(raw, 5, 6, 0, 1);
         bat_SOC = 						filter::doconvert(raw, 6, 7, 0, 1);
+
+
 
         emit new_bat_TotalVoltage(bat_TotalVoltage);
         emit new_bat_TotalCurrent(bat_TotalCurrent);
