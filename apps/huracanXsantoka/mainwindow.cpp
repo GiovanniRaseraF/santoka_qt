@@ -56,7 +56,6 @@ void MainWindow::setSOC(uint8_t newSOC)
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)
 {
-   //qDebug() << newPowerTemperature ;
    ui->l_powertemp_value->setText(QString::number(newPowerTemperature));
 }
 

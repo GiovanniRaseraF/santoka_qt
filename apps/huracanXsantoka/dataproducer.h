@@ -37,6 +37,8 @@ struct can_frame{
 #include <iostream>
 #include <fstream>
 
+#include "displayer/fakedata.h"
+
 class canbus_thread : public QThread {
     Q_OBJECT
 
@@ -91,24 +93,31 @@ private:
 
 public:
     virtual void run() override {
+        int offset = 0;
         std::random_device rd; // obtain a random number from hardware
         std::mt19937 gen(rd()); // seed the generator
         std::uniform_int_distribution<> distr(0, 255);
 
-        int counter = 0;
 
         struct can_frame tosend;
         tosend.can_id = rangemin;
         tosend.can_dlc = 8;
 
         while(!stop_execution){
-            tosend.can_id = rangemin + counter;
-            counter = ((counter+1) % (rangemax - rangemin));
+            auto fdata = fakecandata[offset % fakecandata.size()];
+            tosend.can_id = std::get<0>(fdata);
 
-            for(int i = 0; i < tosend.can_dlc; i++){
-                tosend.data[i] = (uint8_t) distr(gen);
-            }
+            tosend.data[0] = std::get<1>(fdata);
+            tosend.data[1] = std::get<2>(fdata);
+            tosend.data[2] = std::get<3>(fdata);
+            tosend.data[3] = std::get<4>(fdata);
+            tosend.data[4] = std::get<5>(fdata);
+            tosend.data[5] = std::get<6>(fdata);
+            tosend.data[6] = std::get<7>(fdata);
+            tosend.data[7] = std::get<8>(fdata);
             emit signalnewdata(tosend);
+
+            offset++;
 
            QThread::msleep(msleepval);
         }
@@ -123,5 +132,7 @@ public:
         return ret;
     }
 };
+
+
 
 #endif // DATAPRODUCER_H

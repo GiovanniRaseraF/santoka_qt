@@ -51,6 +51,7 @@ HEADERS += \
     candata/singlefaultwarningpacket.h \
     displayer/battery_filter.h \
     dataproducer.h \
+    displayer/fakedata.h \
     displayer/templatedconverter.h \
     loaders/hp_faultwarning_loader.h \
     mainwindow.h \

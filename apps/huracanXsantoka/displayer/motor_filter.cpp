@@ -10,7 +10,7 @@ void motor_filter::receivednewframe(const can_frame newframe)
 {
     uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
     switch(newframe.can_id){
-        case 0x500:
+        case 0x501:
         drv_dcBusVoltage = (float)filter::doconvert(raw, 0, 2, 0, 10) / 10;
         drv_motorCurrent = (float)filter::doconvert(raw, 2, 4, 0, 10) / 10;
         drv_powerTemperature = filter::doconvert(raw, 4, 5, 0, 1);
