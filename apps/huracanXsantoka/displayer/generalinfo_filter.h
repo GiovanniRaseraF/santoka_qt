@@ -41,6 +41,27 @@ private:
 private:
     virtual bool canupdateinfo() override;
     QString __to_QString() override;
+
+public:
+    const std::map<uint8_t, QString> tab1{
+        {0, "Nessuno"},
+        {1, "Mercury OOD 3.0L"},
+        {2, "Hyundai S270"},
+        {3, "Volvo Penta D4/D6"}
+    };
+
+    const std::map<uint8_t, QString> tab2{
+        {0, "Nessuno"},
+        {1, "Thor 3000"},
+        {2, "Thor 6000"}
+    };
+
+    const std::map<uint8_t, QString> tabboattype{
+        {0, "Single Motor, FullElectric"},
+        {1, "Dual Motor, FullElectric"},
+        {2, "Single Motor, Hybrid"}, // this cannot be possible
+        {3, "Dual Motor, Hybrid"}
+    };
 };
 
 

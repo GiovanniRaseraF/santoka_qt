@@ -22,4 +22,9 @@ uint64_t mask(){
         return mask<s, e, 0>();
 }
 
+template<uint64_t sbyte, uint64_t ebyte>
+uint64_t maskbyte(){
+    return mask<sbyte * 8, ebyte * 8>();
+}
+
 #endif // TEMPLATEDCONVERTER_H

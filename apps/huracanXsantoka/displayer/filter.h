@@ -27,6 +27,8 @@ public:
     //uint32_t doconvert(uint64_t raw, uint8_t sb, uint8_t eb, uint8_t of, uint8_t f);
 
     uint32_t doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f);
+    uint32_t estract(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of);
+    int32_t estractsigned(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of);
 
 signals:
     virtual void to_QString(QString);

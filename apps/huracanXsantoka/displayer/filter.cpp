@@ -33,16 +33,31 @@ void filter::newdatafromcan(const can_frame newframe)
     std::cout << std::endl;
 }
 
+uint32_t filter::estract(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of){
+    std::size_t ebit = eb * 8, shiftright = 64 - ebit;
+    uint64_t value = (raw & mask) >> shiftright;
+    return (uint32_t) value + of;
+}
+
+int32_t filter::estractsigned(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of){
+    std::size_t ebit = eb * 8, shiftright = 64 - ebit;
+    uint64_t value = (raw & mask) >> shiftright;
+    return (int32_t) value + of;
+}
+
 uint32_t filter::doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f){
+    Q_UNUSED(f);
     int sbit = sb * 8, ebit = eb * 8, shiftright = 64 - ebit;
 
+    // TODO: replace this mask calculated at compile time
+    // to speed up perfomance
     uint64_t mask = 0;
     for(int i = sbit; i < ebit; i++){
         mask |= (0x8000000000000000) >> i;
     }
 
     uint64_t value = (raw & mask) >> shiftright;
-    return (uint32_t) value;
+    return (uint32_t) value + of;
 }
 
 

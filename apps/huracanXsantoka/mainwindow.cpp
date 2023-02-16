@@ -11,11 +11,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Create and start canbus on sepatate thread
+#ifdef SANTOKA
+    canbus_producer = std::make_shared<canbus_thread>(nullptr);
+#else
     canbus_producer = std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
-    one_second_producer = std::make_shared<fake_canbus_thread>("fake 1 second", 500, nullptr);
+    one_second_producer = std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
+    one_second_producer->start();
+#endif
 
     canbus_producer->start();
-    one_second_producer->start();
 
     // Create filters
     logger = std::make_shared<filter>(canbus_producer, this);
@@ -41,6 +45,9 @@ void MainWindow::connectBatteryFilterToGraphics(){
 void MainWindow::connectMotorFilterToGraphics(){
     connect(motor.get(), SIGNAL(new_drv_motorSpeed(uint16_t)), this, SLOT(setMotorSpeed(uint16_t)));
     connect(motor.get(), SIGNAL(new_drv_motorTemperature(uint8_t)), this, SLOT(setMotorTemperature(uint8_t)));
+
+    // TODO: connect to gps from antenna
+
 }
 
 MainWindow::~MainWindow()
@@ -84,7 +91,11 @@ void MainWindow::on_pb_faults_clicked()
 {
     // Oper fault page
     if(fault_dialog == nullptr)
+#ifdef SANTOKA
+        fault_dialog = std::make_shared<faultdialog>(canbus_producer, this);
+#else
         fault_dialog = std::make_shared<faultdialog>(one_second_producer, this);
+#endif
 
     fault_dialog->show();
 }
