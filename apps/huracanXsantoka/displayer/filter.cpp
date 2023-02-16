@@ -39,12 +39,6 @@ uint32_t filter::estract(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of
     return (uint32_t) value + of;
 }
 
-int32_t filter::estractsigned(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of){
-    std::size_t ebit = eb * 8, shiftright = 64 - ebit;
-    uint64_t value = (raw & mask) >> shiftright;
-    return (int32_t) value + of;
-}
-
 uint32_t filter::doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f){
     Q_UNUSED(f);
     int sbit = sb * 8, ebit = eb * 8, shiftright = 64 - ebit;
@@ -60,7 +54,20 @@ uint32_t filter::doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t
     return (uint32_t) value + of;
 }
 
+bool filter::canupdateinfo()
+{
+    timenow = std::chrono::steady_clock::now();
+    int counted = std::chrono::duration_cast<std::chrono::milliseconds>(timenow - lastupdated).count();
 
+    if(counted > mininterval_millis){
+        lastupdated = std::chrono::steady_clock::now();
+        return true;
+    }
+
+    return false;
+}
+
+// DEPRECATED !!!
 uint8_t filter::to_uint8(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor)
 {
     assert(endbyte - startbyte == 1);
@@ -136,19 +143,6 @@ std::string filter::to_string(const can_frame *frame, uint8_t startbyte, uint8_t
     Q_UNUSED(endbyte);
 
    return "TestVal";
-}
-
-bool filter::canupdateinfo()
-{
-    timenow = std::chrono::steady_clock::now();
-    int counted = std::chrono::duration_cast<std::chrono::milliseconds>(timenow - lastupdated).count();
-
-    if(counted > mininterval_millis){
-        lastupdated = std::chrono::steady_clock::now();
-        return true;
-    }
-
-    return false;
 }
 
 

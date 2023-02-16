@@ -24,11 +24,9 @@ public:
 
     // Convert the CAN data vector into a 64 bit value
     uint64_t convert(uint8_t *data, uint8_t len);
-    //uint32_t doconvert(uint64_t raw, uint8_t sb, uint8_t eb, uint8_t of, uint8_t f);
-
+    // TODO: need to replace doconvert with estract for efficency
     uint32_t doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f);
     uint32_t estract(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of);
-    int32_t estractsigned(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of);
 
 signals:
     virtual void to_QString(QString);
@@ -46,7 +44,15 @@ protected:
     std::chrono::time_point<std::chrono::steady_clock> timenow;
     int mininterval_millis = 1000;
 
+    // HURACAN MARTINE SPECIFIC !!!
+    // this is needed for multiple motors that are going to be
+    // trasmitted at canchannel + offset
+    const uint8_t PROTOCOL_OFFSET = 0x20;
+
 protected:
+    virtual bool canupdateinfo();
+
+    // DEPRECATED !!!
     // Standard filter
     uint8_t to_uint8(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
     uint16_t to_uint16(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
@@ -56,8 +62,6 @@ protected:
     int32_t to_int32(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
     float to_float(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
     std::string to_string(const can_frame *frame, uint8_t startbyte, uint8_t endbyte, uint8_t offset, uint8_t factor);
-
-    virtual bool canupdateinfo();
 };
 
 #endif // FILTER_H

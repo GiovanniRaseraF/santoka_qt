@@ -55,13 +55,13 @@ QString battery_filter::__to_QString()
 {
     QString ret = "";
 
-    ret += "SOC: " + QString::number(bat_SOC) + " %\n";
-    ret += "Voltage: " + QString::number(bat_TotalVoltage) + " V\n";
-    ret += "Current: " + QString::number(bat_TotalCurrent) + " A\n";
-    ret += "T Batt: " + QString::number(bat_BatteryTemperature) + " C\n";
-    ret += "T BMS: " + QString::number(bat_BMSTemperature) + " C\n";
-    ret += "Power: " + QString::number(bat_Power) + " KW\n";
-    ret += "TTE: " + QString::number(bat_TimeToEmpty) + " min\n";
-    ret += "Aux Voltage: " + QString::number(bat_auxBatteryVoltage) + " V\n";
+    ret += "SOC: " + 		QString::number(bat_SOC) + " %\n";
+    ret += "Voltage: " + 	QString::number(bat_TotalVoltage) + " V\n";
+    ret += "Current: " + 	QString::number(bat_TotalCurrent) + " A\n";
+    ret += "T Batt: " + 	QString::number(bat_BatteryTemperature) + " C\n";
+    ret += "T BMS: " + 		QString::number(bat_BMSTemperature) + " C\n";
+    ret += "Power: " + 		QString::number(bat_Power) + " KW\n";
+    ret += "TTE: " + 		QString::number(bat_TimeToEmpty) + " min\n";
+    ret += "AuxVoltage: " + QString::number(bat_auxBatteryVoltage) + " V\n";
     return ret;
 }
