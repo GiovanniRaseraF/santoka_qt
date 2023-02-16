@@ -11,6 +11,7 @@
 #include "displayer/generalinfo_filter.h"
 #include "displayer/motor_filter.h"
 #include "pages/boatinfowindow.h"
+#include "pages/hp_objectmoreinfo.h"
 #include "dialogs/faultdialog.h"
 
 namespace Ui {
@@ -43,6 +44,8 @@ private slots:
 
     void on_pb_boatinfo_clicked();
 
+    void on_pb_battery_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -60,6 +63,7 @@ private:
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;
     std::shared_ptr<faultdialog> fault_dialog;
+    std::shared_ptr<hp_objectmoreinfo> battery_moreinfo_page;
 
 };
 

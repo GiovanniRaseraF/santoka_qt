@@ -3,6 +3,8 @@
 
 #include <QDebug>
 
+#include "pages/battery_moreinfopage.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -14,19 +16,19 @@ MainWindow::MainWindow(QWidget *parent) :
 #ifdef SANTOKA
     canbus_producer = std::make_shared<canbus_thread>(nullptr);
 #else
-    canbus_producer = std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
-    one_second_producer = std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
+    canbus_producer = 		std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
+    one_second_producer = 	std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
     one_second_producer->start();
 #endif
 
     canbus_producer->start();
 
     // Create filters
-    logger = std::make_shared<filter>(canbus_producer, this);
-    battery = std::make_shared<battery_filter>(canbus_producer, this);
-    command = std::make_shared<command_filter>(canbus_producer, this);
-    generalinfo = std::make_shared<generalinfo_filter>(canbus_producer, this);
-    motor = std::make_shared<motor_filter>(canbus_producer, this);
+    logger = 		std::make_shared<filter>(canbus_producer, this);
+    battery = 		std::make_shared<battery_filter>(canbus_producer, this);
+    command = 		std::make_shared<command_filter>(canbus_producer, this);
+    generalinfo = 	std::make_shared<generalinfo_filter>(canbus_producer, this);
+    motor = 		std::make_shared<motor_filter>(canbus_producer, this);
 
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
@@ -108,11 +110,18 @@ void MainWindow::on_pb_boatinfo_clicked()
     boatinfo_page->connectInformations(battery, command, generalinfo, motor);
 #ifdef SANTOKA
     boatinfo_page->showFullScreen();
-#elif MACOS
-    this->hide();
-    boatinfo_page->show();
 #else
     boatinfo_page->show();
 #endif
-    //boatinfo_page.reset();
 }
+
+void MainWindow::on_pb_battery_clicked()
+{
+    battery_moreinfo_page = std::make_shared<battery_moreinfopage>(this);
+#ifdef SANTOKA
+    battery_moreinfo_page->showFullScreen();
+#else
+    battery_moreinfo_page->show();
+#endif
+}
+

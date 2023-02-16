@@ -40,7 +40,9 @@ SOURCES += \
     displayer/vahicle_filter.cpp \
     displayer/filter.cpp \
     dialogs/faultdialog.cpp \
+    pages/battery_moreinfopage.cpp \
     pages/boatinfowindow.cpp \
+    pages/hp_objectmoreinfo.cpp \
     widgets/hp_faultdesing.cpp \
     widgets/hp_faultwarning.cpp \
     widgets/hp_tripleval.cpp \
@@ -61,8 +63,10 @@ HEADERS += \
     displayer/command_filter.h \
     displayer/vahicle_filter.h \
     displayer/filter.h \
+    pages/battery_moreinfopage.h \
     pages/boatinfowindow.h \
     dialogs/faultdialog.h \
+    pages/hp_objectmoreinfo.h \
     widgets/hp_faultdesing.h \
     widgets/hp_faultwarning.h \
     widgets/hp_tripleval.h \
@@ -73,6 +77,7 @@ FORMS += \
         mainwindow.ui \
     pages/boatinfowindow.ui \
     dialogs/faultdialog.ui \
+    pages/hp_objectmoreinfo.ui \
     widgets/hp_faultwarning.ui \
     widgets/hp_tripleval.ui \
     widgets/hp_widget_generic_infostring.ui
