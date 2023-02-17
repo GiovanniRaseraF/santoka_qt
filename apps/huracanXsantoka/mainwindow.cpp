@@ -94,12 +94,13 @@ void MainWindow::on_pb_faults_clicked()
     // Oper fault page
     if(fault_dialog == nullptr)
 #ifdef SANTOKA
-        fault_dialog = std::make_shared<faultdialog>(canbus_producer, this);
+        fault_dialog = std::make_shared<faultsandwarnings>(canbus_producer, this);
+    fault_dialog->showFullScreen();
 #else
         fault_dialog = std::make_shared<faultsandwarnings>(one_second_producer, this);
+    fault_dialog->show();
 #endif
 
-    fault_dialog->show();
 }
 
 void MainWindow::on_pb_boatinfo_clicked()
