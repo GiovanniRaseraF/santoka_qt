@@ -4,7 +4,7 @@
 #include <utility>
 #include <QObject>
 
-#ifndef SANTOKA
+#ifdef SANTOKA
 // NOT efficent, this runs a for every time
 // to emprove this i can use MEMOIZATION
 template<uint64_t s, uint64_t e>
