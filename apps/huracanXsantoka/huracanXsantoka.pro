@@ -42,6 +42,7 @@ SOURCES += \
     dialogs/faultdialog.cpp \
     pages/battery_moreinfopage.cpp \
     pages/boatinfowindow.cpp \
+    pages/faultsandwarnings.cpp \
     pages/hp_objectmoreinfo.cpp \
     widgets/hp_faultdesing.cpp \
     widgets/hp_faultwarning.cpp \
@@ -66,6 +67,7 @@ HEADERS += \
     pages/battery_moreinfopage.h \
     pages/boatinfowindow.h \
     dialogs/faultdialog.h \
+    pages/faultsandwarnings.h \
     pages/hp_objectmoreinfo.h \
     widgets/hp_faultdesing.h \
     widgets/hp_faultwarning.h \
@@ -77,6 +79,7 @@ FORMS += \
         mainwindow.ui \
     pages/boatinfowindow.ui \
     dialogs/faultdialog.ui \
+    pages/faultsandwarnings.ui \
     pages/hp_objectmoreinfo.ui \
     widgets/hp_faultwarning.ui \
     widgets/hp_tripleval.ui \

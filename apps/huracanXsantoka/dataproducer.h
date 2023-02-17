@@ -98,7 +98,6 @@ public:
         std::mt19937 gen(rd()); // seed the generator
         std::uniform_int_distribution<> distr(0, 255);
 
-
         struct can_frame tosend;
         tosend.can_id = rangemin;
         tosend.can_dlc = 8;
@@ -115,6 +114,7 @@ public:
             tosend.data[5] = std::get<6>(fdata);
             tosend.data[6] = std::get<7>(fdata);
             tosend.data[7] = std::get<8>(fdata);
+
             emit signalnewdata(tosend);
 
             offset++;

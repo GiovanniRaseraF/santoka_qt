@@ -49,7 +49,7 @@ void MainWindow::connectMotorFilterToGraphics(){
     connect(motor.get(), SIGNAL(new_drv_motorTemperature(uint8_t)), this, SLOT(setMotorTemperature(uint8_t)));
 
     // TODO: connect to gps from antenna
-
+    //connect(gps, SIGNAL(newposition), this, SLOT(displayspeed));
 }
 
 MainWindow::~MainWindow()
@@ -96,7 +96,7 @@ void MainWindow::on_pb_faults_clicked()
 #ifdef SANTOKA
         fault_dialog = std::make_shared<faultdialog>(canbus_producer, this);
 #else
-        fault_dialog = std::make_shared<faultdialog>(one_second_producer, this);
+        fault_dialog = std::make_shared<faultsandwarnings>(one_second_producer, this);
 #endif
 
     fault_dialog->show();

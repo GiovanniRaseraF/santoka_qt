@@ -12,6 +12,7 @@
 #include "displayer/motor_filter.h"
 #include "pages/boatinfowindow.h"
 #include "pages/hp_objectmoreinfo.h"
+#include "pages/faultsandwarnings.h"
 #include "dialogs/faultdialog.h"
 
 namespace Ui {
@@ -62,7 +63,7 @@ private:
 
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;
-    std::shared_ptr<faultdialog> fault_dialog;
+    std::shared_ptr<faultsandwarnings> fault_dialog;
     std::shared_ptr<hp_objectmoreinfo> battery_moreinfo_page;
 
 };
