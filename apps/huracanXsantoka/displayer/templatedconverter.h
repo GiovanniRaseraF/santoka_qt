@@ -5,29 +5,38 @@
 #include <QObject>
 
 #ifdef SANTOKA
-// NOT efficent, this runs a for every time
-// to emprove this i can use MEMOIZATION
+template<uint8_t s, uint8_t e, bool active, unsigned long  acc, uint8_t counter, bool start>
+struct maskbits{};
+
+template<uint8_t s, uint8_t e, bool active, unsigned long acc, uint8_t c>
+struct maskbits<s, e, active, acc, c, false>
+    : public maskbits<
+        s,
+        e,
+        (c >= s && c < e),
+        (((unsigned long)(c >= s && c < e)) << c) | acc,
+        c+1,
+        false
+    >{};
+
+template<uint8_t s, uint8_t e, bool active, unsigned long acc>
+struct maskbits<s, e, active, acc, 64, false>{
+    static const unsigned long value = acc;
+};
+
+template<uint8_t s, uint8_t e>
+struct mask_base{
+    static const unsigned long value = maskbits<64-e, 64-s, 0, 0, 0, false>::value;
+};
+
 template<uint64_t s, uint64_t e>
 uint64_t mask(){
-    uint64_t ret = 0;
-
-    for(uint64_t i = s; i < e; i++) {
-       ret |= (0x8000000000000000 >> i);
-    }
-
-    return ret;
+    return mask_base<s, e>::value;
 }
 
 template<uint64_t sbyte, uint64_t ebyte>
 uint64_t maskbyte(){
-    uint64_t s = sbyte * 8, e = ebyte * 8;
-    uint64_t ret = 0;
-
-    for(uint64_t i = s; i < e; i++) {
-       ret |= (0x8000000000000000 >> i);
-    }
-
-    return ret;
+    return mask_base<sbyte*8, ebyte*8>::value;
 }
 #else
 // this is the better version because the filter is calculated at compile time
