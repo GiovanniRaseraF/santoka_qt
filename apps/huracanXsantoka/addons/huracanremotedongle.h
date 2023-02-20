@@ -7,13 +7,25 @@
 */
 
 #include <QObject>
+#include <QThread>
 #include <QSerialPort>
 
+#include <memory>
 
-class HuracanRemoteDongle
-{
+class HuracanRemoteDongle : public QThread {
+    Q_OBJECT
 public:
-    HuracanRemoteDongle();
+    HuracanRemoteDongle(QObject *parent = nullptr);
+    ~HuracanRemoteDongle(){}
+
+    virtual void run() override;
+    virtual void stop(){}
+
+signals:
+    void newlineread(QString line);
+
+private:
+    std::shared_ptr<QSerialPort> serial;
 };
 
 #endif // HURACANREMOTEDONGLE_H
