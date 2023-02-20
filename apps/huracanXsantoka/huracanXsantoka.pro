@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 CONFIG += c++17
-QT       += core gui xml designer
+QT     += core gui xml designer serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +27,7 @@ DEFINES += DESKTOP
 
 
 SOURCES += \
+    addons/huracanremotedongle.cpp \
     candata/singlefaultwarningpacket.cpp \
     displayer/battery_filter.cpp \
     dataproducer.cpp \
@@ -51,6 +52,7 @@ SOURCES += \
     widgets/hp_widget_generic_infostring.cpp
 
 HEADERS += \
+    addons/huracanremotedongle.h \
     candata/singlefaultwarningpacket.h \
     displayer/battery_filter.h \
     dataproducer.h \
