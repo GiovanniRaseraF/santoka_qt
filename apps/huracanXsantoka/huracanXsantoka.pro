@@ -16,8 +16,8 @@ TEMPLATE = app
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-DEFINES += SANTOKA
-#DEFINES += DESKTOP
+#DEFINES += SANTOKA
+DEFINES += DESKTOP
 #DEFINES += MACOS
 
 # You can also make your code fail to compile if you use deprecated APIs.
@@ -31,6 +31,7 @@ SOURCES += \
     candata/singlefaultwarningpacket.cpp \
     displayer/battery_filter.cpp \
     dataproducer.cpp \
+    displayer/vehicle_filter.cpp \
     loaders/hp_faultwarning_loader.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -38,7 +39,6 @@ SOURCES += \
     displayer/motor_filter.cpp \
     displayer/thermicmotor_filter.cpp \
     displayer/command_filter.cpp \
-    displayer/vahicle_filter.cpp \
     displayer/filter.cpp \
     dialogs/faultdialog.cpp \
     pages/battery_moreinfopage.cpp \
@@ -58,13 +58,13 @@ HEADERS += \
     dataproducer.h \
     displayer/fakedata.h \
     displayer/templatedconverter.h \
+    displayer/vehicle_filter.h \
     loaders/hp_faultwarning_loader.h \
     mainwindow.h \
     displayer/generalinfo_filter.h \
     displayer/motor_filter.h \
     displayer/thermicmotor_filter.h \
     displayer/command_filter.h \
-    displayer/vahicle_filter.h \
     displayer/filter.h \
     pages/battery_moreinfopage.h \
     pages/boatinfowindow.h \

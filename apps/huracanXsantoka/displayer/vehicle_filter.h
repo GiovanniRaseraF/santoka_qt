@@ -1,5 +1,5 @@
-#ifndef VAHICLE_FILTER_H
-#define VAHICLE_FILTER_H
+#ifndef VEHICLE_FILTER_H
+#define VEHICLE_FILTER_H
 
 #include <QObject>
 #include <QWidget>
@@ -9,14 +9,14 @@
 
 #include "filter.h"
 
-class vahicle_filter : public filter
+class vehicle_filter : public filter
 {
     Q_OBJECT
 public:
-    explicit vahicle_filter(std::shared_ptr<canbus_thread> canbus_producer = nullptr, QObject *parent = nullptr);
+    explicit vehicle_filter(std::shared_ptr<canbus_thread> canbus_producer = nullptr, QObject *parent = nullptr);
 
 signals:
-    void new_vcl_status(uint16_t);
+    void new_vcl_status(uint8_t);
     void new_vcl_mapInUse(uint8_t);
     void new_vcl_inSeaWaterTemperature(uint8_t);
     void new_vcl_outSeaWaterTemperature(uint8_t);
@@ -32,7 +32,7 @@ public slots:
     void receivednewframe(const can_frame newframe);
 
 private:
-    uint16_t vcl_status = 0;						// bitfield
+    uint8_t vcl_status = 0;						// bitfield
     uint8_t vcl_mapInUse = 0; 					// #
     uint8_t vcl_inSeaWaterTemperature = 0;		// °C
     uint8_t vcl_outSeaWaterTemperature = 0;		// °C
@@ -48,4 +48,4 @@ private:
     virtual bool canupdateinfo() override;
 };
 
-#endif // VAHICLE_FILTER_H
+#endif // VEHICLE_FILTER_H

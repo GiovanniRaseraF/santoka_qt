@@ -2,17 +2,23 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QProcess>
+#include <QTimer>
 
 #include <memory>
 
 #include "dataproducer.h"
+
 #include "displayer/battery_filter.h"
 #include "displayer/command_filter.h"
 #include "displayer/generalinfo_filter.h"
 #include "displayer/motor_filter.h"
+#include "displayer/vehicle_filter.h"
+
 #include "pages/boatinfowindow.h"
 #include "pages/hp_objectmoreinfo.h"
 #include "pages/faultsandwarnings.h"
+
 #include "dialogs/faultdialog.h"
 
 namespace Ui {
@@ -29,11 +35,18 @@ public:
     ~MainWindow();
     void connectBatteryFilterToGraphics();
     void connectMotorFilterToGraphics();
+    void connectVehicleFilterToGraphics();
 
 public slots:
+    void timeoutToUpdateDate();
+    void readDateFromSystem();
+    void setVehicleMapInUse(uint8_t newMapInUse);
+
     void setSOC(uint8_t newSOC);
     void setPowerTemperature(uint8_t newPowerTemperature);
     void setPower(float newPower);
+    void setBatteryVoltage(float newVoltage);
+    void setBatteryCurrent(float newCurrent);
 
     void setSpeed(uint16_t newSpeed);
     void setMotorTemperature(uint8_t newMotorTemperature);
@@ -50,6 +63,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    QProcess *myProcess;
+    QTimer *updateDatetime;
+
     // Can bus producer thread
     std::shared_ptr<canbus_thread> canbus_producer;
     std::shared_ptr<fake_canbus_thread> one_second_producer;
@@ -60,6 +76,7 @@ private:
     std::shared_ptr<command_filter> command;
     std::shared_ptr<generalinfo_filter> generalinfo;
     std::shared_ptr<motor_filter> motor;
+    std::shared_ptr<vehicle_filter> vehicle;
 
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;

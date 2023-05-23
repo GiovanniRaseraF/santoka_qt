@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 
 #include <QDebug>
+#include <QDateTime>
+#include <QProcess>
 
 #include "pages/battery_moreinfopage.h"
 
@@ -29,19 +31,37 @@ MainWindow::MainWindow(QWidget *parent) :
     command = 		std::make_shared<command_filter>(canbus_producer, this);
     generalinfo = 	std::make_shared<generalinfo_filter>(canbus_producer, this);
     motor = 		std::make_shared<motor_filter>(canbus_producer, this);
+    vehicle = 		std::make_shared<vehicle_filter>(canbus_producer, this);
 
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
     connectMotorFilterToGraphics();
-
+    connectVehicleFilterToGraphics();
     // pages
     // boat info
+
+    // update datetime
+    updateDatetime = new QTimer(nullptr);
+    myProcess = new QProcess(nullptr);
+
+    connect(myProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readDateFromSystem()));
+    connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
+
+    updateDatetime->start(1000);
+
 }
 
 void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
     connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
+
+    connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
+    connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
+}
+
+void MainWindow::connectVehicleFilterToGraphics(){
+    connect(vehicle.get(), SIGNAL(new_vcl_mapInUse(uint8_t)), this, SLOT(setVehicleMapInUse(uint8_t)));
 }
 
 void MainWindow::connectMotorFilterToGraphics(){
@@ -57,10 +77,39 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::timeoutToUpdateDate(){
+    QStringList arguments;
+    myProcess->start("date", arguments);
+}
+
+void MainWindow::readDateFromSystem(){
+    ui->l_date->setText(myProcess->readAllStandardOutput());
+
+    myProcess->terminate();
+    myProcess->close();
+    myProcess->kill();
+}
+
+void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){
+    bool IsHibrid = newMapInUse & 1;
+    bool IsElectric = newMapInUse & 2;
+    bool IsDiesel = newMapInUse & 4;
+
+    if(IsHibrid){
+        ui->l_mapinuse->setText("Hibrid");
+    }else if(IsElectric){
+        ui->l_mapinuse->setText("Electric");
+    }else if(IsDiesel){
+        ui->l_mapinuse->setText("Diesel");
+    }else{
+        ui->l_mapinuse->setText("No Map");
+    }
+}
+
 // Display graphics
 void MainWindow::setSOC(uint8_t newSOC)
 {
-   ui->l_SOC_value->setText(QString::number(newSOC));
+    ui->l_SOC_value->setText(QString::number(newSOC));
 }
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)
@@ -71,6 +120,14 @@ void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)
 void MainWindow::setPower(float newPower)
 {
    ui->l_power_value->setText(QString::number(newPower));
+}
+
+void MainWindow::setBatteryVoltage(float newVoltage){
+   ui->l_battery_voltage->setText(QString::number(newVoltage));
+}
+
+void MainWindow::setBatteryCurrent(float newCurrent){
+   ui->l_battery_current->setText(QString::number(newCurrent));
 }
 
 void MainWindow::setSpeed(uint16_t newSpeed)

@@ -1,22 +1,24 @@
-#include "vahicle_filter.h"
-vahicle_filter::vahicle_filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) : filter{canbus_producer, parent}
+#include "vehicle_filter.h"
+vehicle_filter::vehicle_filter(std::shared_ptr<canbus_thread> canbus_producer, QObject *parent) : filter{canbus_producer, parent}
 {
     name = "Vehicle Filter";
 
     connect(canbus_producer.get(), SIGNAL(signalnewdata(can_frame)), this, SLOT(receivednewframe(can_frame)));
 }
 
-void vahicle_filter::receivednewframe(const can_frame newframe)
+void vehicle_filter::receivednewframe(const can_frame newframe)
 {
     switch(newframe.can_id){
         case 0x50C:
-        vcl_status = filter::to_uint16(&newframe, 0, 2, 0, 1); 
+        vcl_status = filter::to_uint8(&newframe, 0, 1, 0, 1);
+        vcl_mapInUse = filter::to_uint8(&newframe, 1, 2, 0, 1);
         vcl_inSeaWaterTemperature = filter::to_uint8(&newframe, 2, 3, 0, 1);
         vcl_outSeaWaterTemperature = filter::to_uint8(&newframe, 3, 4, 0, 1);
         vcl_inGlycoleTemperature = filter::to_uint8(&newframe, 4, 5, 0, 1);
         vcl_outGlycoleTemperature = filter::to_uint8(&newframe, 5, 6, 0, 1);
 
         emit new_vcl_status(vcl_status);
+        emit new_vcl_mapInUse(vcl_mapInUse);
         emit new_vcl_inSeaWaterTemperature(vcl_inSeaWaterTemperature);
         emit new_vcl_outSeaWaterTemperature(vcl_outSeaWaterTemperature);
         emit new_vcl_inGlycoleTemperature(vcl_inGlycoleTemperature);
@@ -50,7 +52,7 @@ void vahicle_filter::receivednewframe(const can_frame newframe)
     }
 }
 
-bool vahicle_filter::canupdateinfo()
+bool vehicle_filter::canupdateinfo()
 {
     return true;
 }

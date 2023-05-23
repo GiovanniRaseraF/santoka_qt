@@ -12,7 +12,7 @@
 #include "displayer/generalinfo_filter.h"
 #include "displayer/motor_filter.h"
 #include "displayer/thermicmotor_filter.h"
-#include "displayer/vahicle_filter.h"
+#include "displayer/vehicle_filter.h"
 
 #include "widgets/hp_widget_generic_infostring.h"
 #include "widgets/hp_batterydesign.h"
