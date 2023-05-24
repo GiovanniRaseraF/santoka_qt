@@ -42,6 +42,7 @@ public slots:
     void readDateFromSystem();
     void setVehicleMapInUse(uint8_t newMapInUse);
 
+    void setTTE(uint16_t newTTE);
     void setSOC(uint8_t newSOC);
     void setPowerTemperature(uint8_t newPowerTemperature);
     void setPower(float newPower);

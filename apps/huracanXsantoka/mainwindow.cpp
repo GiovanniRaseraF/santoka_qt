@@ -55,6 +55,7 @@ void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
     connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
+    connect(battery.get(), SIGNAL(new_bat_TimeToEmpty(uint16_t)), this, SLOT(setTTE(uint16_t)));
 
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
     connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
@@ -88,6 +89,17 @@ void MainWindow::readDateFromSystem(){
     myProcess->terminate();
     myProcess->close();
     myProcess->kill();
+}
+
+void MainWindow::setTTE(uint16_t newTTE){
+    uint16_t h = newTTE / 60;
+    uint16_t m = newTTE % 60;
+
+    if(h > 100){
+        ui->l_tte->setText("-- h -- min");
+    }else{
+        ui->l_tte->setText(QString::number(h) + " h " + QString::number(m) + " min");
+    }
 }
 
 void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){

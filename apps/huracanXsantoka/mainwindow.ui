@@ -50,7 +50,7 @@
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(14, 86, 22)</string>
+           <string notr="true">background-color:rgb(60, 76, 84);</string>
           </property>
           <property name="text">
            <string/>
@@ -394,7 +394,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  Maps</string>
+           <string>  Time To Empty</string>
           </property>
          </widget>
          <widget class="QLabel" name="l_power_value">
@@ -423,7 +423,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>200</x>
             <y>220</y>
             <width>111</width>
             <height>91</height>
@@ -457,6 +457,36 @@ font: 50pt &quot;Ubuntu&quot;;</string>
            <string/>
           </property>
          </widget>
+         <widget class="QLabel" name="l_tte">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>400</y>
+            <width>281</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(16, 73, 31,0);
+font: 40pt &quot;Ubuntu&quot;;</string>
+          </property>
+          <property name="text">
+           <string>-- h -- min</string>
+          </property>
+         </widget>
+         <zorder>l_mapinuse</zorder>
+         <zorder>pb_motor</zorder>
+         <zorder>l_speed_value</zorder>
+         <zorder>label_9</zorder>
+         <zorder>l_battery_2</zorder>
+         <zorder>l_battery_17</zorder>
+         <zorder>l_battery_18</zorder>
+         <zorder>l_power_value</zorder>
+         <zorder>label_6</zorder>
+         <zorder>l_tte</zorder>
         </widget>
        </item>
       </layout>
@@ -475,7 +505,8 @@ font: 50pt &quot;Ubuntu&quot;;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color:rgb(60, 76, 84)</string>
+           <string notr="true">
+background-color: rgb(14, 86, 22);</string>
           </property>
           <property name="text">
            <string/>
@@ -731,6 +762,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(16, 73, 31,0);
+
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
@@ -802,7 +834,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
    <widget class="QPushButton" name="pb_boatinfo">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>700</x>
       <y>10</y>
       <width>181</width>
       <height>51</height>
