@@ -6,10 +6,10 @@ canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
     stop_execution = false;
 
     // Linux socket init
-    system("ifconfig can0 down");
-    system("canconfig can0 bitrate 250000");
-    system("ip link set can0 type can bitrate 250000");
-    system("ifconfig can0 up");
+    system("sudo /sbin/ifconfig can0 down");
+    system("sudo /sbin/canconfig can0 bitrate 250000");
+    system("sudo /sbin/ip link set can0 type can bitrate 250000");
+    system("sudo /sbin/ifconfig can0 up");
 
     qDebug() << ": can setup done\n";
 
@@ -36,7 +36,7 @@ canbus_thread::~canbus_thread(){
     stop();
 #ifdef SANTOKA
     close(cansocket);
-    system("ifconfig can0 down");
+    system("sudo /sbin/ifconfig can0 down");
 #endif
     QThread::msleep(20);
 }
