@@ -48,7 +48,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
 
     updateDatetime->start(1000);
-
 }
 
 void MainWindow::connectBatteryFilterToGraphics(){
@@ -58,7 +57,8 @@ void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_TimeToEmpty(uint16_t)), this, SLOT(setTTE(uint16_t)));
 
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
-    connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
+    //connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
+    connect(motor.get(), SIGNAL(new_drv_motorCurrent(float)), this, SLOT(setBatteryCurrent(float)));
 }
 
 void MainWindow::connectVehicleFilterToGraphics(){

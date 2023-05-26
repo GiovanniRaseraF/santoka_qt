@@ -180,9 +180,9 @@ font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="geometry">
            <rect>
-            <x>60</x>
+            <x>50</x>
             <y>50</y>
-            <width>161</width>
+            <width>241</width>
             <height>91</height>
            </rect>
           </property>
