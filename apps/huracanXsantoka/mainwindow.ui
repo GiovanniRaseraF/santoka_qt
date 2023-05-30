@@ -801,7 +801,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>40</x>
       <y>10</y>
       <width>411</width>
       <height>61</height>
