@@ -6,6 +6,7 @@
 #include <QTimer>
 
 #include <memory>
+#include <sstream>
 
 #include "dataproducer.h"
 
@@ -40,6 +41,7 @@ public:
 public slots:
     void timeoutToUpdateDate();
     void readDateFromSystem();
+    void readSubProcess();
     void setVehicleMapInUse(uint8_t newMapInUse);
 
     void setTTE(uint16_t newTTE);
@@ -66,6 +68,9 @@ private:
 
     QProcess *myProcess;
     QTimer *updateDatetime;
+
+    QProcess *gpsProcess;
+    QString gpsOutput;
 
     // Can bus producer thread
     std::shared_ptr<canbus_thread> canbus_producer;

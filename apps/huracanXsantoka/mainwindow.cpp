@@ -48,6 +48,58 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
 
     updateDatetime->start(1000);
+
+    // connect to GPS
+#ifdef SANTOKA
+    gpsProcess = new QProcess(nullptr);
+    gpsProcess->start("cat /dev/ttyACM0");
+    connect(gpsProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readSubProcess()));
+#else
+    qDebug() << "fake GPS with no data";
+#endif
+}
+
+float parseSOG(QString gpsdata){
+    QStringList pieces = gpsdata.split( "\n" );
+    float sum = 0;
+    int count = 0;
+
+    for(auto gp : pieces){
+        if(gp != "" && gp.contains("GPVTG")){
+            QString ssog = gp.split(",")[7];
+
+            if(ssog != ""){
+                std::stringstream ss{ssog.toStdString()};
+                float conv = 0;
+                ss >> conv;
+
+                sum += conv;
+                count++;
+            }
+        }
+    }
+
+    if(count > 0){
+        return sum / count;
+    }
+
+    return -1;
+}
+
+void MainWindow::readSubProcess(){
+    gpsOutput.append(gpsProcess->readAllStandardOutput());
+
+    if (gpsOutput.endsWith("\n")) {
+        // parse gps informations
+        float sog = parseSOG(gpsOutput);
+
+        // -1 if no data was converted
+        if(sog >= 0){
+            ui->l_speed_value->setText(QString::number(sog));
+        }
+
+        gpsOutput = "";
+    }
 }
 
 void MainWindow::connectBatteryFilterToGraphics(){
@@ -194,4 +246,3 @@ void MainWindow::on_pb_battery_clicked()
     battery_moreinfo_page->show();
 #endif
 }
-
