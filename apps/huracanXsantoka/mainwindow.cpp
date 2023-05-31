@@ -95,7 +95,7 @@ void MainWindow::readSubProcess(){
 
         // -1 if no data was converted
         if(sog >= 0){
-            ui->l_speed_value->setText(QString::number(sog, 'f', 1));
+            ui->l_speed_value->setText(QString::number(sog, 'f', 0));
         }
 
         gpsOutput = "";
@@ -148,9 +148,9 @@ void MainWindow::setTTE(uint16_t newTTE){
     uint16_t m = newTTE % 60;
 
     if(h >= 100){
-        ui->l_tte->setText("-- h -- min");
+        ui->l_tte->setText("-- h -- m");
     }else{
-        ui->l_tte->setText(QString::number(h) + " h " + QString::number(m) + " min");
+        ui->l_tte->setText(QString::number(h) + " h " + QString::number(m) + " m");
     }
 }
 
@@ -178,7 +178,7 @@ void MainWindow::setSOC(uint8_t newSOC)
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)
 {
-   ui->l_powertemp_value->setText(QString::number(newPowerTemperature, 'f', 1));
+   ui->l_powertemp_value->setText(QString::number(newPowerTemperature));
 }
 
 void MainWindow::setPower(float newPower)
@@ -201,7 +201,7 @@ void MainWindow::setSpeed(uint16_t newSpeed)
 
 void MainWindow::setMotorTemperature(uint8_t newMotorTemperature)
 {
-   ui->l_motortemp_value->setText(QString::number(newMotorTemperature, 'f', 1));
+   ui->l_motortemp_value->setText(QString::number(newMotorTemperature));
 }
 
 void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
