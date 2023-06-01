@@ -110,7 +110,7 @@ void MainWindow::connectBatteryFilterToGraphics(){
 
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
     //connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
-    connect(motor.get(), SIGNAL(new_drv_motorCurrent(float)), this, SLOT(setBatteryCurrent(float)));
+    connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
 }
 
 void MainWindow::connectVehicleFilterToGraphics(){
