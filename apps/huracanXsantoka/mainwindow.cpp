@@ -105,7 +105,7 @@ void MainWindow::readSubProcess(){
 void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
-    connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
+    //connect(motor.get(), SIGNAL(new_dr(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_TimeToEmpty(uint16_t)), this, SLOT(setTTE(uint16_t)));
 
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
@@ -120,6 +120,7 @@ void MainWindow::connectVehicleFilterToGraphics(){
 void MainWindow::connectMotorFilterToGraphics(){
     connect(motor.get(), SIGNAL(new_drv_motorSpeed(uint16_t)), this, SLOT(setMotorSpeed(uint16_t)));
     connect(motor.get(), SIGNAL(new_drv_motorTemperature(uint8_t)), this, SLOT(setMotorTemperature(uint8_t)));
+    connect(motor.get(), SIGNAL(new_drv_powerTemperature(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
 
     // TODO: connect to gps from antenna
     //connect(gps, SIGNAL(newposition), this, SLOT(displayspeed));

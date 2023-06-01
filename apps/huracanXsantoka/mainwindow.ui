@@ -125,7 +125,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  44</string>
+           <string>0</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_5">
@@ -211,7 +211,7 @@ font: 50pt &quot;Ubuntu&quot;;</string>
 font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  20</string>
+           <string>0</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_10">
