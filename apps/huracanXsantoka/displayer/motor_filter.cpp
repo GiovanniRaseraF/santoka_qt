@@ -61,15 +61,15 @@ QString motor_filter::__to_QString()
     QString ret = "";
 
     ret +=
-             ": " +  QString::number(drv_dcBusVoltage) + " V\n"
-            + ": " + QString::number(drv_motorCurrent) + " A\n"
-            + ": " + QString::number(drv_motorVoltage) + " V\n"
-            + ": " + QString::number(drv_motorSpeed) + " rpm\n"
-            + ": " + QString::number(drv_referement) + " rpm\n"
-            + ": " + QString::number(drv_currentLimit) + " A\n"
-            + ": " + QString::number(drv_regenerationLimit) + " A\n"
-            + ": " + QString::number(drv_powerTemperature) + " °C\n"
-            + ": " + QString::number(drv_motorTemperature) + " °C\n"
+             "Dbus: " +  QString::number(drv_dcBusVoltage) + " V\n"
+            + "M Curr: " + QString::number(drv_motorCurrent) + " A\n"
+            + "M Volt: " + QString::number(drv_motorVoltage) + " V\n"
+            + "Speed: " + QString::number(drv_motorSpeed) + " rpm\n"
+            + "Ref: " + QString::number(drv_referement) + " rpm\n"
+            + "Cur L: " + QString::number(drv_currentLimit) + " A\n"
+            + "Regen L: " + QString::number(drv_regenerationLimit) + " A\n"
+            + "Power T: " + QString::number(drv_powerTemperature) + " °C\n"
+            + "Motor T: " + QString::number(drv_motorTemperature) + " °C\n"
             + ": " + QString::number(drv_status) + " bitfield\n"
             + ": " + QString::number(drv_warnings) + " bitfield\n"
             + ": " + QString::number(drv_faults) + " bitfield\n";

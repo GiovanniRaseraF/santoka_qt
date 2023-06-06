@@ -45,7 +45,7 @@ QString generalinfo_filter::__to_QString()
 {
     QString ret = "";
 
-    ret += "BoatType: \n  -" + (info_BoatType < tabboattype.size() ? tabboattype.at(info_BoatType):"NOT FOUND") + "\n"
+    ret += "BoatType:\n-" + (info_BoatType < tabboattype.size() ? tabboattype.at(info_BoatType):"NOT FOUND") + "\n"
         +  "PVersion: " + QString(info_ProtocolVersion.c_str()) + "\n"
         +  "ECUVerision: " + QString(info_ECUVersion.c_str()) + "\n"
         +  "DriveVersion: " + QString(info_DriveVersion.c_str()) + "\n"

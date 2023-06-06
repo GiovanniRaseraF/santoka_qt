@@ -105,11 +105,9 @@ void MainWindow::readSubProcess(){
 void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
-    //connect(motor.get(), SIGNAL(new_dr(uint8_t)), this, SLOT(setPowerTemperature(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_TimeToEmpty(uint16_t)), this, SLOT(setTTE(uint16_t)));
 
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
-    //connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
     connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
 }
 
