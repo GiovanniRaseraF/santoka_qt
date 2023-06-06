@@ -40,7 +40,7 @@ int main(){
                 sline >> time;
                 sline >> direction;
 
-                std::string base = "std::tuple<uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t>"; 
+                std::string base = "TB"; 
                 //std::tuple<uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t>{vales}
                 // Printing
                 std::cout << base << "{" << id << ", ";
