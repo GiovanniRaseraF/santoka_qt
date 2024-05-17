@@ -31,7 +31,10 @@ void battery_filter::receivednewframe(const can_frame newframe){
         break;
 
         case 0x506:
+        // DOTO: fix battery power value on 32 bin arch
         bat_Power = 					(float)(int16_t)filter::estract(raw, maskbyte<3, 5>(), 5, 0) / 10;
+        // DOTO: fix battery power value
+
         bat_TimeToEmpty = 				filter::estract(raw, maskbyte<5, 7>(), 7, 0);
         bat_auxBatteryVoltage = 		(float)filter::estract(raw, maskbyte<7, 8>(), 8, 0) / 10;
             
