@@ -29,4 +29,14 @@ cd /media/sda1/
 # the app must be compiled with Release
 ./myapp     # app design must be in the same folder
 
+
+#password
+root
+root
+
+#copy
+rm /applicat/huracanXsantoka                                    
+cp /media/sda1/huracanXsantoka /applicat/
 ```
+
+

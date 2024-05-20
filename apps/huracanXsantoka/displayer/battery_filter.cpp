@@ -13,6 +13,7 @@ battery_filter::battery_filter(std::shared_ptr<canbus_thread> canbus_producer, Q
 void battery_filter::receivednewframe(const can_frame newframe){
     uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
 
+    int16_t bv = 0;
     switch(newframe.can_id){
         case 0x505:
         bat_TotalVoltage = 				(float)filter::doconvert(raw, 0, 2, 0, 10) / 10;
@@ -31,9 +32,13 @@ void battery_filter::receivednewframe(const can_frame newframe){
         break;
 
         case 0x506:
-        // DOTO: fix battery power value on 32 bin arch
-        bat_Power = 					(float)(int16_t)filter::estract(raw, maskbyte<3, 5>(), 5, 0) / 10;
-        // DOTO: fix battery power value
+        bv = (int16_t)filter::doconvert(raw, 3, 5, 0, 0);
+        bat_Power = 					((float)bv) / 10;
+
+        //        qDebug() <<  "raw: " << raw << " ";
+        //        qDebug() << "bv: " << bv << " ";
+        //        qDebug() << "bat_Power: " << bat_Power << " ";
+        //bat_Power = 					(float)(int16_t)filter::estract(raw, maskbyte<3, 5>(), 5, 0) / 10;
 
         bat_TimeToEmpty = 				filter::estract(raw, maskbyte<5, 7>(), 7, 0);
         bat_auxBatteryVoltage = 		(float)filter::estract(raw, maskbyte<7, 8>(), 8, 0) / 10;
