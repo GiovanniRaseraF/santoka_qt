@@ -15,13 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Create and start canbus on sepatate thread
-#ifdef SANTOKA
     canbus_producer = std::make_shared<canbus_thread>(nullptr);
-#else
-    canbus_producer = 		std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
-    one_second_producer = 	std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
-    one_second_producer->start();
-#endif
+    //    canbus_producer = 		std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
+    //    one_second_producer = 	std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
+    //    one_second_producer->start();
 
     canbus_producer->start();
 

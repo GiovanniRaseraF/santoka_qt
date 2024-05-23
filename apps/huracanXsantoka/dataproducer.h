@@ -23,11 +23,7 @@
 #include <can_netlink.h>
 #include <linux/can.h>
 #else
-struct can_frame{
-    uint32_t can_id;
-    uint8_t can_dlc;
-    uint8_t data[8];
-};
+#include <linux/can.h>
 #endif
 #include <random>
 #include <unistd.h>
@@ -62,9 +58,7 @@ signals:
 
 protected:
     int cansocket = 0;
-#ifdef SANTOKA
     struct sockaddr_can addr;
-#endif
 
     bool stop_execution = false;
 };
