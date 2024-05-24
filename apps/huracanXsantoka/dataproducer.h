@@ -17,18 +17,24 @@
 #include <QMutexLocker>
 #include <QMutex>
 
-#include <sys/socket.h>
+
 #include <net/if.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+
+#include <linux/can.h>
+#include <linux/can/raw.h>
+
 #ifdef SANTOKA
 #include <can_netlink.h>
-#include <linux/can.h>
-#else
-#include <linux/can.h>
 #endif
+
 #include <random>
 #include <unistd.h>
 #include <vector>
 #include <map>
+#include <string>
 #include <memory>
 #include <iostream>
 #include <fstream>
@@ -63,6 +69,7 @@ protected:
     bool stop_execution = false;
 };
 
+#if 0
 // Fake can bus data creator
 // Read from file and reproduce informations
 class fake_canbus_thread : public canbus_thread{
@@ -128,5 +135,5 @@ public:
 };
 
 
-
+#endif
 #endif // DATAPRODUCER_H

@@ -14,8 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     qRegisterMetaType<struct can_frame>();
     ui->setupUi(this);
 
-
-
     // Create and start canbus on sepatate thread
     canbus_producer = std::make_shared<canbus_thread>(nullptr, IF_CAN);
     //    canbus_producer = 		std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
@@ -216,7 +214,7 @@ void MainWindow::on_pb_faults_clicked()
         fault_dialog = std::make_shared<faultsandwarnings>(canbus_producer, this);
     fault_dialog->showFullScreen();
 #else
-        fault_dialog = std::make_shared<faultsandwarnings>(one_second_producer, this);
+        fault_dialog = std::make_shared<faultsandwarnings>(canbus_producer, this);
     fault_dialog->show();
 #endif
 
