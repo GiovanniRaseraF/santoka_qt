@@ -19,6 +19,7 @@
 #include "pages/boatinfowindow.h"
 #include "pages/hp_objectmoreinfo.h"
 #include "pages/faultsandwarnings.h"
+#include "pages/softwareinfo.h"
 
 #include "dialogs/faultdialog.h"
 
@@ -63,6 +64,8 @@ private slots:
 
     void on_pb_battery_clicked();
 
+    void on_pb_softwareinfo_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -88,7 +91,7 @@ private:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;
     std::shared_ptr<faultsandwarnings> fault_dialog;
     std::shared_ptr<hp_objectmoreinfo> battery_moreinfo_page;
-
+    std::shared_ptr<softwareinfo> softwareinfo_page;
 };
 
 #endif // MAINWINDOW_H

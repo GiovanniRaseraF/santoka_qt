@@ -14,8 +14,10 @@ MainWindow::MainWindow(QWidget *parent) :
     qRegisterMetaType<struct can_frame>();
     ui->setupUi(this);
 
+
+
     // Create and start canbus on sepatate thread
-    canbus_producer = std::make_shared<canbus_thread>(nullptr);
+    canbus_producer = std::make_shared<canbus_thread>(nullptr, IF_CAN);
     //    canbus_producer = 		std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
     //    one_second_producer = 	std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
     //    one_second_producer->start();
@@ -242,3 +244,17 @@ void MainWindow::on_pb_battery_clicked()
     battery_moreinfo_page->show();
 #endif
 }
+
+void MainWindow::on_pb_softwareinfo_clicked()
+{
+    if(softwareinfo_page == nullptr)
+        softwareinfo_page = std::make_shared<softwareinfo>(this);
+
+#ifdef SANTOKA
+    softwareinfo_page->showFullScreen();
+#else
+    softwareinfo_page->show();
+#endif
+    return;
+}
+

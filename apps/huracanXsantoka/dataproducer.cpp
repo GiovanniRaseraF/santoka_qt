@@ -2,7 +2,9 @@
 #include <QDebug>
 
 #ifdef SANTOKA
-canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
+canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(parent){
+    Q_UNUSED(interface);
+
     stop_execution = false;
 
     // Linux socket init
@@ -66,7 +68,7 @@ void canbus_thread::stop(){
 
 // desktop
 #ifdef DESKTOP
-canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
+canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(parent){
     stop_execution = false;
 
     // Linux socket init
@@ -77,7 +79,7 @@ canbus_thread::canbus_thread(QObject *parent) : QThread(parent){
     // socket
     cansocket = socket(PF_CAN, SOCK_RAW, CAN_RAW);
     addr.can_family = AF_CAN;
-    addr.can_ifindex = if_nametoindex("can0");
+    addr.can_ifindex = if_nametoindex(interface.c_str());
 
     // try binding
     int result = bind(cansocket, (struct sockaddr *)&addr, sizeof(addr));

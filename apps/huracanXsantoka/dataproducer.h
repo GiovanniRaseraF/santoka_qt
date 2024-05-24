@@ -39,7 +39,7 @@ class canbus_thread : public QThread {
     Q_OBJECT
 
 public:
-    canbus_thread(QObject *parent = nullptr);
+    canbus_thread(QObject *parent = nullptr, std::string interface = "can0");
     ~canbus_thread();
 
     virtual void run() override;

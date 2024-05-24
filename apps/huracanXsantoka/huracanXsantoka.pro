@@ -20,6 +20,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 DEFINES += DESKTOP
 #DEFINES += MACOS
 
+# canbus
+DEFINES += IF_CAN='"\\\"vcan0\\\""'
+
+# info
+DEFINES += GIT_VERSION='"\\\"$(shell git describe --always)\\\""'
+DEFINES += BUILD_DATE='"\\\"$(shell date)\\\""'
+DEFINES += COMPILER_VERSION='"\\\"$(shell gcc -dumpmachine)\\\""'
+
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
@@ -45,6 +53,7 @@ SOURCES += \
     pages/boatinfowindow.cpp \
     pages/faultsandwarnings.cpp \
     pages/hp_objectmoreinfo.cpp \
+    pages/softwareinfo.cpp \
     widgets/hp_faultdesing.cpp \
     widgets/hp_faultwarning.cpp \
     widgets/hp_tripleval.cpp \
@@ -71,6 +80,7 @@ HEADERS += \
     dialogs/faultdialog.h \
     pages/faultsandwarnings.h \
     pages/hp_objectmoreinfo.h \
+    pages/softwareinfo.h \
     widgets/hp_faultdesing.h \
     widgets/hp_faultwarning.h \
     widgets/hp_tripleval.h \
@@ -83,6 +93,7 @@ FORMS += \
     dialogs/faultdialog.ui \
     pages/faultsandwarnings.ui \
     pages/hp_objectmoreinfo.ui \
+    pages/softwareinfo.ui \
     widgets/hp_faultwarning.ui \
     widgets/hp_tripleval.ui \
     widgets/hp_widget_generic_infostring.ui
