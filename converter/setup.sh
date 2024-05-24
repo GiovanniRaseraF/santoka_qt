@@ -1,4 +1,4 @@
 #!/bin/bash
-
-sudo ip link set can0 type can bitrate 250000
-sudo ifconfig can0 up
+sudo modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
