@@ -63,10 +63,14 @@ float parseSOG(QString gpsdata){
 
     for(auto gp : pieces){
         if(gp != "" && gp.contains("GPVTG")){
-            QString ssog = gp.split(",")[7];
+            qDebug() << gp;
+            // TODO: future support for different readings
+            QString ssog_kmh = gp.split(",")[7];
 
-            if(ssog != ""){
-                std::stringstream ss{ssog.toStdString()};
+            QString ssog_kt = gp.split(",")[5];
+
+            if(ssog_kt != ""){
+                std::stringstream ss{ssog_kt.toStdString()};
                 float conv = 0;
                 ss >> conv;
 
