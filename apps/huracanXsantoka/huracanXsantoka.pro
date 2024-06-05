@@ -25,6 +25,7 @@ DEFINES += IF_CAN='"\\\"vcan0\\\""'
 
 # info
 DEFINES += GIT_VERSION='"\\\"$(shell git describe --always)\\\""'
+DEFINES += GIT_BRANCH='"\\\"$(shell git branch --show-current)\\\""'
 DEFINES += BUILD_DATE='"\\\"$(shell date)\\\""'
 DEFINES += COMPILER_VERSION='"\\\"$(shell gcc -dumpmachine)\\\""'
 
