@@ -82,7 +82,7 @@
     <rect>
      <x>290</x>
      <y>100</y>
-     <width>521</width>
+     <width>261</width>
      <height>31</height>
     </rect>
    </property>
@@ -162,6 +162,22 @@
    </property>
    <property name="text">
     <string>github: GiovanniRaseraF</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_git_branch">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>100</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(143, 240, 164)</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
