@@ -11,6 +11,7 @@ softwareinfo::softwareinfo(QWidget *parent) :
 
     // info
     ui->l_git_version->setText(GIT_VERSION);
+    ui->l_git_branch->setText(GIT_BRANCH);
     ui->l_build_date->setText(BUILD_DATE);
 #ifdef SANTOKA
     ui->l_compiler_version->setText("imx6guf-guf-linux-gnueabi");
