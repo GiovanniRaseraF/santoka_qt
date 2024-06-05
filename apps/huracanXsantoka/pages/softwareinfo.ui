@@ -17,10 +17,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>30</y>
+     <y>20</y>
      <width>251</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="orientation">
     <enum>Qt::Vertical</enum>
@@ -39,7 +42,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(153, 193, 241)</string>
+    <string notr="true">background-color: rgb(153, 193, 241);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>GIT_VERSION:</string>
@@ -55,7 +59,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(153, 193, 241)</string>
+    <string notr="true">background-color: rgb(153, 193, 241);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>BUILD_DATE:</string>
@@ -71,7 +76,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(153, 193, 241)</string>
+    <string notr="true">background-color: rgb(153, 193, 241);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>COMPILER_VERSION:</string>
@@ -87,7 +93,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(143, 240, 164)</string>
+    <string notr="true">background-color: rgb(143, 240, 164);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string/>
@@ -103,7 +110,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(143, 240, 164)</string>
+    <string notr="true">background-color: rgb(143, 240, 164);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string/>
@@ -119,20 +127,24 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(143, 240, 164)</string>
+    <string notr="true">background-color: rgb(143, 240, 164);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="l_author">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>250</y>
      <width>781</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>Author: Giovanni Rasera</string>
@@ -142,10 +154,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>280</y>
+     <y>290</y>
      <width>781</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>email: g.rasera@huracanmarine.com</string>
@@ -155,10 +170,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>310</y>
+     <y>330</y>
      <width>781</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>github: GiovanniRaseraF</string>
@@ -174,7 +192,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(143, 240, 164)</string>
+    <string notr="true">background-color: rgb(143, 240, 164);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string/>
