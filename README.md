@@ -29,6 +29,8 @@ cd /media/sda1/
 # the app must be compiled with Release
 ./myapp     # app design must be in the same folder
 
+# source
+source /opt/guf/GUF-Yocto-jethro-11.0-r8139-0-sdk/environment-setup-imx6guf-guf-linux-gnueabi
 
 #password
 root
