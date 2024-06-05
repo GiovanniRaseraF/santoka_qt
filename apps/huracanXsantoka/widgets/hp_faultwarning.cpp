@@ -20,10 +20,10 @@ hp_faultwarning::~hp_faultwarning()
 void hp_faultwarning::activatecolor(int c, int b, bool active) {
     if(canchannel == c && bit == b){
         if(active){
-            ui->pushButton_2->setStyleSheet("background-color:rgb(100, 0, 0);");
+            ui->pushButton_2->setStyleSheet("background-color:rgb(100, 0, 0);color:rgb(0,0,0);");
         }
         else {
-            ui->pushButton_2->setStyleSheet("background-color:rgb(154, 153, 150);");
+            ui->pushButton_2->setStyleSheet("background-color:rgb(154, 153, 150);color:rgb(255,255,255);");
         }
     }
 }
