@@ -42,3 +42,21 @@ cp /media/sda1/huracanXsantoka /applicat/
 ```
 
 
+# Installazione
+- Colleagre Display al 12V
+- Collegare cavo USB a computer e Display
+- Collegare chiavetta USB con Software desiderato al Display
+
+# Terminale
+- Aprire Putty
+- Connettersi alla porta COM del Display
+
+- loggarsi al Display scrivendo root 
+- user: root
+- pass: root
+
+- scrivere: 
+        #copy
+        rm /applicat/huracanXsantoka                                    
+        cp /media/sda1/huracanXsantoka /applicat/
+        sudo reboot
