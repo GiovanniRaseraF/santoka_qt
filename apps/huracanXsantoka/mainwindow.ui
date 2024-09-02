@@ -840,7 +840,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
            <string/>
           </property>
          </widget>
-         <widget class="QLabel" name="l_battery_current_2">
+         <widget class="QLabel" name="l_battery_temp">
           <property name="enabled">
            <bool>false</bool>
           </property>

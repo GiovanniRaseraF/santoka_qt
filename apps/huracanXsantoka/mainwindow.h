@@ -54,6 +54,7 @@ public slots:
 
     void setSpeed(uint16_t newSpeed);
     void setMotorTemperature(uint8_t newMotorTemperature);
+    void setBatteryTemperature(uint8_t newBatteryTemperature);
     void setMotorSpeed(uint16_t newMotorSpeed);
 
 

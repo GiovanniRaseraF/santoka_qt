@@ -110,6 +110,7 @@ void MainWindow::connectBatteryFilterToGraphics(){
 
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
     connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
+    connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setBatteryTemperature(uint8_t)));
 }
 
 void MainWindow::connectVehicleFilterToGraphics(){
@@ -202,6 +203,10 @@ void MainWindow::setSpeed(uint16_t newSpeed)
 void MainWindow::setMotorTemperature(uint8_t newMotorTemperature)
 {
    ui->l_motortemp_value->setText(QString::number(newMotorTemperature));
+}
+void MainWindow::setBatteryTemperature(uint8_t newBatteryTemperature)
+{
+   ui->l_battery_temp->setText(QString::number(newBatteryTemperature));
 }
 
 void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)

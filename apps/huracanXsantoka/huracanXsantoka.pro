@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 CONFIG += c++17
-QT     += core gui xml designer serialport
+QT     += core gui xml serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
