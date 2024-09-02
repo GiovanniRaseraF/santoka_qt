@@ -787,6 +787,101 @@ font: 50pt &quot;Ubuntu&quot;;</string>
            <string>?</string>
           </property>
          </widget>
+         <widget class="QLabel" name="l_temperature_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>280</y>
+            <width>331</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="whatsThis">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0,0,0);
+font: 15pt &quot;Ubuntu&quot;;</string>
+          </property>
+          <property name="text">
+           <string>  Battery Temp</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="l_battery_8">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>260</y>
+            <width>20</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="whatsThis">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(16, 73, 31,40);
+font: 20pt &quot;Ubuntu&quot;;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="l_battery_current_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>320</y>
+            <width>81</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0,0,0);
+font: 20pt &quot;Ubuntu&quot;;</string>
+          </property>
+          <property name="text">
+           <string>  33</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_8">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>320</y>
+            <width>41</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0,0,0);
+font: 15pt &quot;Ubuntu&quot;;</string>
+          </property>
+          <property name="text">
+           <string>C°</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
