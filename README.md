@@ -55,8 +55,10 @@ cp /media/sda1/huracanXsantoka /applicat/
 - user: root
 - pass: root
 
-- scrivere: 
+- scrivere:
+   ```bash
         #copy
         rm /applicat/huracanXsantoka                                    
         cp /media/sda1/huracanXsantoka /applicat/
         sudo reboot
+   ```
