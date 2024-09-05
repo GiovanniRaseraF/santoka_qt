@@ -53,7 +53,7 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>150</y>
+     <y>130</y>
      <width>241</width>
      <height>31</height>
     </rect>
@@ -70,7 +70,7 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>200</y>
+     <y>160</y>
      <width>241</width>
      <height>31</height>
     </rect>
@@ -104,7 +104,7 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>150</y>
+     <y>130</y>
      <width>521</width>
      <height>31</height>
     </rect>
@@ -121,7 +121,7 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>200</y>
+     <y>160</y>
      <width>521</width>
      <height>31</height>
     </rect>
@@ -137,14 +137,14 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
   <widget class="QLabel" name="l_author">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>250</y>
-     <width>781</width>
-     <height>31</height>
+     <x>460</x>
+     <y>40</y>
+     <width>181</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;</string>
+    <string notr="true">font: 10pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>Author: Giovanni Rasera</string>
@@ -153,14 +153,14 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>290</y>
-     <width>781</width>
-     <height>31</height>
+     <x>660</x>
+     <y>40</y>
+     <width>261</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;</string>
+    <string notr="true">font: 10pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>email: g.rasera@huracanmarine.com</string>
@@ -169,14 +169,14 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>330</y>
-     <width>781</width>
+     <x>460</x>
+     <y>10</y>
+     <width>181</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;</string>
+    <string notr="true">font: 10pt &quot;Ubuntu Bold&quot;;</string>
    </property>
    <property name="text">
     <string>github: GiovanniRaseraF</string>
@@ -203,17 +203,21 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>390</y>
+     <y>220</y>
      <width>951</width>
-     <height>191</height>
+     <height>311</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 15pt &quot;Ubuntu Bold&quot;;
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>370</y>
+     <y>200</y>
      <width>67</width>
      <height>17</height>
     </rect>
