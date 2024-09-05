@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     generalinfo = 	std::make_shared<generalinfo_filter>(canbus_producer, this);
     motor = 		std::make_shared<motor_filter>(canbus_producer, this);
     vehicle = 		std::make_shared<vehicle_filter>(canbus_producer, this);
+    sniffer = 		std::make_shared<sniffer_filter>(canbus_producer, this);
 
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
@@ -111,6 +112,7 @@ void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_TotalVoltage(float)), this, SLOT(setBatteryVoltage(float)));
     connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
     connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setBatteryTemperature(uint8_t)));
+    connect(battery.get(), SIGNAL(new_bat_BMSTemperature(uint8_t)), this, SLOT(setBMSTemperature(uint8_t)));
 }
 
 void MainWindow::connectVehicleFilterToGraphics(){
@@ -209,6 +211,11 @@ void MainWindow::setBatteryTemperature(uint8_t newBatteryTemperature)
    ui->l_battery_temp->setText(QString::number(newBatteryTemperature));
 }
 
+void MainWindow::setBMSTemperature(uint8_t newBMSTemperature)
+{
+   ui->l_bms_temp->setText(QString::number(newBMSTemperature));
+}
+
 void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
 {
    ui->l_RPM_value->setText(QString::number(newMotorSpeed));
@@ -257,6 +264,7 @@ void MainWindow::on_pb_softwareinfo_clicked()
     if(softwareinfo_page == nullptr)
         softwareinfo_page = std::make_shared<softwareinfo>(this);
 
+    softwareinfo_page->connectInformations(sniffer);
 #ifdef SANTOKA
     softwareinfo_page->showFullScreen();
 #else

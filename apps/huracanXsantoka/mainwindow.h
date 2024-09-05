@@ -15,6 +15,7 @@
 #include "displayer/generalinfo_filter.h"
 #include "displayer/motor_filter.h"
 #include "displayer/vehicle_filter.h"
+#include "displayer/sniffer.h"
 
 #include "pages/boatinfowindow.h"
 #include "pages/hp_objectmoreinfo.h"
@@ -55,6 +56,7 @@ public slots:
     void setSpeed(uint16_t newSpeed);
     void setMotorTemperature(uint8_t newMotorTemperature);
     void setBatteryTemperature(uint8_t newBatteryTemperature);
+    void setBMSTemperature(uint8_t newBMSTemperature);
     void setMotorSpeed(uint16_t newMotorSpeed);
 
 
@@ -86,6 +88,7 @@ private:
     std::shared_ptr<generalinfo_filter> generalinfo;
     std::shared_ptr<motor_filter> motor;
     std::shared_ptr<vehicle_filter> vehicle;
+    std::shared_ptr<sniffer_filter> sniffer;
 
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;

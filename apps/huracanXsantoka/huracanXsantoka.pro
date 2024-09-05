@@ -16,8 +16,8 @@ TEMPLATE = app
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-#DEFINES += SANTOKA
-DEFINES += DESKTOP
+DEFINES += SANTOKA
+#DEFINES += DESKTOP
 #DEFINES += MACOS
 
 # canbus
@@ -40,6 +40,7 @@ SOURCES += \
     candata/singlefaultwarningpacket.cpp \
     displayer/battery_filter.cpp \
     dataproducer.cpp \
+    displayer/sniffer.cpp \
     displayer/vehicle_filter.cpp \
     loaders/hp_faultwarning_loader.cpp \
     main.cpp \
@@ -67,6 +68,7 @@ HEADERS += \
     displayer/battery_filter.h \
     dataproducer.h \
     displayer/fakedata.h \
+    displayer/sniffer.h \
     displayer/templatedconverter.h \
     displayer/vehicle_filter.h \
     loaders/hp_faultwarning_loader.h \

@@ -2,6 +2,7 @@
 #include "ui_softwareinfo.h"
 
 #include <QDebug>
+#include <iostream>
 
 softwareinfo::softwareinfo(QWidget *parent) :
     QDialog(parent),
@@ -30,8 +31,47 @@ softwareinfo::~softwareinfo()
     delete ui;
 }
 
+void softwareinfo::connectInformations(
+        PASSSHARED_NONULL (sniffer_filter, _sniffer))
+{
+    mysniffer = _sniffer;
+    connect(mysniffer.get(), SIGNAL(new_canpacket(QString)), this, SLOT(on_candata(QString)));
+}
+
+void softwareinfo::on_candata(QString data){
+    std::cout << data.toStdString() << std::endl;
+    updateCandumpText(data);
+}
+
+void softwareinfo::updateCandumpText(QString data){
+    ui->candump_text->append(data);
+    appendCount ++;
+}
+
+void softwareinfo::clearDump(){
+    ui->candump_text->clear();
+}
+
 void softwareinfo::on_pb_close_clicked()
 {
-   this->close();
+    ui->candump_text->clear();
+    disconnect(mysniffer.get(), SIGNAL(new_canpacket(QString)), this, SLOT(on_candata(QString)));
+    this->close();
+}
+
+
+void softwareinfo::on_softwareinfo_accepted()
+{
+    ui->candump_text->clear();
+    disconnect(mysniffer.get(), SIGNAL(new_canpacket(QString)), this, SLOT(on_candata(QString)));
+    this->close();
+}
+
+
+void softwareinfo::on_softwareinfo_rejected()
+{
+    ui->candump_text->clear();
+    disconnect(mysniffer.get(), SIGNAL(new_canpacket(QString)), this, SLOT(on_candata(QString)));
+    this->close();
 }
 
