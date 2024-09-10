@@ -17,7 +17,6 @@
 #include <QMutexLocker>
 #include <QMutex>
 
-
 #include <net/if.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -41,7 +40,8 @@
 
 #include "displayer/fakedata.h"
 
-class canbus_thread : public QThread {
+class canbus_thread : public QThread
+{
     Q_OBJECT
 
 public:
@@ -50,7 +50,8 @@ public:
 
     virtual void run() override;
     virtual void stop();
-    virtual std::string getinfo(){
+    virtual std::string getinfo()
+    {
         std::string ret{};
 
         ret += "canbus_thread:";
@@ -133,7 +134,6 @@ public:
         return ret;
     }
 };
-
 
 #endif
 #endif // DATAPRODUCER_H

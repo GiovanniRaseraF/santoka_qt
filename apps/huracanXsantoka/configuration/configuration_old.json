@@ -39,18 +39,14 @@
                         },
                         {
                                 "_type": "warning",
-                                "_description": "Throttle NOT Zero",
+                                "_description": "Throttle Not Zero",
                                 "_bit": "7"
                         },
                         {
                                 "_type": "warning",
                                 "_description": "RESERVED",
-                                "_bit": "8"
-                        },
-                        {
-                                "_type": "warning",
-                                "_description": "CAN com. with BMS Failure",
-                                "_bit": "12"
+                                "_bit": "8",
+                                "_length": "24"
                         },
                         {
                                 "_type": "fault",

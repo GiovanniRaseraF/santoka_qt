@@ -2,7 +2,8 @@
 #include <QDebug>
 
 #ifdef SANTOKA
-canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(parent){
+canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(parent)
+{
     Q_UNUSED(interface);
 
     stop_execution = false;
@@ -23,17 +24,21 @@ canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(p
     // try binding
     int result = bind(cansocket, (struct sockaddr *)&addr, sizeof(addr));
 
-    if (result == -1){
+    if (result == -1)
+    {
         qDebug() << ": can bind error\n";
         exit(1);
-    }else{
+    }
+    else
+    {
         qDebug() << (": can0 binded, init reading process");
     }
 
     qDebug() << ": canbus thread RAII init\n";
 }
 
-canbus_thread::~canbus_thread(){
+canbus_thread::~canbus_thread()
+{
     stop();
     close(cansocket);
     system("sudo /sbin/ifconfig can0 down");
@@ -41,18 +46,23 @@ canbus_thread::~canbus_thread(){
     QThread::msleep(20);
 }
 
-void canbus_thread::run() {
+void canbus_thread::run()
+{
     int nbytes = 0;
     struct can_frame valuetoemit;
 
     // data recv from socket
-    while(!stop_execution){
+    while (!stop_execution)
+    {
         // socket read
         nbytes = read(cansocket, &valuetoemit, sizeof(valuetoemit));
 
-        if(nbytes > 0){
+        if (nbytes > 0)
+        {
             emit signalnewdata(valuetoemit);
-        }else{
+        }
+        else
+        {
             qDebug() << ": can_frame error, nbytes <= 0\n";
             QThread::msleep(200);
         }
@@ -61,14 +71,16 @@ void canbus_thread::run() {
     QThread::run();
 }
 
-void canbus_thread::stop(){
+void canbus_thread::stop()
+{
     stop_execution = true;
 }
 #endif
 
 // desktop
 #ifdef DESKTOP
-canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(parent){
+canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(parent)
+{
     stop_execution = false;
 
     // Linux socket init
@@ -84,33 +96,42 @@ canbus_thread::canbus_thread(QObject *parent, std::string interface) : QThread(p
     // try binding
     int result = bind(cansocket, (struct sockaddr *)&addr, sizeof(addr));
 
-    if (result == -1){
+    if (result == -1)
+    {
         qDebug() << ": can bind error\n";
         exit(1);
-    }else{
+    }
+    else
+    {
         qDebug() << (": can0 binded, init reading process");
     }
 }
 
-canbus_thread::~canbus_thread(){
+canbus_thread::~canbus_thread()
+{
     stop();
     close(cansocket);
 
     QThread::msleep(20);
 }
 
-void canbus_thread::run() {
+void canbus_thread::run()
+{
     int nbytes = 0;
     struct can_frame valuetoemit;
 
     // data recv from socket
-    while(!stop_execution){
+    while (!stop_execution)
+    {
         // socket read
         nbytes = read(cansocket, &valuetoemit, sizeof(valuetoemit));
 
-        if(nbytes > 0){
+        if (nbytes > 0)
+        {
             emit signalnewdata(valuetoemit);
-        }else{
+        }
+        else
+        {
             qDebug() << ": can_frame error, nbytes <= 0\n";
             QThread::msleep(200);
         }
@@ -119,8 +140,8 @@ void canbus_thread::run() {
     QThread::run();
 }
 
-void canbus_thread::stop(){
+void canbus_thread::stop()
+{
     stop_execution = true;
 }
 #endif
-

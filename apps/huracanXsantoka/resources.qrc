@@ -7,5 +7,6 @@
         <file>images/home.png</file>
         <file>images/info.png</file>
         <file>configuration/configuration.json</file>
+        <file>configuration/configuration_old.json</file>
     </qresource>
 </RCC>
