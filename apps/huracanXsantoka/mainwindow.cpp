@@ -277,3 +277,18 @@ void MainWindow::on_pb_softwareinfo_clicked()
     return;
 }
 
+// evbms page
+void MainWindow::on_pb_evbmspage_clicked()
+{
+   if(evbms_page == nullptr)
+       evbms_page = std::make_shared<batterypage>(this);
+
+   evbms_page->connectInformations(ev0x351, ev0x355);
+#ifdef SANTOKA
+   evbms_page->showFullScreen();
+#else
+   evbms_page->show();
+#endif
+   return;
+}
+

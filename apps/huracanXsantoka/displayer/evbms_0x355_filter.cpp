@@ -13,7 +13,6 @@ evbms_0x355::evbms_0x355(std::shared_ptr<canbus_thread> canbus_producer, QObject
 void evbms_0x355::receivednewframe(const can_frame newframe){
     uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
 
-    int16_t bv = 0;
     switch(newframe.can_id){
         case 0x355:
         ev_SOC = (uint16_t)filter::estract(raw, maskbyte<0, 2>(), 1, 0);
@@ -26,7 +25,7 @@ void evbms_0x355::receivednewframe(const can_frame newframe){
         emit new_ev_ResidualDischargeTime(ev_ResidualDischargeTime);
         emit new_ev_Capacity(ev_Capacity);
 
-        qDebug() << "0x355: " << __to_QString() << maskbyte<0, 2>();
+        qDebug() << "0x355: " << __to_QString();
         break;
 
         default:

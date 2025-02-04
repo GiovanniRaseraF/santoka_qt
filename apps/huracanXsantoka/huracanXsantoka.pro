@@ -54,6 +54,7 @@ SOURCES += \
     displayer/filter.cpp \
     dialogs/faultdialog.cpp \
     pages/battery_moreinfopage.cpp \
+    pages/batterypage.cpp \
     pages/boatinfowindow.cpp \
     pages/faultsandwarnings.cpp \
     pages/hp_objectmoreinfo.cpp \
@@ -84,6 +85,7 @@ HEADERS += \
     displayer/command_filter.h \
     displayer/filter.h \
     pages/battery_moreinfopage.h \
+    pages/batterypage.h \
     pages/boatinfowindow.h \
     dialogs/faultdialog.h \
     pages/faultsandwarnings.h \
@@ -97,6 +99,7 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
+    pages/batterypage.ui \
     pages/boatinfowindow.ui \
     dialogs/faultdialog.ui \
     pages/faultsandwarnings.ui \

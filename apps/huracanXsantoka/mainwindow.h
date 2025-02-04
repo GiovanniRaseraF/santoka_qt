@@ -23,6 +23,7 @@
 #include "pages/hp_objectmoreinfo.h"
 #include "pages/faultsandwarnings.h"
 #include "pages/softwareinfo.h"
+#include "pages/batterypage.h"
 
 #include "dialogs/faultdialog.h"
 
@@ -71,6 +72,8 @@ private slots:
 
     void on_pb_softwareinfo_clicked();
 
+    void on_pb_evbmspage_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -101,6 +104,7 @@ private:
     std::shared_ptr<faultsandwarnings> fault_dialog;
     std::shared_ptr<hp_objectmoreinfo> battery_moreinfo_page;
     std::shared_ptr<softwareinfo> softwareinfo_page;
+    std::shared_ptr<batterypage> evbms_page;
 };
 
 #endif // MAINWINDOW_H
