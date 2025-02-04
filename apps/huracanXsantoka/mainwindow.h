@@ -16,6 +16,8 @@
 #include "displayer/motor_filter.h"
 #include "displayer/vehicle_filter.h"
 #include "displayer/sniffer.h"
+#include "displayer/evbms_0x351_filter.h"
+#include "displayer/evbms_0x355_filter.h"
 
 #include "pages/boatinfowindow.h"
 #include "pages/hp_objectmoreinfo.h"
@@ -89,6 +91,10 @@ private:
     std::shared_ptr<motor_filter> motor;
     std::shared_ptr<vehicle_filter> vehicle;
     std::shared_ptr<sniffer_filter> sniffer;
+    // evbms
+    std::shared_ptr<evbms_0x351> ev0x351;
+    std::shared_ptr<evbms_0x355> ev0x355;
+
 
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;

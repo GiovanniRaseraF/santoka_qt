@@ -30,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
     motor = 		std::make_shared<motor_filter>(canbus_producer, this);
     vehicle = 		std::make_shared<vehicle_filter>(canbus_producer, this);
     sniffer = 		std::make_shared<sniffer_filter>(canbus_producer, this);
+    // Evbms filters
+    ev0x351 = 		std::make_shared<evbms_0x351>(canbus_producer, this);
+    ev0x355 = 		std::make_shared<evbms_0x355>(canbus_producer, this);
+
 
     // Connect data to Graphics
     connectBatteryFilterToGraphics();
