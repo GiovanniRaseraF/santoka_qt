@@ -42,6 +42,8 @@ SOURCES += \
     dataproducer.cpp \
     displayer/evbms_0x351_filter.cpp \
     displayer/evbms_0x355_filter.cpp \
+    displayer/evbms_0x356_filter.cpp \
+    displayer/evbms_0x358_filter.cpp \
     displayer/sniffer.cpp \
     displayer/vehicle_filter.cpp \
     loaders/hp_faultwarning_loader.cpp \
@@ -72,6 +74,8 @@ HEADERS += \
     dataproducer.h \
     displayer/evbms_0x351_filter.h \
     displayer/evbms_0x355_filter.h \
+    displayer/evbms_0x356_filter.h \
+    displayer/evbms_0x358_filter.h \
     displayer/evbms_filter.h \
     displayer/fakedata.h \
     displayer/sniffer.h \

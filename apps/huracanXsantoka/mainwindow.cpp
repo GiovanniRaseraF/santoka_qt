@@ -16,9 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Create and start canbus on sepatate thread
     canbus_producer = std::make_shared<canbus_thread>(nullptr, IF_CAN);
-    //    canbus_producer = 		std::make_shared<fake_canbus_thread>("fake can producer", 10, nullptr);
-    //    one_second_producer = 	std::make_shared<fake_canbus_thread>("fake 1 second", 50, nullptr);
-    //    one_second_producer->start();
 
     canbus_producer->start();
 
@@ -33,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // Evbms filters
     ev0x351 = 		std::make_shared<evbms_0x351>(canbus_producer, this);
     ev0x355 = 		std::make_shared<evbms_0x355>(canbus_producer, this);
+    ev0x356 = 		std::make_shared<evbms_0x356>(canbus_producer, this);
+    //ev0x358 = 		std::make_shared<evbms_0x358>(canbus_producer, this);
 
 
     // Connect data to Graphics
@@ -283,7 +282,7 @@ void MainWindow::on_pb_evbmspage_clicked()
    if(evbms_page == nullptr)
        evbms_page = std::make_shared<batterypage>(this);
 
-   evbms_page->connectInformations(ev0x351, ev0x355);
+   evbms_page->connectInformations(ev0x351, ev0x355, ev0x356);
 #ifdef SANTOKA
    evbms_page->showFullScreen();
 #else

@@ -27,7 +27,6 @@ public:
     // TODO: need to replace doconvert with estract for efficency
     uint32_t doconvert(uint64_t raw, std::size_t sb, std::size_t eb, uint8_t of, uint8_t f);
     uint32_t estract(uint64_t raw, uint64_t mask, std::size_t eb, uint8_t of);
-
 signals:
     virtual void to_QString(QString);
 

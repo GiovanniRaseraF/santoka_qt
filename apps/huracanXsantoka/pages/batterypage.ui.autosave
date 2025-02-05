@@ -737,7 +737,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="text">
-         <string>V</string>
+         <string>mV</string>
         </property>
        </widget>
        <widget class="QLabel" name="l_temperature_9">
@@ -886,7 +886,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="text">
-         <string>V</string>
+         <string>mV</string>
         </property>
        </widget>
        <widget class="QLabel" name="l_battery_18">
