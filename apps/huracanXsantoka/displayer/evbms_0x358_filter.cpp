@@ -11,7 +11,6 @@ evbms_0x358::evbms_0x358(std::shared_ptr<canbus_thread> canbus_producer, QObject
 }
 
 void evbms_0x358::receivednewframe(const can_frame newframe){
-    uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
 
     switch(newframe.can_id){
         case 0x358:

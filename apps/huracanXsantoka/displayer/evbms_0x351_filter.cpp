@@ -11,8 +11,6 @@ evbms_0x351::evbms_0x351(std::shared_ptr<canbus_thread> canbus_producer, QObject
 }
 
 void evbms_0x351::receivednewframe(const can_frame newframe){
-    uint64_t raw = filter::convert((uint8_t *)newframe.data, newframe.can_dlc);
-
     switch(newframe.can_id){
         case 0x351:
         ev_CharginVoltageLimit =    (float)((((uint16_t)filter::to_uint8(&newframe, 1, 2, 0, 1)) << 8) | (filter::to_uint8(&newframe, 0, 1, 0, 1))) * 0.1;
