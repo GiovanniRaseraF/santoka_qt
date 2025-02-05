@@ -16,7 +16,7 @@ void evbms_0x356::receivednewframe(const can_frame newframe){
     switch(newframe.can_id){
         case 0x356:
         ev_Voltage =       		(float)((((uint16_t)filter::to_uint8(&newframe, 1, 2, 0, 1)) << 8) | (filter::to_uint8(&newframe, 0, 1, 0, 1))) * 0.1;
-        ev_Current=       		(float)((((uint16_t)filter::to_uint8(&newframe, 3, 4, 0, 1)) << 8) | (filter::to_uint8(&newframe, 2, 3, 0, 1))) * 0.1;
+        ev_Current=       		(float)((((int16_t)filter::to_uint8(&newframe, 3, 4, 0, 1)) << 8) | (filter::to_uint8(&newframe, 2, 3, 0, 1))) * 0.1;
 
         emit new_ev_Voltage(ev_Voltage);
         emit new_ev_Current(ev_Current);
