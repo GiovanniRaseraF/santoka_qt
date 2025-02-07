@@ -432,26 +432,6 @@ font: 50pt &quot;Ubuntu&quot;;</string>
            <string>KW</string>
           </property>
          </widget>
-         <widget class="QLabel" name="l_mapinuse">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>410</y>
-            <width>281</width>
-            <height>91</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgba(16, 73, 31,0);
-font: 50pt &quot;Ubuntu&quot;;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
          <widget class="QLabel" name="l_tte">
           <property name="enabled">
            <bool>false</bool>
@@ -473,16 +453,6 @@ font: 40pt &quot;Ubuntu&quot;;</string>
            <string>-- h -- m</string>
           </property>
          </widget>
-         <zorder>l_mapinuse</zorder>
-         <zorder>pb_motor</zorder>
-         <zorder>l_speed_value</zorder>
-         <zorder>label_9</zorder>
-         <zorder>l_battery_2</zorder>
-         <zorder>l_battery_17</zorder>
-         <zorder>l_battery_18</zorder>
-         <zorder>l_power_value</zorder>
-         <zorder>label_6</zorder>
-         <zorder>l_tte</zorder>
         </widget>
        </item>
       </layout>
@@ -1052,6 +1022,19 @@ font:15pt &quot;Ubuntu Bold&quot;;</string>
     </property>
     <property name="text">
      <string>Boat info</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_mapinuse">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>10</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

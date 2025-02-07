@@ -8,5 +8,19 @@
         <file>images/info.png</file>
         <file>configuration/configuration.json</file>
         <file>configuration/configuration_old.json</file>
+        <file>images/allbatt.png</file>
+        <file>images/b_100.png</file>
+        <file>images/b_100_charging.png</file>
+        <file>images/b_20.png</file>
+        <file>images/b_20_charging.png</file>
+        <file>images/b_40.png</file>
+        <file>images/b_40_charging.png</file>
+        <file>images/b_5.png</file>
+        <file>images/b_5_charging.png</file>
+        <file>images/b_60.png</file>
+        <file>images/b_60_charging.png</file>
+        <file>images/b_80.png</file>
+        <file>images/b_80_charging.png</file>
+        <file>images/logotrasparent_old.png</file>
     </qresource>
 </RCC>
