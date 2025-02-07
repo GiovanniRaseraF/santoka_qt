@@ -33,6 +33,7 @@ void batterypage::connectInformations(PASSSHARED_NONULL (evbms_0x351, _ev0x351),
 
     // 0x355
     connect(ev0x355.get(), SIGNAL(new_ev_SOC(uint16_t)), this, SLOT(setSOC(uint16_t)));
+    connect(ev0x355.get(), SIGNAL(new_ev_SOC(uint16_t)), this, SLOT(setSOCBatteryGraphics(uint16_t)));
     connect(ev0x355.get(), SIGNAL(new_ev_SOH(uint16_t)), this, SLOT(setSOH(uint16_t)));
     connect(ev0x355.get(), SIGNAL(new_ev_ResidualDischargeTime(uint16_t)), this, SLOT(setResidualDischargeTime(uint16_t)));
     connect(ev0x355.get(), SIGNAL(new_ev_Capacity(uint16_t)), this, SLOT(setCapacity(uint16_t)));
@@ -60,6 +61,15 @@ void batterypage::on_pb_close_clicked()
 void batterypage::setSOC(uint16_t newSOC)
 {
     ui->l_soc_value->setText(QString::number(newSOC));
+}
+
+void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
+{
+    if(newSOC > 95){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
+    }else{
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80.png)");
+    }
 }
 
 void batterypage::setSOH(uint16_t newSOH)

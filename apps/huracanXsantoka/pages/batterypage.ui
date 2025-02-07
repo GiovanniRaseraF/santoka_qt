@@ -1466,7 +1466,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
      <string>min</string>
     </property>
    </widget>
-   <widget class="QLabel" name="l_logo_2">
+   <widget class="QLabel" name="l_battery_graphics">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -1679,7 +1679,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
    <zorder>l_soc_scale</zorder>
    <zorder>l_soh_scale</zorder>
    <zorder>l_residual_scale</zorder>
-   <zorder>l_logo_2</zorder>
+   <zorder>l_battery_graphics</zorder>
    <zorder>line</zorder>
    <zorder>line_3</zorder>
    <zorder>line_5</zorder>

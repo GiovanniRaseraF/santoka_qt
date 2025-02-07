@@ -39,6 +39,7 @@ private slots:
     void on_pb_close_clicked();
     // 0x355
     void setSOC(uint16_t newSOC);
+    void setSOCBatteryGraphics(uint16_t newSOC);
     void setSOH(uint16_t newSOH);
     void setResidualDischargeTime(uint16_t newRDT);
     void setCapacity(uint16_t newC);
