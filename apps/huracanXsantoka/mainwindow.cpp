@@ -165,6 +165,7 @@ void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){
     bool IsElectric = newMapInUse & 2;
     bool IsDiesel = newMapInUse & 4;
 
+    // Text
     if(IsHibrid){
         ui->l_mapinuse->setText("Hibrid");
     }else if(IsElectric){
@@ -174,6 +175,18 @@ void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){
     }else{
         ui->l_mapinuse->setText("No Map");
     }
+
+    // Image
+    if(IsHibrid){
+        ui->l_mapinuse_img->setStyleSheet("image: url(:/images/hibrid.png)");
+    }else if(IsElectric){
+        ui->l_mapinuse_img->setStyleSheet("image: url(:/images/electric.png)");
+    }else if(IsDiesel){
+        ui->l_mapinuse_img->setStyleSheet("image: url(:/images/diesel.png)");
+    }else{
+        ui->l_mapinuse_img->setStyleSheet("image: url(:/images/electric.png)");
+    }
+
 }
 
 // Display graphics

@@ -22,5 +22,10 @@
         <file>images/b_80.png</file>
         <file>images/b_80_charging.png</file>
         <file>images/logotrasparent_old.png</file>
+        <file>images/diesel.png</file>
+        <file>images/electric.png</file>
+        <file>images/hybrid.png</file>
+        <file>images/battery_info.png</file>
+        <file>images/report.png</file>
     </qresource>
 </RCC>

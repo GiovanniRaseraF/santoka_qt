@@ -502,7 +502,7 @@ color:rgb(0,0,0);
 font: 20pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
-           <string>  Battery SOC</string>
+           <string>  SOC</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_20">
@@ -729,16 +729,16 @@ font: 50pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="geometry">
            <rect>
-            <x>220</x>
-            <y>50</y>
-            <width>81</width>
-            <height>91</height>
+            <x>190</x>
+            <y>70</y>
+            <width>61</width>
+            <height>61</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);
 color:rgb(0,0,0);
-font: 50pt &quot;Ubuntu&quot;;</string>
+font: 40pt &quot;Ubuntu&quot;;</string>
           </property>
           <property name="text">
            <string>%</string>
@@ -747,14 +747,17 @@ font: 50pt &quot;Ubuntu&quot;;</string>
          <widget class="QPushButton" name="pb_softwareinfo">
           <property name="geometry">
            <rect>
-            <x>258</x>
-            <y>464</y>
+            <x>130</x>
+            <y>460</y>
             <width>61</width>
             <height>51</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">image: url(:/images/report.png) ;</string>
+          </property>
           <property name="text">
-           <string>?</string>
+           <string/>
           </property>
          </widget>
          <widget class="QLabel" name="l_temperature_2">
@@ -950,17 +953,18 @@ font: 20pt &quot;Ubuntu&quot;;</string>
          <widget class="QPushButton" name="pb_evbmspage">
           <property name="geometry">
            <rect>
-            <x>208</x>
+            <x>210</x>
             <y>0</y>
-            <width>121</width>
+            <width>101</width>
             <height>61</height>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background: rgb(87, 227, 137)</string>
+           <string notr="true">image: url(:/images/battery_info.png) ;
+</string>
           </property>
           <property name="text">
-           <string>MORE..</string>
+           <string/>
           </property>
          </widget>
         </widget>
@@ -993,45 +997,76 @@ font: 15pt &quot;Ubuntu&quot;;</string>
    <widget class="QPushButton" name="pb_faults">
     <property name="geometry">
      <rect>
-      <x>930</x>
+      <x>890</x>
       <y>10</y>
       <width>61</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(164, 0, 0)</string>
+     <string notr="true">background-color: rgb(222, 221, 218);
+image: url(:/images/warning.png) ;</string>
     </property>
     <property name="text">
-     <string>F, W</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="pb_boatinfo">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>810</x>
       <y>10</y>
-      <width>181</width>
+      <width>61</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0,0,0);
+     <string notr="true">background-color: rgb(222, 221, 218);
 color:rgb(255, 255, 255);
-font:15pt &quot;Ubuntu Bold&quot;;</string>
+font:15pt &quot;Ubuntu Bold&quot;;
+image: url(:/images/info.png) ;</string>
     </property>
     <property name="text">
-     <string>Boat info</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="l_mapinuse">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>620</x>
       <y>10</y>
       <width>121</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>10</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_mapinuse_img">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>10</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/images/electric.png) ;</string>
     </property>
     <property name="text">
      <string/>
