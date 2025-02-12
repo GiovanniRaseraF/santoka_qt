@@ -1,13 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/logotrasparent.png</file>
-        <file>images/warning.png</file>
-        <file>images/back.png</file>
-        <file>images/battery.png</file>
-        <file>images/home.png</file>
-        <file>images/info.png</file>
-        <file>configuration/configuration.json</file>
-        <file>configuration/configuration_old.json</file>
         <file>images/allbatt.png</file>
         <file>images/b_100.png</file>
         <file>images/b_100_charging.png</file>
@@ -21,11 +13,17 @@
         <file>images/b_60_charging.png</file>
         <file>images/b_80.png</file>
         <file>images/b_80_charging.png</file>
-        <file>images/logotrasparent_old.png</file>
+        <file>images/back.png</file>
+        <file>images/battery.png</file>
+        <file>images/battery_info.png</file>
         <file>images/diesel.png</file>
         <file>images/electric.png</file>
+        <file>images/home.png</file>
         <file>images/hybrid.png</file>
-        <file>images/battery_info.png</file>
+        <file>images/info.png</file>
+        <file>images/logotrasparent.png</file>
+        <file>images/logotrasparent_old.png</file>
         <file>images/report.png</file>
+        <file>images/warning.png</file>
     </qresource>
 </RCC>
