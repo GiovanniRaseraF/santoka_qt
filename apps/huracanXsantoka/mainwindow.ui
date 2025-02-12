@@ -950,9 +950,9 @@ font: 20pt &quot;Ubuntu&quot;;</string>
          <widget class="QPushButton" name="pb_evbmspage">
           <property name="geometry">
            <rect>
-            <x>178</x>
+            <x>208</x>
             <y>0</y>
-            <width>151</width>
+            <width>121</width>
             <height>61</height>
            </rect>
           </property>

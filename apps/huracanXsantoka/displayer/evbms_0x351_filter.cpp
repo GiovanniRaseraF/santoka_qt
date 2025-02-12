@@ -14,8 +14,8 @@ void evbms_0x351::receivednewframe(const can_frame newframe){
     switch(newframe.can_id){
         case 0x351:
         ev_CharginVoltageLimit =    (float)((((uint16_t)filter::to_uint8(&newframe, 1, 2, 0, 1)) << 8) | (filter::to_uint8(&newframe, 0, 1, 0, 1))) * 0.1;
-        ev_CharginCurrentLimit =    (float)((((uint16_t)filter::to_uint8(&newframe, 3, 4, 0, 1)) << 8) | (filter::to_uint8(&newframe, 2, 3, 0, 1))) * 0.1;
-        ev_DischargeCurrentLimit =  (float)((((uint16_t)filter::to_uint8(&newframe, 5, 6, 0, 1)) << 8) | (filter::to_uint8(&newframe, 4, 5, 0, 1))) * 0.1;
+        ev_CharginCurrentLimit =    (float)((int16_t)(((uint16_t)filter::to_uint8(&newframe, 3, 4, 0, 1)) << 8) | (filter::to_uint8(&newframe, 2, 3, 0, 1))) * 0.1;
+        ev_DischargeCurrentLimit =  (float)((int16_t)(((uint16_t)filter::to_uint8(&newframe, 5, 6, 0, 1)) << 8) | (filter::to_uint8(&newframe, 4, 5, 0, 1))) * 0.1;
         ev_DischargeVoltageLimit =  (float)((((uint16_t)filter::to_uint8(&newframe, 7, 8, 0, 1)) << 8) | (filter::to_uint8(&newframe, 6, 7, 0, 1))) * 0.1;
 
         emit new_ev_CharginVoltageLimit(ev_CharginVoltageLimit);

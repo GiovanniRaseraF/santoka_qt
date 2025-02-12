@@ -65,11 +65,22 @@ void batterypage::setSOC(uint16_t newSOC)
 
 void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
 {
-    if(newSOC > 95){
+    if(newSOC >= 100){
         ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
-    }else{
+    }else if (newSOC >= 80 && newSOC < 100){
         ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80.png)");
+    }else if (newSOC >= 50 && newSOC < 80){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60.png)");
+    }else if (newSOC >= 40 && newSOC < 50){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40.png)");
+    }else if (newSOC >= 20 && newSOC < 40){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20.png)");
+    }else if (newSOC < 20){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5.png)");
     }
+
+    // Control if it is charging
+
 }
 
 void batterypage::setSOH(uint16_t newSOH)

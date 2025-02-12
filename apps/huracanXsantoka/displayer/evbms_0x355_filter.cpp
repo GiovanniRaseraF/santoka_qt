@@ -16,6 +16,8 @@ void evbms_0x355::receivednewframe(const can_frame newframe){
     switch(newframe.can_id){
         case 0x355:
         ev_SOC = (uint16_t)filter::estract(raw, maskbyte<0, 2>(), 1, 0);
+        qDebug() << (uint16_t)filter::estract(raw, maskbyte<0, 2>(), 2, 0);
+        //ev_SOC = filter::doconvert(raw, 0, 2, 0, 10);
         ev_SOH = (uint16_t)filter::estract(raw, maskbyte<2, 4>(), 3, 0);
         ev_ResidualDischargeTime = (uint16_t)filter::estract(raw, maskbyte<4, 6>(), 5, 0);
         ev_Capacity= (uint16_t)filter::estract(raw, maskbyte<6, 8>(), 7, 0);

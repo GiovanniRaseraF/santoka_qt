@@ -69,7 +69,7 @@ font: 18pt &quot;Ubuntu&quot;;</string>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
 color:rgb(0,0,0);
-font: 15pt &quot;Ubuntu&quot;;</string>
+font: 12pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
      <string>Charge:</string>
@@ -264,7 +264,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
 color:rgb(0,0,0);
-font: 15pt &quot;Ubuntu&quot;;</string>
+font: 12pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
      <string>Discharge:</string>
@@ -304,7 +304,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
      <rect>
       <x>30</x>
       <y>0</y>
-      <width>411</width>
+      <width>701</width>
       <height>61</height>
      </rect>
     </property>
@@ -533,7 +533,7 @@ color:rgb(0,0,0);
 font: 13pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>MaxCellVoltage</string>
+     <string>MaxCellVoltage:</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_min_cell_voltage">
@@ -560,7 +560,7 @@ color:rgb(0,0,0);
 font: 13pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>MinCellVoltage</string>
+     <string>MinCellVoltage:</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_max_cell_voltage_scale">
@@ -1614,6 +1614,43 @@ font: 15pt &quot;Ubuntu&quot;;</string>
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="QListView" name="lv_fw">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>130</y>
+      <width>256</width>
+      <height>431</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_soc_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>80</y>
+      <width>251</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0,0,0);
+font: 15pt &quot;Ubuntu&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Faults And Warnings</string>
+    </property>
+   </widget>
    <zorder>l_logo</zorder>
    <zorder>pb_close</zorder>
    <zorder>label</zorder>
@@ -1690,6 +1727,8 @@ font: 15pt &quot;Ubuntu&quot;;</string>
    <zorder>line_10</zorder>
    <zorder>line_11</zorder>
    <zorder>line_4</zorder>
+   <zorder>lv_fw</zorder>
+   <zorder>l_soc_2</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
