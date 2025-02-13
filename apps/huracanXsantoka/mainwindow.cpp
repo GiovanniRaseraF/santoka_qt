@@ -195,6 +195,20 @@ void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){
 void MainWindow::setSOC(uint8_t newSOC)
 {
     ui->l_SOC_value->setText(QString::number(newSOC));
+
+    if(newSOC >= 100){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
+    }else if (newSOC >= 80 && newSOC < 100){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80.png)");
+    }else if (newSOC >= 50 && newSOC < 80){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60.png)");
+    }else if (newSOC >= 40 && newSOC < 50){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40.png)");
+    }else if (newSOC >= 20 && newSOC < 40){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20.png)");
+    }else if (newSOC < 20){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5.png)");
+    }
 }
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)

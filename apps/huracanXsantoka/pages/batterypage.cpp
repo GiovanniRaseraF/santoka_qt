@@ -186,6 +186,7 @@ void batterypage::setWarningProtection(QVector<bool> v){
         auto message = WP_GLOBAL[i];
         auto str = message.first;
 
+        // adding button
         QPushButton button{};
         button.setText(str);
         button.setStyleSheet("color: rgb(0, 0, 0);");

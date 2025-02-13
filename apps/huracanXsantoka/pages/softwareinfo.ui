@@ -203,9 +203,9 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>220</y>
+     <y>250</y>
      <width>951</width>
-     <height>311</height>
+     <height>281</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -217,7 +217,7 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>200</y>
+     <y>230</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -229,10 +229,10 @@ font: 15pt &quot;Ubuntu Bold&quot;;</string>
   <widget class="QLabel" name="l_logo">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>80</y>
+     <x>730</x>
+     <y>100</y>
      <width>341</width>
-     <height>131</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -261,6 +261,40 @@ color: rgb(28, 113, 216);</string>
     <string>www.huracanmarine.com</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(153, 193, 241);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>SOFTWARE_VERSION:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_software_version">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>190</y>
+     <width>521</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(143, 240, 164);
+font: 15pt &quot;Ubuntu Bold&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>l_logo</zorder>
   <zorder>buttonBox</zorder>
   <zorder>label</zorder>
@@ -276,6 +310,8 @@ color: rgb(28, 113, 216);</string>
   <zorder>candump_text</zorder>
   <zorder>label_4</zorder>
   <zorder>l_author_2</zorder>
+  <zorder>label_7</zorder>
+  <zorder>l_software_version</zorder>
  </widget>
  <resources/>
  <connections>

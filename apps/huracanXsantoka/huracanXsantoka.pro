@@ -15,14 +15,14 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-SOFTWARE_VERSION = 205 # this means a.b.c version
+SOFTWARE_VERSION = 207 # this means a.b.c version
 # This need to match on github and must be incremented every time !!
 # if a version in odd its a test version
 # if a version is even its a release
-
+DEFINES += SOFTWARE_VERSION=$${SOFTWARE_VERSION}
 DEFINES += QT_DEPRECATED_WARNINGS
-DEFINES += SANTOKA
-#DEFINES += DESKTOP
+#DEFINES += SANTOKA
+DEFINES += DESKTOP
 #DEFINES += MACOS
 
 TARGET = huracanXsantoka_$${SOFTWARE_VERSION}
@@ -61,6 +61,8 @@ SOURCES += \
     displayer/evbms_0x358_filter.cpp \
     displayer/evbms_0x359_filter.cpp \
     displayer/evbms_0x35A_filter.cpp \
+    displayer/evbms_0x35B_filter.cpp \
+    displayer/evbms_0x35C_filter.cpp \
     displayer/sniffer.cpp \
     displayer/vehicle_filter.cpp \
     loaders/hp_faultwarning_loader.cpp \
@@ -95,6 +97,8 @@ HEADERS += \
     displayer/evbms_0x358_filter.h \
     displayer/evbms_0x359_filter.h \
     displayer/evbms_0x35A_filter.h \
+    displayer/evbms_0x35B_filter.h \
+    displayer/evbms_0x35C_filter.h \
     displayer/evbms_filter.h \
     displayer/fakedata.h \
     displayer/sniffer.h \
