@@ -21,8 +21,8 @@ SOFTWARE_VERSION = 205 # this means a.b.c version
 # if a version is even its a release
 
 DEFINES += QT_DEPRECATED_WARNINGS
-#DEFINES += SANTOKA
-DEFINES += DESKTOP
+DEFINES += SANTOKA
+#DEFINES += DESKTOP
 #DEFINES += MACOS
 
 TARGET = huracanXsantoka_$${SOFTWARE_VERSION}

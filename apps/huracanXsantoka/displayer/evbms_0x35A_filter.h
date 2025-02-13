@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QString>
 #include <QVector>
-#include <tuple>
+#include <QPair>
 
 #include <memory>
 #include <chrono>
@@ -39,7 +39,7 @@ enum wft{
    PRIMARY_PROTECTION, SECONDARY_PROTECTION, ALARM, RESERVED
 };
 
-static QMap<int, std::tuple<QString, wft>> WP_GLOBAL ={
+static QMap<int, QPair<QString, wft>> WP_GLOBAL ={
     // 0
     {0 , {"BMU communication failure", PRIMARY_PROTECTION}},
     {1 , {"Total voltage overvoltage", PRIMARY_PROTECTION}},

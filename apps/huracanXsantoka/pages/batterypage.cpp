@@ -184,7 +184,7 @@ void batterypage::setWarningProtection(QVector<bool> v){
        bool active = v[i];
        if(active){
         auto message = WP_GLOBAL[i];
-        auto str = std::get<0>(message);
+        auto str = message.first;
 
         QPushButton button{};
         button.setText(str);
