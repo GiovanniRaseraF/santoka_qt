@@ -19,7 +19,7 @@ void evbms_0x356::receivednewframe(const can_frame newframe){
         emit new_ev_Voltage(ev_Voltage);
         emit new_ev_Current(ev_Current);
 
-        qDebug() << "0x356: " << __to_QString();
+        //qDebug() << "0x356: " << __to_QString();
         break;
 
         default:

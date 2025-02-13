@@ -9,6 +9,8 @@
 #include "displayer/evbms_0x355_filter.h"
 #include "displayer/evbms_0x356_filter.h"
 #include "displayer/evbms_0x358_filter.h"
+#include "displayer/evbms_0x359_filter.h"
+#include "displayer/evbms_0x35A_filter.h"
 
 #define PASSSHARED(cl, name) \
     std::shared_ptr<cl> name = nullptr
@@ -32,7 +34,9 @@ public:
         PASSSHARED(evbms_0x351, _ev0x351),
         PASSSHARED(evbms_0x355, _ev0x355),
         PASSSHARED(evbms_0x356, _ev0x356),
-        PASSSHARED(evbms_0x358, _ev0x358)
+        PASSSHARED(evbms_0x358, _ev0x358),
+        PASSSHARED(evbms_0x359, _ev0x359),
+        PASSSHARED(evbms_0x35A, _ev0x35A)
     );
 
 private slots:
@@ -62,6 +66,17 @@ private slots:
     void setModuleMinVoltage(uint8_t);
     void setCellMinVoltage(uint8_t);
 
+    // 0x359
+    void setMaxTemperature(int16_t);
+    void setModuleMaxTemp(uint8_t);
+    void setCellMaxTemp(uint8_t);
+    void setMinTemperature(int16_t);
+    void setModuleMinTemp(uint8_t);
+    void setCellMinTemp(uint8_t);
+
+    // 0x35A
+    void setWarningProtection(QVector<bool>);
+
 private:
     Ui::batterypage *ui;
     // Can bus producer thread
@@ -72,5 +87,7 @@ private:
     std::shared_ptr<evbms_0x355> ev0x355;
     std::shared_ptr<evbms_0x356> ev0x356;
     std::shared_ptr<evbms_0x358> ev0x358;
+    std::shared_ptr<evbms_0x359> ev0x359;
+    std::shared_ptr<evbms_0x35A> ev0x35A;
 };
 #endif // BATTERYPAGE_H

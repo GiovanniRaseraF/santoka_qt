@@ -960,7 +960,9 @@ font: 20pt &quot;Ubuntu&quot;;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">image: url(:/images/battery_info.png) ;
+           <string notr="true">image: url(:/images/battery_info.png);
+
+
 </string>
           </property>
           <property name="text">

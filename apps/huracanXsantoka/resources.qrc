@@ -25,5 +25,8 @@
         <file>images/logotrasparent_old.png</file>
         <file>images/report.png</file>
         <file>images/warning.png</file>
+        <file>configuration/configuration.json</file>
+        <file>configuration/configuration_old.json</file>
+        <file>configuration/faultswarningsconfig.xml</file>
     </qresource>
 </RCC>

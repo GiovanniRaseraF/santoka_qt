@@ -32,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ev0x355 = 		std::make_shared<evbms_0x355>(canbus_producer, this);
     ev0x356 = 		std::make_shared<evbms_0x356>(canbus_producer, this);
     ev0x358 = 		std::make_shared<evbms_0x358>(canbus_producer, this);
+    ev0x359 = 		std::make_shared<evbms_0x359>(canbus_producer, this);
+    ev0x35A = 		std::make_shared<evbms_0x35A>(canbus_producer, this);
 
 
     // Connect data to Graphics
@@ -295,7 +297,7 @@ void MainWindow::on_pb_evbmspage_clicked()
    if(evbms_page == nullptr)
        evbms_page = std::make_shared<batterypage>(this);
 
-   evbms_page->connectInformations(ev0x351, ev0x355, ev0x356, ev0x358);
+   evbms_page->connectInformations(ev0x351, ev0x355, ev0x356, ev0x358, ev0x359, ev0x35A);
 #ifdef SANTOKA
    evbms_page->showFullScreen();
 #else

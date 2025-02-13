@@ -15,7 +15,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-SOFTWARE_VERSION = 203 # this means a.b.c version
+SOFTWARE_VERSION = 205 # this means a.b.c version
 # This need to match on github and must be incremented every time !!
 # if a version in odd its a test version
 # if a version is even its a release
@@ -59,6 +59,8 @@ SOURCES += \
     displayer/evbms_0x355_filter.cpp \
     displayer/evbms_0x356_filter.cpp \
     displayer/evbms_0x358_filter.cpp \
+    displayer/evbms_0x359_filter.cpp \
+    displayer/evbms_0x35A_filter.cpp \
     displayer/sniffer.cpp \
     displayer/vehicle_filter.cpp \
     loaders/hp_faultwarning_loader.cpp \
@@ -91,6 +93,8 @@ HEADERS += \
     displayer/evbms_0x355_filter.h \
     displayer/evbms_0x356_filter.h \
     displayer/evbms_0x358_filter.h \
+    displayer/evbms_0x359_filter.h \
+    displayer/evbms_0x35A_filter.h \
     displayer/evbms_filter.h \
     displayer/fakedata.h \
     displayer/sniffer.h \

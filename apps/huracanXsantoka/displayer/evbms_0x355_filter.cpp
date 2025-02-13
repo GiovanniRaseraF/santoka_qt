@@ -25,10 +25,10 @@ void evbms_0x355::receivednewframe(const can_frame newframe){
         emit new_ev_ResidualDischargeTime(ev_ResidualDischargeTime);
         emit new_ev_Capacity(ev_Capacity);
 
-        qDebug() << "0x355: " << __to_QString();
-        for(uint8_t i : newframe.data){
-            qDebug() << i;
-        }
+//        qDebug() << "0x355: " << __to_QString();
+//        for(uint8_t i : newframe.data){
+//            qDebug() << i;
+//        }
         break;
 
         default:

@@ -28,7 +28,7 @@ void evbms_0x358::receivednewframe(const can_frame newframe){
         emit new_ev_ModuleMinVoltage(ev_ModuleMinVoltage);
         emit new_ev_CellMinVoltage(ev_CellMinVoltage);
 
-        qDebug() << "0x358: " << __to_QString();
+        //qDebug() << "0x358: " << __to_QString();
         break;
 
         default:

@@ -20,6 +20,8 @@
 #include "displayer/evbms_0x355_filter.h"
 #include "displayer/evbms_0x356_filter.h"
 #include "displayer/evbms_0x358_filter.h"
+#include "displayer/evbms_0x359_filter.h"
+#include "displayer/evbms_0x35A_filter.h"
 
 #include "pages/boatinfowindow.h"
 #include "pages/hp_objectmoreinfo.h"
@@ -101,7 +103,8 @@ private:
     std::shared_ptr<evbms_0x355> ev0x355;
     std::shared_ptr<evbms_0x356> ev0x356;
     std::shared_ptr<evbms_0x358> ev0x358;
-
+    std::shared_ptr<evbms_0x359> ev0x359;
+    std::shared_ptr<evbms_0x35A> ev0x35A;
 
     // Pages:
     std::shared_ptr<BoatInfoWindow> boatinfo_page;
