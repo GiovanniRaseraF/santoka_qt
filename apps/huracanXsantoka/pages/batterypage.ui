@@ -320,8 +320,8 @@ font: 15pt &quot;Ubuntu&quot;;</string>
    <widget class="QLabel" name="l_logo">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>410</y>
+      <x>380</x>
+      <y>390</y>
       <width>341</width>
       <height>261</height>
      </rect>
@@ -363,7 +363,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>430</y>
+      <y>410</y>
       <width>131</width>
       <height>41</height>
      </rect>
@@ -432,7 +432,7 @@ font: 30pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>470</y>
+      <y>450</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -453,7 +453,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>470</y>
+      <y>450</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -516,7 +516,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>340</y>
+      <y>320</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -543,7 +543,7 @@ font: 13pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>430</y>
+      <y>410</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -570,7 +570,7 @@ font: 13pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>380</y>
+      <y>360</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -581,7 +581,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>mV</string>
+     <string>V</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_max_v_mod_value">
@@ -591,7 +591,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>380</y>
+      <y>360</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -687,7 +687,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>470</y>
+      <y>450</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -698,7 +698,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>mV</string>
+     <string>V</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_max_temperature">
@@ -737,7 +737,7 @@ font: 11pt &quot;Ubuntu&quot;;</string>
       <x>540</x>
       <y>60</y>
       <width>20</width>
-      <height>441</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -824,7 +824,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>380</y>
+      <y>360</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -871,7 +871,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>380</y>
+      <y>360</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -982,7 +982,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>470</y>
+      <y>450</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -1003,7 +1003,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>340</y>
+      <y>320</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -1030,7 +1030,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>470</y>
+      <y>450</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -1135,7 +1135,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>380</y>
+      <y>360</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -1229,9 +1229,9 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>40</x>
       <y>100</y>
-      <width>151</width>
+      <width>141</width>
       <height>71</height>
      </rect>
     </property>
@@ -1470,7 +1470,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>90</y>
+      <y>60</y>
       <width>101</width>
       <height>111</height>
      </rect>

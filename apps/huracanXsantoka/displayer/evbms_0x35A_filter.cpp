@@ -32,10 +32,9 @@ void evbms_0x35A::receivednewframe(const can_frame newframe){
             }
         }
 
-        qDebug("Warning ....");
         emit new_ev_WarningProtection(ev_WarningProtection);
 
-        qDebug() << "0x35A: " << __to_QString();
+        //qDebug() << "0x35A: " << __to_QString();
         break;
 
         default:

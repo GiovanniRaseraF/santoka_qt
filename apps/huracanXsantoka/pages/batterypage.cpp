@@ -180,18 +180,16 @@ void batterypage::setWarningProtection(QVector<bool> v){
     ui->lv_fw->clear();
 
     // add warnings and faults
-    for(int i = 0; i < 8; i++){
+    for(int i = 0; i < v.size(); i++){
        bool active = v[i];
        if(active){
         auto message = WP_GLOBAL[i];
         auto str = std::get<0>(message);
-        qDebug() << str;
 
         QPushButton button{};
         button.setText(str);
         button.setStyleSheet("color: rgb(0, 0, 0);");
 
-        //qDebug() << button.;
         ui->lv_fw->addItem(str);
        }
     }

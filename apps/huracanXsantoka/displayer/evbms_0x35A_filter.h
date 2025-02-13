@@ -22,12 +22,12 @@ public:
     explicit evbms_0x35A(std::shared_ptr<canbus_thread> canbus_producer = nullptr, QObject *parent = nullptr);
 
 signals:
-    void new_ev_PRIMARY_PROTECTIONProtection(QVector<bool>);
+    void new_ev_WarningProtection(QVector<bool>);
 public slots:
     void receivednewframe(const can_frame newframe);
 
 private:
-    QVector<bool> ev_PRIMARY_PROTECTIONProtection;
+    QVector<bool> ev_WarningProtection;
 private:
     virtual bool canupdateinfo() override;
 
@@ -111,7 +111,7 @@ static QMap<int, std::tuple<QString, wft>> WP_GLOBAL ={
     {60 , {"Cell imbalance", SECONDARY_PROTECTION}},
     {61 , {"Unbalanced temperature", SECONDARY_PROTECTION}},
     {62 , {"Low SOC", SECONDARY_PROTECTION}},
-    {63 , {"Low insulation resistance", SECONDARY_PROTECTION}},
+    {63 , {"Low insulation resistance", SECONDARY_PROTECTION}}
 };
 
 #endif // EVBMS_0x35A_FILTER_H
