@@ -58,7 +58,7 @@ void batterypage::connectInformations(
     // 0x356
     connect(ev0x356.get(), SIGNAL(new_ev_Voltage(float)), this, SLOT(setVoltage(float)));
     connect(ev0x356.get(), SIGNAL(new_ev_Current(float)), this, SLOT(setCurrent(float)));
-    connect(ev0x356.get(), SIGNAL(new_ev_Status(evBatteryState)), this, SLOT(setBatteryStatus(evBatteryState)));
+    connect(ev0x356.get(), SIGNAL(new_ev_Status(evBatteryStatus)), this, SLOT(setBatteryStatus(evBatteryStatus)));
 
     // 0x358
     connect(ev0x358.get(), SIGNAL(new_ev_MaxCellVoltage(uint16_t)), this, SLOT(setMaxCellVoltage(uint16_t)));
