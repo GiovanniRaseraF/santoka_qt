@@ -268,7 +268,7 @@ void MainWindow::setWarningProtectionCounter(QVector<bool> w)
     QString yellow = "font: 19pt \"Ubuntu\";background-color: rgb(248, 228, 92);";
     QString white = "font: 19pt \"Ubuntu\";background-color: rgb(255, 255, 255);";
 
-    int count = std::count_if(w.begin(), w.end(), [](auto v){return v;});
+    int count = std::count_if(w.begin(), w.end(), [](bool v){return v;});
 
     if(count == 0){
         ui->pb_evbms_wpcount->setStyleSheet(white);

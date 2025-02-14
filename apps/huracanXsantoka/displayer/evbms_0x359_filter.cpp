@@ -14,10 +14,10 @@ void evbms_0x359::receivednewframe(const can_frame newframe){
 
     switch(newframe.can_id){
         case 0x359:
-        ev_MaxTemperature = filter::to_int16(&newframe, 0, 2, 0, 1);
+        ev_MaxTemperature = (int16_t)((((uint16_t)filter::to_uint8(&newframe, 1, 2, 0, 1)) << 8) | (filter::to_uint8(&newframe, 0, 1, 0, 1)));
         ev_ModuleMaxTemp = filter::to_uint8(&newframe, 2, 3, 0, 1);
         ev_CellMaxTemp = filter::to_uint8(&newframe, 3, 4, 0, 1);
-        ev_MinTemperature = filter::to_int16(&newframe, 4, 6, 0, 1);
+        ev_MinTemperature = (int16_t)((((uint16_t)filter::to_uint8(&newframe, 5, 6, 0, 1)) << 8) | (filter::to_uint8(&newframe, 4, 5, 0, 1)));
         ev_ModuleMinTemp= filter::to_uint8(&newframe, 6, 7, 0, 1);
         ev_CellMinTemp= filter::to_uint8(&newframe, 7, 8, 0, 1);
 

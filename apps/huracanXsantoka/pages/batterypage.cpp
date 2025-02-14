@@ -8,6 +8,17 @@ batterypage::batterypage(QWidget *parent) :
     ui(new Ui::batterypage)
 {
     ui->setupUi(this);
+
+    // update datetime
+    updateDatetime = new QTimer(nullptr);
+    myProcess = new QProcess(nullptr);
+
+    // Timer
+    connect(myProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readDateFromSystem()));
+    connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
+    timeoutToUpdateDate();
+    readDateFromSystem();
+    updateDatetime->start(1000);
 }
 
 batterypage::~batterypage()
@@ -15,14 +26,14 @@ batterypage::~batterypage()
     delete ui;
 }
 
-
-void batterypage::connectInformations(PASSSHARED_NONULL (evbms_0x351, _ev0x351),
-                                      PASSSHARED_NONULL (evbms_0x355, _ev0x355),
-                                      PASSSHARED_NONULL (evbms_0x356, _ev0x356),
-                                      PASSSHARED_NONULL (evbms_0x358, _ev0x358),
-                                      PASSSHARED_NONULL (evbms_0x359, _ev0x359),
-                                      PASSSHARED_NONULL (evbms_0x35A, _ev0x35A)
-                                      )
+void batterypage::connectInformations(
+        PASSSHARED_NONULL (evbms_0x351, _ev0x351),
+        PASSSHARED_NONULL (evbms_0x355, _ev0x355),
+        PASSSHARED_NONULL (evbms_0x356, _ev0x356),
+        PASSSHARED_NONULL (evbms_0x358, _ev0x358),
+        PASSSHARED_NONULL (evbms_0x359, _ev0x359),
+        PASSSHARED_NONULL (evbms_0x35A, _ev0x35A)
+)
 {
     ev0x351 = _ev0x351;
     ev0x355 = _ev0x355;
@@ -158,17 +169,20 @@ void batterypage::setMaxTemperature(int16_t v){
     ui->l_max_temperatue_value->setText(QString::number(v));
 }
 void batterypage::setModuleMaxTemp(uint8_t v){
+    ui->l_max_t_mod_value->setText(QString::number(v));
 }
 void batterypage::setCellMaxTemp(uint8_t v){
+    ui->l_max_t_cell_value->setText(QString::number(v));
 }
 void batterypage::setMinTemperature(int16_t v){
     ui->l_min_temperature_value->setText(QString::number(v));
 }
 void batterypage::setModuleMinTemp(uint8_t v){
-    //ui->
+    ui->l_min_t_mod_value->setText(QString::number(v));
 }
 void batterypage::setCellMinTemp(uint8_t v){
     //ui->
+    ui->l_min_t_cell_value->setText(QString::number(v));
 }
 
 // 0x35A
@@ -202,5 +216,17 @@ void batterypage::setWarningProtection(QVector<bool> v){
     }
 }
 
+void batterypage::timeoutToUpdateDate(){
+    QStringList arguments;
+    myProcess->start("date", arguments);
+}
+
+void batterypage::readDateFromSystem(){
+    ui->l_date->setText(myProcess->readAllStandardOutput());
+
+    myProcess->terminate();
+    myProcess->close();
+    myProcess->kill();
+}
 
 

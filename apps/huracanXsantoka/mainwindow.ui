@@ -976,7 +976,7 @@ background-color: rgb(237, 51, 59);
           <property name="geometry">
            <rect>
             <x>220</x>
-            <y>10</y>
+            <y>20</y>
             <width>81</width>
             <height>111</height>
            </rect>

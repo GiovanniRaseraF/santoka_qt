@@ -14,10 +14,10 @@ void evbms_0x358::receivednewframe(const can_frame newframe){
 
     switch(newframe.can_id){
         case 0x358:
-        ev_MaxCellVoltage = filter::to_uint16(&newframe, 0, 2, 0, 1) / 1000;
+        ev_MaxCellVoltage = (int16_t)((((uint16_t)filter::to_uint8(&newframe, 1, 2, 0, 1)) << 8) | (filter::to_uint8(&newframe, 0, 1, 0, 1)));
         ev_ModuleMaxVoltage = filter::to_uint8(&newframe, 2, 3, 0, 1);
         ev_CellMaxVoltage = filter::to_uint8(&newframe, 3, 4, 0, 1);
-        ev_MinCellVoltage = filter::to_uint16(&newframe, 4, 6, 0, 1) / 1000;
+        ev_MinCellVoltage = (int16_t)((((uint16_t)filter::to_uint8(&newframe, 5, 6, 0, 1)) << 8) | (filter::to_uint8(&newframe, 4, 5, 0, 1)));
         ev_ModuleMinVoltage = filter::to_uint8(&newframe, 6, 7, 0, 1);
         ev_CellMinVoltage = filter::to_uint8(&newframe, 7, 8, 0, 1);
 

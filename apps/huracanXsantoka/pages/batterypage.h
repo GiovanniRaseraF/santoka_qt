@@ -2,6 +2,8 @@
 #define BATTERYPAGE_H
 
 #include <QMainWindow>
+#include <QProcess>
+#include <QTimer>
 #include <memory>
 
 #include "dataproducer.h"
@@ -77,8 +79,15 @@ private slots:
     // 0x35A
     void setWarningProtection(QVector<bool>);
 
+    // Time
+    void timeoutToUpdateDate();
+    void readDateFromSystem();
 private:
     Ui::batterypage *ui;
+
+    QProcess *myProcess;
+    QTimer *updateDatetime;
+
     // Can bus producer thread
     std::shared_ptr<canbus_thread> canbus;
 

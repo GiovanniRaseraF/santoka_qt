@@ -314,7 +314,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>  14:30 - Friday, 27 January 2023</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="l_logo">
@@ -569,7 +569,7 @@ font: 13pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>490</x>
       <y>360</y>
       <width>41</width>
       <height>31</height>
@@ -581,7 +581,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>V</string>
+     <string>mV</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_max_v_mod_value">
@@ -686,7 +686,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>490</x>
       <y>450</y>
       <width>41</width>
       <height>31</height>
@@ -698,7 +698,7 @@ color:rgb(0,0,0);
 font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>V</string>
+     <string>mV</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_max_temperature">
@@ -983,7 +983,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
      <rect>
       <x>390</x>
       <y>450</y>
-      <width>81</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -1136,7 +1136,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
      <rect>
       <x>390</x>
       <y>360</y>
-      <width>81</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -1470,7 +1470,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>60</y>
+      <y>70</y>
       <width>101</width>
       <height>111</height>
      </rect>
@@ -1621,7 +1621,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>370</y>
+      <y>320</y>
       <width>251</width>
       <height>21</height>
      </rect>
@@ -1634,7 +1634,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
-color:rgb(0,0,0);
+color:rgb(255, 163, 72);
 font: 12pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
@@ -1645,13 +1645,13 @@ font: 12pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>400</y>
+      <y>350</y>
       <width>251</width>
-      <height>161</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 163, 72);</string>
+     <string notr="true">background-color: rgb(255, 255,255);</string>
     </property>
    </widget>
    <widget class="QLabel" name="l_pp">
@@ -1674,7 +1674,7 @@ font: 12pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
-color:rgb(0,0,0);
+color:rgb(237, 51, 59);
 font: 12pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
@@ -1687,11 +1687,14 @@ font: 12pt &quot;Ubuntu&quot;;</string>
       <x>740</x>
       <y>100</y>
       <width>251</width>
-      <height>261</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(237, 51, 59);</string>
+     <string notr="true">background-color: rgb(255,255,255);
+border-color: rgb(237, 51, 59);
+gridline-color: rgb(237, 51, 59);
+selection-color: rgb(237, 51, 59);</string>
     </property>
    </widget>
    <zorder>l_logo</zorder>
