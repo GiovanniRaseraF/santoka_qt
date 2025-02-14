@@ -12,6 +12,10 @@
 #include "filter.h"
 
 // 0x356
+enum evBatteryStatus{
+    CHARGING, DISCHARGING, STANDBY
+};
+
 class evbms_0x356: public filter
 {
     Q_OBJECT
@@ -22,6 +26,7 @@ public:
 signals:
     void new_ev_Voltage(float);
     void new_ev_Current(float);
+    void new_ev_Status(evBatteryStatus);
 
 public slots:
     void receivednewframe(const can_frame newframe);

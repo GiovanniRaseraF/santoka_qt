@@ -58,6 +58,7 @@ void batterypage::connectInformations(
     // 0x356
     connect(ev0x356.get(), SIGNAL(new_ev_Voltage(float)), this, SLOT(setVoltage(float)));
     connect(ev0x356.get(), SIGNAL(new_ev_Current(float)), this, SLOT(setCurrent(float)));
+    connect(ev0x356.get(), SIGNAL(new_ev_Status(evBatteryState)), this, SLOT(setBatteryStatus(evBatteryState)));
 
     // 0x358
     connect(ev0x358.get(), SIGNAL(new_ev_MaxCellVoltage(uint16_t)), this, SLOT(setMaxCellVoltage(uint16_t)));
@@ -93,21 +94,24 @@ void batterypage::setSOC(uint16_t newSOC)
 
 void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
 {
-    if(newSOC >= 100){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
-    }else if (newSOC >= 80 && newSOC < 100){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80.png)");
-    }else if (newSOC >= 50 && newSOC < 80){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60.png)");
-    }else if (newSOC >= 40 && newSOC < 50){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40.png)");
-    }else if (newSOC >= 20 && newSOC < 40){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20.png)");
-    }else if (newSOC < 20){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5.png)");
-    }
+    // check chargin
+    QString appendEnd = ".png);";
+    if(status == CHARGING) appendEnd = "_charging.png);";
 
-    // Control if it is charging
+    // Set graphics
+    if(newSOC >= 100){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100"+appendEnd);
+    }else if (newSOC >= 80 && newSOC < 100){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80"+appendEnd);
+    }else if (newSOC >= 50 && newSOC < 80){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60"+appendEnd);
+    }else if (newSOC >= 40 && newSOC < 50){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40"+appendEnd);
+    }else if (newSOC >= 20 && newSOC < 40){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20"+appendEnd);
+    }else if (newSOC < 20){
+        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5"+appendEnd);
+    }
 }
 
 void batterypage::setSOH(uint16_t newSOH)
@@ -143,6 +147,9 @@ void batterypage::setVoltage(float v){
 }
 void batterypage::setCurrent(float v){
     ui->l_current_value->setText(QString::number(v));
+}
+void batterypage::setBatteryStatus(evBatteryStatus s){
+    status = s;
 }
 // 0x358
 void batterypage::setMaxCellVoltage(uint16_t v){

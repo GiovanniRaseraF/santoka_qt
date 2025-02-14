@@ -19,6 +19,15 @@ void evbms_0x356::receivednewframe(const can_frame newframe){
         emit new_ev_Voltage(ev_Voltage);
         emit new_ev_Current(ev_Current);
 
+        // Status emit
+        if(ev_Current > 0){
+            emit new_ev_Status(DISCHARGING);
+        }else if(ev_Current == 0){
+            emit new_ev_Status(STANDBY);
+        }else{
+            emit new_ev_Status(CHARGING);
+        }
+
         //qDebug() << "0x356: " << __to_QString();
         break;
 

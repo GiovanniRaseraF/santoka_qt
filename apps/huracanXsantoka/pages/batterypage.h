@@ -59,6 +59,7 @@ private slots:
     // 0x356
     void setVoltage(float v);
     void setCurrent(float v);
+    void setBatteryStatus(evBatteryStatus);
 
     // 0x358
     void setMaxCellVoltage(uint16_t);
@@ -98,5 +99,8 @@ private:
     std::shared_ptr<evbms_0x358> ev0x358;
     std::shared_ptr<evbms_0x359> ev0x359;
     std::shared_ptr<evbms_0x35A> ev0x35A;
+
+    // Status
+    evBatteryStatus status = STANDBY;
 };
 #endif // BATTERYPAGE_H
