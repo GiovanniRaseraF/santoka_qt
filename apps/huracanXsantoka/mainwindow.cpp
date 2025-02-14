@@ -201,7 +201,7 @@ void MainWindow::setSOC(uint8_t newSOC)
     ui->l_SOC_value->setText(QString::number(newSOC));
 }
 
-void MainWindow::setSOCBatteryGraphics(uint16_t newSOC)
+void MainWindow::setSOCBatteryGraphics(uint8_t newSOC)
 {
     if(newSOC >= 100){
         ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
@@ -265,8 +265,8 @@ void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
 void MainWindow::setWarningProtectionCounter(QVector<bool> w)
 {
     QString red = "font: 19pt \"Ubuntu\";background-color: rgb(237, 51, 59);";
-    QString yellow = "font: 19pt \"Ubuntu\";background-color: rgb(237, 51, 59);";
-    QString white = "font: 19pt \"Ubuntu\";background-color: rgb(237, 51, 59);";
+    QString yellow = "font: 19pt \"Ubuntu\";background-color: rgb(248, 228, 92);";
+    QString white = "font: 19pt \"Ubuntu\";background-color: rgb(255, 255, 255);";
 
     int count = std::count_if(w.begin(), w.end(), [](auto v){return v;});
 
@@ -337,7 +337,7 @@ void MainWindow::on_pb_softwareinfo_clicked()
 }
 
 // evbms page
-void MainWindow::on_pb_evbmspage_clicked()
+void MainWindow::on_pb_evbms_wpcount_clicked()
 {
    if(evbms_page == nullptr)
        evbms_page = std::make_shared<batterypage>(this);
@@ -350,4 +350,3 @@ void MainWindow::on_pb_evbmspage_clicked()
 #endif
    return;
 }
-

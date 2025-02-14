@@ -55,7 +55,7 @@ public slots:
 
     void setTTE(uint16_t newTTE);
     void setSOC(uint8_t newSOC);
-    void setSOCBatteryGraphics(uint16_t newSOC);
+    void setSOCBatteryGraphics(uint8_t newSOC);
     void setPowerTemperature(uint8_t newPowerTemperature);
     void setPower(float newPower);
     void setBatteryVoltage(float newVoltage);
@@ -78,7 +78,7 @@ private slots:
 
     void on_pb_softwareinfo_clicked();
 
-    void on_pb_evbmspage_clicked();
+    void on_pb_evbms_wpcount_clicked();
 
 private:
     Ui::MainWindow *ui;
