@@ -321,7 +321,7 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>390</y>
+      <y>400</y>
       <width>341</width>
       <height>261</height>
      </rect>
@@ -1614,16 +1614,16 @@ font: 15pt &quot;Ubuntu&quot;;</string>
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="l_soc_2">
+   <widget class="QLabel" name="l_alarm">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>80</y>
-      <width>221</width>
-      <height>41</height>
+      <x>740</x>
+      <y>370</y>
+      <width>251</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -1635,23 +1635,63 @@ font: 15pt &quot;Ubuntu&quot;;</string>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
 color:rgb(0,0,0);
-font: 15pt &quot;Ubuntu&quot;;</string>
+font: 12pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>Faults And Warnings</string>
+     <string>Alarms:</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="lv_fw">
+   <widget class="QListWidget" name="lv_alarms">
     <property name="geometry">
      <rect>
-      <x>745</x>
-      <y>130</y>
-      <width>241</width>
-      <height>431</height>
+      <x>740</x>
+      <y>400</y>
+      <width>251</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 163, 72);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_pp">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>70</y>
+      <width>251</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0,0,0);
+font: 12pt &quot;Ubuntu&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Primary Protection:</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="lv_primaryprotection">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>100</y>
+      <width>251</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(237, 51, 59);</string>
     </property>
    </widget>
    <zorder>l_logo</zorder>
@@ -1730,8 +1770,10 @@ font: 15pt &quot;Ubuntu&quot;;</string>
    <zorder>line_10</zorder>
    <zorder>line_11</zorder>
    <zorder>line_4</zorder>
-   <zorder>l_soc_2</zorder>
-   <zorder>lv_fw</zorder>
+   <zorder>l_alarm</zorder>
+   <zorder>lv_alarms</zorder>
+   <zorder>l_pp</zorder>
+   <zorder>lv_primaryprotection</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

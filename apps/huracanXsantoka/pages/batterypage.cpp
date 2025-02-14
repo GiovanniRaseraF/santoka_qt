@@ -97,7 +97,6 @@ void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
     }
 
     // Control if it is charging
-
 }
 
 void batterypage::setSOH(uint16_t newSOH)
@@ -176,8 +175,8 @@ void batterypage::setCellMinTemp(uint8_t v){
 
 // 0x35A
 void batterypage::setWarningProtection(QVector<bool> v){
-    ui->lv_fw->reset();
-    ui->lv_fw->clear();
+    ui->lv_primaryprotection->clear();
+    ui->lv_alarms->clear();
 
     // add warnings and faults
     for(int i = 0; i < v.size(); i++){
@@ -185,13 +184,19 @@ void batterypage::setWarningProtection(QVector<bool> v){
        if(active){
         auto message = WP_GLOBAL[i];
         auto str = message.first;
+        auto type = message.second;
 
-        // adding button
-        QPushButton button{};
-        button.setText(str);
-        button.setStyleSheet("color: rgb(0, 0, 0);");
-
-        ui->lv_fw->addItem(str);
+        // add to graphics
+        switch (type) {
+        case PRIMARY_PROTECTION:
+            ui->lv_primaryprotection->addItem(str);
+        case ALARM:
+            ui->lv_alarms->addItem(str);
+            break;
+        default:
+            qDebug() << "Impossible type of protection error";
+            break;
+        }
        }
     }
 }

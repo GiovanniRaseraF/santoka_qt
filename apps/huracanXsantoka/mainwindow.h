@@ -55,6 +55,7 @@ public slots:
 
     void setTTE(uint16_t newTTE);
     void setSOC(uint8_t newSOC);
+    void setSOCBatteryGraphics(uint16_t newSOC);
     void setPowerTemperature(uint8_t newPowerTemperature);
     void setPower(float newPower);
     void setBatteryVoltage(float newVoltage);

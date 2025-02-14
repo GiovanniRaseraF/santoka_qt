@@ -111,6 +111,7 @@ void MainWindow::readSubProcess(){
 
 void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
+    connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOCBatteryGraphics(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
     connect(battery.get(), SIGNAL(new_bat_TimeToEmpty(uint16_t)), this, SLOT(setTTE(uint16_t)));
 
@@ -195,7 +196,10 @@ void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){
 void MainWindow::setSOC(uint8_t newSOC)
 {
     ui->l_SOC_value->setText(QString::number(newSOC));
+}
 
+void MainWindow::setSOCBatteryGraphics(uint16_t newSOC)
+{
     if(newSOC >= 100){
         ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
     }else if (newSOC >= 80 && newSOC < 100){
@@ -209,6 +213,8 @@ void MainWindow::setSOC(uint8_t newSOC)
     }else if (newSOC < 20){
         ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5.png)");
     }
+
+    // Control if it is charging
 }
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)
