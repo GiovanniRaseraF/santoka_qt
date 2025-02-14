@@ -119,6 +119,9 @@ void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_TotalCurrent(float)), this, SLOT(setBatteryCurrent(float)));
     connect(battery.get(), SIGNAL(new_bat_BatteryTemperature(uint8_t)), this, SLOT(setBatteryTemperature(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_BMSTemperature(uint8_t)), this, SLOT(setBMSTemperature(uint8_t)));
+
+    // 0x35A
+    connect(ev0x35A.get(), SIGNAL(new_ev_WarningProtection(QVector<bool>)), this, SLOT(setWarningProtectionCounter(QVector<bool>)));
 }
 
 void MainWindow::connectVehicleFilterToGraphics(){
@@ -259,6 +262,28 @@ void MainWindow::setMotorSpeed(uint16_t newMotorSpeed)
    ui->l_RPM_value->setText(QString::number(newMotorSpeed));
 }
 
+void MainWindow::setWarningProtectionCounter(QVector<bool> w)
+{
+    QString red = "font: 19pt \"Ubuntu\";background-color: rgb(237, 51, 59);";
+    QString yellow = "font: 19pt \"Ubuntu\";background-color: rgb(237, 51, 59);";
+    QString white = "font: 19pt \"Ubuntu\";background-color: rgb(237, 51, 59);";
+
+    int count = std::count_if(w.begin(), w.end(), [](auto v){return v;});
+
+    if(count == 0){
+        ui->pb_evbms_wpcount->setStyleSheet(white);
+        ui->pb_evbms_wpcount->setText("...");
+    }else{
+        if(toggle_ev_error_color){
+            ui->pb_evbms_wpcount->setStyleSheet(red);
+        }else{
+            ui->pb_evbms_wpcount->setStyleSheet(yellow);
+        }
+        toggle_ev_error_color = !toggle_ev_error_color;
+
+        ui->pb_evbms_wpcount->setText(QString::number(count));
+    }
+}
 
 void MainWindow::on_pb_faults_clicked()
 {

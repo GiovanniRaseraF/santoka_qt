@@ -67,6 +67,7 @@ public slots:
     void setBMSTemperature(uint8_t newBMSTemperature);
     void setMotorSpeed(uint16_t newMotorSpeed);
 
+    void setWarningProtectionCounter(QVector<bool> w);
 
 private slots:
     void on_pb_faults_clicked();
@@ -113,6 +114,9 @@ private:
     std::shared_ptr<hp_objectmoreinfo> battery_moreinfo_page;
     std::shared_ptr<softwareinfo> softwareinfo_page;
     std::shared_ptr<batterypage> evbms_page;
+
+    // Graphics
+    bool toggle_ev_error_color = false;
 };
 
 #endif // MAINWINDOW_H

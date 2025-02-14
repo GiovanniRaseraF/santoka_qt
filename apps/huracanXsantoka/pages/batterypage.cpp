@@ -155,16 +155,14 @@ void batterypage::setCellMinVoltage(uint8_t v){
 
 // 0x359
 void batterypage::setMaxTemperature(int16_t v){
-    //ui->
+    ui->l_max_temperatue_value->setText(QString::number(v));
 }
 void batterypage::setModuleMaxTemp(uint8_t v){
-    //ui->
 }
 void batterypage::setCellMaxTemp(uint8_t v){
-    //ui->
 }
 void batterypage::setMinTemperature(int16_t v){
-    //ui->
+    ui->l_min_temperature_value->setText(QString::number(v));
 }
 void batterypage::setModuleMinTemp(uint8_t v){
     //ui->
@@ -175,7 +173,9 @@ void batterypage::setCellMinTemp(uint8_t v){
 
 // 0x35A
 void batterypage::setWarningProtection(QVector<bool> v){
+    ui->lv_primaryprotection->reset();
     ui->lv_primaryprotection->clear();
+    ui->lv_alarms->reset();
     ui->lv_alarms->clear();
 
     // add warnings and faults
@@ -190,6 +190,7 @@ void batterypage::setWarningProtection(QVector<bool> v){
         switch (type) {
         case PRIMARY_PROTECTION:
             ui->lv_primaryprotection->addItem(str);
+            break;
         case ALARM:
             ui->lv_alarms->addItem(str);
             break;

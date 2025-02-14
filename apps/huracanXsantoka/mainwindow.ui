@@ -950,7 +950,7 @@ font: 20pt &quot;Ubuntu&quot;;</string>
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="pb_evbmspage">
+         <widget class="QPushButton" name="pb_evbms_wpcount">
           <property name="geometry">
            <rect>
             <x>90</x>
