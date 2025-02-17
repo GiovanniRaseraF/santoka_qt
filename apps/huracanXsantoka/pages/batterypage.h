@@ -13,6 +13,7 @@
 #include "displayer/evbms_0x358_filter.h"
 #include "displayer/evbms_0x359_filter.h"
 #include "displayer/evbms_0x35A_filter.h"
+#include "widgets/battery_widget.h"
 
 #define PASSSHARED(cl, name) \
     std::shared_ptr<cl> name = nullptr
@@ -82,12 +83,15 @@ private slots:
 
     // Time
     void timeoutToUpdateDate();
+    void updateCharginGraphics();
     void readDateFromSystem();
 private:
     Ui::batterypage *ui;
 
     QProcess *myProcess;
     QTimer *updateDatetime;
+
+    std::shared_ptr<battery_widget> battery_w;
 
     // Can bus producer thread
     std::shared_ptr<canbus_thread> canbus;

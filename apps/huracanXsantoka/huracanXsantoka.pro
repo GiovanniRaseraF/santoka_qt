@@ -80,6 +80,7 @@ SOURCES += \
     pages/faultsandwarnings.cpp \
     pages/hp_objectmoreinfo.cpp \
     pages/softwareinfo.cpp \
+    widgets/battery_widget.cpp \
     widgets/hp_faultdesing.cpp \
     widgets/hp_faultwarning.cpp \
     widgets/hp_tripleval.cpp \
@@ -118,6 +119,7 @@ HEADERS += \
     pages/faultsandwarnings.h \
     pages/hp_objectmoreinfo.h \
     pages/softwareinfo.h \
+    widgets/battery_widget.h \
     widgets/hp_faultdesing.h \
     widgets/hp_faultwarning.h \
     widgets/hp_tripleval.h \
@@ -132,6 +134,7 @@ FORMS += \
     pages/faultsandwarnings.ui \
     pages/hp_objectmoreinfo.ui \
     pages/softwareinfo.ui \
+    widgets/battery_widget.ui \
     widgets/hp_faultwarning.ui \
     widgets/hp_tripleval.ui \
     widgets/hp_widget_generic_infostring.ui

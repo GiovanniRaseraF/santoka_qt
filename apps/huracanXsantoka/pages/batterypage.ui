@@ -1466,24 +1466,6 @@ font: 15pt &quot;Ubuntu&quot;;</string>
      <string>min</string>
     </property>
    </widget>
-   <widget class="QLabel" name="l_battery_graphics">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>70</y>
-      <width>101</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/images/b_100.png) ;
-
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
@@ -1697,6 +1679,17 @@ gridline-color: rgb(237, 51, 59);
 selection-color: rgb(237, 51, 59);</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>70</y>
+      <width>91</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="battery_layout"/>
+   </widget>
    <zorder>l_logo</zorder>
    <zorder>pb_close</zorder>
    <zorder>label</zorder>
@@ -1762,7 +1755,6 @@ selection-color: rgb(237, 51, 59);</string>
    <zorder>l_soc_scale</zorder>
    <zorder>l_soh_scale</zorder>
    <zorder>l_residual_scale</zorder>
-   <zorder>l_battery_graphics</zorder>
    <zorder>line</zorder>
    <zorder>line_3</zorder>
    <zorder>line_5</zorder>
@@ -1777,6 +1769,7 @@ selection-color: rgb(237, 51, 59);</string>
    <zorder>lv_alarms</zorder>
    <zorder>l_pp</zorder>
    <zorder>lv_primaryprotection</zorder>
+   <zorder>gridLayoutWidget</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

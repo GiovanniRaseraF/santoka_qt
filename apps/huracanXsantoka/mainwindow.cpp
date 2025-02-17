@@ -303,7 +303,6 @@ void MainWindow::on_pb_boatinfo_clicked()
 {
     if(boatinfo_page == nullptr)
         boatinfo_page = std::make_shared<BoatInfoWindow>(this);
-
     boatinfo_page->connectInformations(battery, command, generalinfo, motor);
 #ifdef SANTOKA
     boatinfo_page->showFullScreen();
@@ -326,7 +325,6 @@ void MainWindow::on_pb_softwareinfo_clicked()
 {
     if(softwareinfo_page == nullptr)
         softwareinfo_page = std::make_shared<softwareinfo>(this);
-
     softwareinfo_page->connectInformations(sniffer);
 #ifdef SANTOKA
     softwareinfo_page->showFullScreen();
@@ -339,10 +337,10 @@ void MainWindow::on_pb_softwareinfo_clicked()
 // evbms page
 void MainWindow::on_pb_evbms_wpcount_clicked()
 {
-   if(evbms_page == nullptr)
+   if(evbms_page == nullptr){
        evbms_page = std::make_shared<batterypage>(this);
-
-   evbms_page->connectInformations(ev0x351, ev0x355, ev0x356, ev0x358, ev0x359, ev0x35A);
+       evbms_page->connectInformations(ev0x351, ev0x355, ev0x356, ev0x358, ev0x359, ev0x35A);
+   }
 #ifdef SANTOKA
    evbms_page->showFullScreen();
 #else

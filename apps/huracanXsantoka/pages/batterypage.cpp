@@ -13,9 +13,14 @@ batterypage::batterypage(QWidget *parent) :
     updateDatetime = new QTimer(nullptr);
     myProcess = new QProcess(nullptr);
 
+    // battery
+    battery_w = std::make_shared<battery_widget>(this);
+    ui->battery_layout->addWidget(battery_w.get());
+
     // Timer
     connect(myProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readDateFromSystem()));
     connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
+    connect(updateDatetime, SIGNAL(timeout()), this, SLOT(updateCharginGraphics()));
     timeoutToUpdateDate();
     readDateFromSystem();
     updateDatetime->start(1000);
@@ -79,6 +84,10 @@ void batterypage::connectInformations(
 
     // 0x35A
     connect(ev0x35A.get(), SIGNAL(new_ev_WarningProtection(QVector<bool>)), this, SLOT(setWarningProtection(QVector<bool>)));
+
+    // add graphics
+    connect(ev0x355.get(), SIGNAL(new_ev_SOC(uint16_t)), battery_w.get(), SLOT(setSOC(uint16_t)));
+    connect(ev0x356.get(), SIGNAL(new_ev_Status(evBatteryStatus)), battery_w.get(), SLOT(setBatteryStatus(evBatteryStatus)));
 }
 
 void batterypage::on_pb_close_clicked()
@@ -94,24 +103,25 @@ void batterypage::setSOC(uint16_t newSOC)
 
 void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
 {
-    // check chargin
-    QString appendEnd = ".png);";
-    if(status == CHARGING) appendEnd = "_charging.png);";
+    Q_UNUSED(newSOC);
+//    // check chargin
+//    QString appendEnd = ".png);";
+//    if(status == CHARGING) appendEnd = "_charging.png);";
 
-    // Set graphics
-    if(newSOC >= 100){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100"+appendEnd);
-    }else if (newSOC >= 80 && newSOC < 100){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80"+appendEnd);
-    }else if (newSOC >= 50 && newSOC < 80){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60"+appendEnd);
-    }else if (newSOC >= 40 && newSOC < 50){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40"+appendEnd);
-    }else if (newSOC >= 20 && newSOC < 40){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20"+appendEnd);
-    }else if (newSOC < 20){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5"+appendEnd);
-    }
+//    // Set graphics
+//    if(newSOC >= 100){
+//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100"+appendEnd);
+//    }else if (newSOC >= 80 && newSOC < 100){
+//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80"+appendEnd);
+//    }else if (newSOC >= 50 && newSOC < 80){
+//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60"+appendEnd);
+//    }else if (newSOC >= 40 && newSOC < 50){
+//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40"+appendEnd);
+//    }else if (newSOC >= 20 && newSOC < 40){
+//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20"+appendEnd);
+//    }else if (newSOC < 20){
+//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5"+appendEnd);
+//    }
 }
 
 void batterypage::setSOH(uint16_t newSOH)
@@ -226,6 +236,16 @@ void batterypage::setWarningProtection(QVector<bool> v){
 void batterypage::timeoutToUpdateDate(){
     QStringList arguments;
     myProcess->start("date", arguments);
+}
+
+void batterypage::updateCharginGraphics(){
+    if(status == CHARGING){
+
+    }else if (status == STANDBY){
+
+    }else{
+
+    }
 }
 
 void batterypage::readDateFromSystem(){
