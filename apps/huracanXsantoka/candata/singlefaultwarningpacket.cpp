@@ -28,8 +28,6 @@ void singlefaultwarningpacket::newpacket(can_frame newframe)
         uint8_t mask = 1 << (offset);
         bool isactive = newframe.data[position] & mask;
 
-        qDebug() << "position: " << position << " offset: " << offset << " mask: " << (uint32_t)mask << " is: " << isactive << " \n";
-
         emit updatebit(canchannel, bit, isactive);
     }
 }

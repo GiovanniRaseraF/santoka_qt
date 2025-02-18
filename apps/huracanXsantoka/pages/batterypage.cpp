@@ -104,24 +104,6 @@ void batterypage::setSOC(uint16_t newSOC)
 void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
 {
     Q_UNUSED(newSOC);
-//    // check chargin
-//    QString appendEnd = ".png);";
-//    if(status == CHARGING) appendEnd = "_charging.png);";
-
-//    // Set graphics
-//    if(newSOC >= 100){
-//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100"+appendEnd);
-//    }else if (newSOC >= 80 && newSOC < 100){
-//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80"+appendEnd);
-//    }else if (newSOC >= 50 && newSOC < 80){
-//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60"+appendEnd);
-//    }else if (newSOC >= 40 && newSOC < 50){
-//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40"+appendEnd);
-//    }else if (newSOC >= 20 && newSOC < 40){
-//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20"+appendEnd);
-//    }else if (newSOC < 20){
-//        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5"+appendEnd);
-//    }
 }
 
 void batterypage::setSOH(uint16_t newSOH)
