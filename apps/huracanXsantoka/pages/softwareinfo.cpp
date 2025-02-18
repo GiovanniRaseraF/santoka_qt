@@ -45,7 +45,6 @@ void softwareinfo::connectInformations(
 }
 
 void softwareinfo::on_candata(QString data){
-    //std::cout << data.toStdString() << std::endl;
     updateCandumpText(data);
 }
 

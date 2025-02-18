@@ -55,7 +55,6 @@ public slots:
 
     void setTTE(uint16_t newTTE);
     void setSOC(uint8_t newSOC);
-    void setSOCBatteryGraphics(uint8_t newSOC);
     void setPowerTemperature(uint8_t newPowerTemperature);
     void setPower(float newPower);
     void setBatteryVoltage(float newVoltage);
@@ -114,6 +113,9 @@ private:
     std::shared_ptr<hp_objectmoreinfo> battery_moreinfo_page;
     std::shared_ptr<softwareinfo> softwareinfo_page;
     std::shared_ptr<batterypage> evbms_page;
+
+    // battery
+    std::shared_ptr<battery_widget> battery_w;
 
     // Graphics
     bool toggle_ev_error_color = false;

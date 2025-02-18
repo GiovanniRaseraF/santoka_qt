@@ -972,23 +972,16 @@ background-color: rgb(237, 51, 59);
            <string>...</string>
           </property>
          </widget>
-         <widget class="QLabel" name="l_battery_graphics">
+         <widget class="QWidget" name="gridLayoutWidget">
           <property name="geometry">
            <rect>
-            <x>220</x>
+            <x>210</x>
             <y>20</y>
-            <width>81</width>
-            <height>111</height>
+            <width>91</width>
+            <height>121</height>
            </rect>
           </property>
-          <property name="styleSheet">
-           <string notr="true">image: url(:/images/b_100.png) ;
-
-</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
+          <layout class="QGridLayout" name="battery_layout"/>
          </widget>
         </widget>
        </item>

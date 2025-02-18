@@ -35,17 +35,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ev0x359 = 		std::make_shared<evbms_0x359>(canbus_producer, this);
     ev0x35A = 		std::make_shared<evbms_0x35A>(canbus_producer, this);
 
-
-    // Connect data to Graphics
-    connectBatteryFilterToGraphics();
-    connectMotorFilterToGraphics();
-    connectVehicleFilterToGraphics();
-    // pages
-    // boat info
-
     // update datetime
     updateDatetime = new QTimer(nullptr);
     myProcess = new QProcess(nullptr);
+
+    // battery
+    battery_w = std::make_shared<battery_widget>(this);
+    ui->battery_layout->addWidget(battery_w.get());
 
     connect(myProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readDateFromSystem()));
     connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
@@ -60,6 +56,11 @@ MainWindow::MainWindow(QWidget *parent) :
 #else
     qDebug() << "fake GPS with no data";
 #endif
+
+    // Connect data to Graphics
+    connectBatteryFilterToGraphics();
+    connectMotorFilterToGraphics();
+    connectVehicleFilterToGraphics();
 }
 
 float parseSOG(QString gpsdata){
@@ -111,7 +112,6 @@ void MainWindow::readSubProcess(){
 
 void MainWindow::connectBatteryFilterToGraphics(){
     connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOC(uint8_t)));
-    connect(battery.get(), SIGNAL(new_bat_SOC(uint8_t)), this, SLOT(setSOCBatteryGraphics(uint8_t)));
     connect(battery.get(), SIGNAL(new_bat_Power(float)), this, SLOT(setPower(float)));
     connect(battery.get(), SIGNAL(new_bat_TimeToEmpty(uint16_t)), this, SLOT(setTTE(uint16_t)));
 
@@ -122,6 +122,10 @@ void MainWindow::connectBatteryFilterToGraphics(){
 
     // 0x35A
     connect(ev0x35A.get(), SIGNAL(new_ev_WarningProtection(QVector<bool>)), this, SLOT(setWarningProtectionCounter(QVector<bool>)));
+
+    // add battery graphics
+    connect(ev0x355.get(), SIGNAL(new_ev_SOC(uint16_t)), battery_w.get(), SLOT(setSOC(uint16_t)));
+    connect(ev0x356.get(), SIGNAL(new_ev_Status(evBatteryStatus)), battery_w.get(), SLOT(setBatteryStatus(evBatteryStatus)));
 }
 
 void MainWindow::connectVehicleFilterToGraphics(){
@@ -199,25 +203,6 @@ void MainWindow::setVehicleMapInUse(uint8_t newMapInUse){
 void MainWindow::setSOC(uint8_t newSOC)
 {
     ui->l_SOC_value->setText(QString::number(newSOC));
-}
-
-void MainWindow::setSOCBatteryGraphics(uint8_t newSOC)
-{
-    if(newSOC >= 100){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_100.png)");
-    }else if (newSOC >= 80 && newSOC < 100){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_80.png)");
-    }else if (newSOC >= 50 && newSOC < 80){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_60.png)");
-    }else if (newSOC >= 40 && newSOC < 50){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_40.png)");
-    }else if (newSOC >= 20 && newSOC < 40){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_20.png)");
-    }else if (newSOC < 20){
-        ui->l_battery_graphics->setStyleSheet("image: url(:/images/b_5.png)");
-    }
-
-    // Control if it is charging
 }
 
 void MainWindow::setPowerTemperature(uint8_t newPowerTemperature)

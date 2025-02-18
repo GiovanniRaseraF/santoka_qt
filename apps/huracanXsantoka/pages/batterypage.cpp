@@ -20,7 +20,6 @@ batterypage::batterypage(QWidget *parent) :
     // Timer
     connect(myProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readDateFromSystem()));
     connect(updateDatetime, SIGNAL(timeout()), this, SLOT(timeoutToUpdateDate()));
-    connect(updateDatetime, SIGNAL(timeout()), this, SLOT(updateCharginGraphics()));
     timeoutToUpdateDate();
     readDateFromSystem();
     updateDatetime->start(1000);
@@ -55,7 +54,6 @@ void batterypage::connectInformations(
 
     // 0x355
     connect(ev0x355.get(), SIGNAL(new_ev_SOC(uint16_t)), this, SLOT(setSOC(uint16_t)));
-    connect(ev0x355.get(), SIGNAL(new_ev_SOC(uint16_t)), this, SLOT(setSOCBatteryGraphics(uint16_t)));
     connect(ev0x355.get(), SIGNAL(new_ev_SOH(uint16_t)), this, SLOT(setSOH(uint16_t)));
     connect(ev0x355.get(), SIGNAL(new_ev_ResidualDischargeTime(uint16_t)), this, SLOT(setResidualDischargeTime(uint16_t)));
     connect(ev0x355.get(), SIGNAL(new_ev_Capacity(uint16_t)), this, SLOT(setCapacity(uint16_t)));
@@ -99,11 +97,6 @@ void batterypage::on_pb_close_clicked()
 void batterypage::setSOC(uint16_t newSOC)
 {
     ui->l_soc_value->setText(QString::number(newSOC));
-}
-
-void batterypage::setSOCBatteryGraphics(uint16_t newSOC)
-{
-    Q_UNUSED(newSOC);
 }
 
 void batterypage::setSOH(uint16_t newSOH)
@@ -218,16 +211,6 @@ void batterypage::setWarningProtection(QVector<bool> v){
 void batterypage::timeoutToUpdateDate(){
     QStringList arguments;
     myProcess->start("date", arguments);
-}
-
-void batterypage::updateCharginGraphics(){
-    if(status == CHARGING){
-
-    }else if (status == STANDBY){
-
-    }else{
-
-    }
 }
 
 void batterypage::readDateFromSystem(){
